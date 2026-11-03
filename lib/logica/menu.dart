@@ -1,4 +1,5 @@
 import '../servicios/sesion.dart';
+import 'sistema.dart';
 
 /// Qué ve cada quien en el menú (☰). Decisión del dueño (3 nov 2026): el técnico (o el de consulta) solo atiende sus
 /// órdenes —crearlas, aceptarlas y culminarlas, con sus inconclusas— y ve Herramientas › IPs libres, la Ayuda y lo
@@ -25,11 +26,35 @@ enum OpcionMenu {
   finanzas,
   porAutorizar,
   comisiones,
+  sisUsuarios,
+  sisRoles,
+  sisOcupaciones,
+  sisLocalidades,
+  sisFechasPago,
+  sisZonas,
+  sisServicios,
+  sisComisiones,
+  sisComisionistas,
+  sisActivos,
+  sisInsumos,
+  sisMotivosCancelacion,
+  sisCobros,
+  sisFormasPago,
+  sisPartidasGasto,
   ips,
 }
 
 /// Grupos que se abren y cierran, como el menú de la web; null = la opción va suelta.
-enum GrupoMenu { ordenesTrabajo, nuevosServicios, cancelados, recuperarModem, finanzas, reportes, herramientas }
+enum GrupoMenu {
+  ordenesTrabajo,
+  nuevosServicios,
+  cancelados,
+  recuperarModem,
+  finanzas,
+  reportes,
+  sistema,
+  herramientas,
+}
 
 typedef SeccionMenu = ({GrupoMenu? grupo, List<OpcionMenu> opciones});
 
@@ -63,6 +88,26 @@ List<SeccionMenu> menuPara(Tecnico t) => t.esAdmin
         (grupo: GrupoMenu.recuperarModem, opciones: [OpcionMenu.modems]),
         (grupo: GrupoMenu.finanzas, opciones: [OpcionMenu.finanzas, OpcionMenu.porAutorizar]),
         (grupo: GrupoMenu.reportes, opciones: [OpcionMenu.comisiones]),
+        (
+          grupo: GrupoMenu.sistema,
+          opciones: [
+            OpcionMenu.sisUsuarios,
+            OpcionMenu.sisRoles,
+            OpcionMenu.sisOcupaciones,
+            OpcionMenu.sisLocalidades,
+            OpcionMenu.sisFechasPago,
+            OpcionMenu.sisZonas,
+            OpcionMenu.sisServicios,
+            OpcionMenu.sisComisiones,
+            OpcionMenu.sisComisionistas,
+            OpcionMenu.sisActivos,
+            OpcionMenu.sisInsumos,
+            OpcionMenu.sisMotivosCancelacion,
+            OpcionMenu.sisCobros,
+            OpcionMenu.sisFormasPago,
+            OpcionMenu.sisPartidasGasto,
+          ],
+        ),
         (grupo: GrupoMenu.herramientas, opciones: [OpcionMenu.ips]),
       ]
     : const [
@@ -72,3 +117,23 @@ List<SeccionMenu> menuPara(Tecnico t) => t.esAdmin
 
 /// Si la opción le toca (para no abrir pantallas del jefe por otro camino).
 bool puedeVer(Tecnico t, OpcionMenu o) => menuPara(t).any((s) => s.opciones.contains(o));
+
+/// La lista de Sistema que abre cada opción (null si no es de Sistema).
+Catalogo? catalogoDe(OpcionMenu o) => switch (o) {
+  OpcionMenu.sisUsuarios => Catalogo.usuarios,
+  OpcionMenu.sisRoles => Catalogo.roles,
+  OpcionMenu.sisOcupaciones => Catalogo.ocupaciones,
+  OpcionMenu.sisLocalidades => Catalogo.localidades,
+  OpcionMenu.sisFechasPago => Catalogo.fechasPago,
+  OpcionMenu.sisZonas => Catalogo.zonas,
+  OpcionMenu.sisServicios => Catalogo.servicios,
+  OpcionMenu.sisComisiones => Catalogo.comisiones,
+  OpcionMenu.sisComisionistas => Catalogo.comisionistas,
+  OpcionMenu.sisActivos => Catalogo.activos,
+  OpcionMenu.sisInsumos => Catalogo.insumos,
+  OpcionMenu.sisMotivosCancelacion => Catalogo.motivosCancelacion,
+  OpcionMenu.sisCobros => Catalogo.cobros,
+  OpcionMenu.sisFormasPago => Catalogo.formasPago,
+  OpcionMenu.sisPartidasGasto => Catalogo.partidasGasto,
+  _ => null,
+};

@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../l10n/textos.dart';
 import '../logica/fechas.dart';
 import '../logica/menu.dart';
+import '../logica/sistema.dart';
 import '../logica/orden.dart';
 import '../logica/tablero.dart';
 import '../servicios/ajustes.dart';
@@ -26,6 +27,7 @@ import 'mapa_dia.dart';
 import 'modems.dart';
 import 'nuevos_cancelados.dart';
 import 'por_autorizar.dart';
+import 'sistema.dart';
 import 'prospectos.dart';
 import 'terminos.dart';
 
@@ -636,6 +638,33 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
         () => _ir((_) => PantallaComisiones(servicio: _servicio, nombresZonas: _nombresZonas)),
       ),
       OpcionMenu.ips => _opcion(Icons.lan_rounded, t.menuIps, _verIps),
+      OpcionMenu.sisUsuarios => _opcionSistema(Icons.person_rounded, t.menuUsuariosApp, Catalogo.usuarios),
+      OpcionMenu.sisRoles => _opcionSistema(Icons.admin_panel_settings_rounded, t.menuRoles, Catalogo.roles),
+      OpcionMenu.sisOcupaciones => _opcionSistema(Icons.work_rounded, t.menuOcupacion, Catalogo.ocupaciones),
+      OpcionMenu.sisLocalidades => _opcionSistema(Icons.location_city_rounded, t.menuLocalidades, Catalogo.localidades),
+      OpcionMenu.sisFechasPago => _opcionSistema(Icons.event_available_rounded, t.menuFechasPago, Catalogo.fechasPago),
+      OpcionMenu.sisZonas => _opcionSistema(Icons.pentagon_outlined, t.menuZonas, Catalogo.zonas),
+      OpcionMenu.sisServicios => _opcionSistema(Icons.build_rounded, t.menuServicios, Catalogo.servicios),
+      OpcionMenu.sisComisiones => _opcionSistema(
+        Icons.volunteer_activism_rounded,
+        t.menuComisionesCat,
+        Catalogo.comisiones,
+      ),
+      OpcionMenu.sisComisionistas => _opcionSistema(Icons.badge_rounded, t.menuComisionistas, Catalogo.comisionistas),
+      OpcionMenu.sisActivos => _opcionSistema(Icons.devices_other_rounded, t.menuActivos, Catalogo.activos),
+      OpcionMenu.sisInsumos => _opcionSistema(Icons.category_rounded, t.menuInsumos, Catalogo.insumos),
+      OpcionMenu.sisMotivosCancelacion => _opcionSistema(
+        Icons.person_remove_rounded,
+        t.menuMotivosCancelacion,
+        Catalogo.motivosCancelacion,
+      ),
+      OpcionMenu.sisCobros => _opcionSistema(Icons.point_of_sale_rounded, t.menuCobroServicios, Catalogo.cobros),
+      OpcionMenu.sisFormasPago => _opcionSistema(
+        Icons.account_balance_wallet_outlined,
+        t.menuFormasPago,
+        Catalogo.formasPago,
+      ),
+      OpcionMenu.sisPartidasGasto => _opcionSistema(Icons.receipt_rounded, t.menuPartidaGastos, Catalogo.partidasGasto),
     };
     final (icono, nombre) = (
       {
@@ -645,6 +674,7 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
         GrupoMenu.recuperarModem: Icons.inventory_2_outlined,
         GrupoMenu.finanzas: Icons.account_balance_wallet_rounded,
         GrupoMenu.reportes: Icons.bar_chart_rounded,
+        GrupoMenu.sistema: Icons.manage_accounts_rounded,
         GrupoMenu.herramientas: Icons.handyman_rounded,
       },
       {
@@ -654,6 +684,7 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
         GrupoMenu.recuperarModem: t.menuRecuperarModem,
         GrupoMenu.finanzas: t.menuFinanzas,
         GrupoMenu.reportes: t.menuReportes,
+        GrupoMenu.sistema: t.menuSistema,
         GrupoMenu.herramientas: t.menuHerramientas,
       },
     );
@@ -694,6 +725,20 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
     () => _ir(
       (_) =>
           PantallaListaPorDia(lista: lista, tecnico: widget.tecnico, servicio: _servicio, nombresZonas: _nombresZonas),
+    ),
+  );
+
+  Widget _opcionSistema(IconData icono, String texto, Catalogo catalogo) => _opcion(
+    icono,
+    texto,
+    () => _ir(
+      (_) => PantallaCatalogo(
+        catalogo: catalogo,
+        titulo: texto,
+        servicio: _servicio,
+        tecnico: widget.tecnico,
+        nombresZonas: _nombresZonas,
+      ),
     ),
   );
 

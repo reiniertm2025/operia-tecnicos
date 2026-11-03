@@ -170,6 +170,17 @@
       ]
     },
     {
+      "titulo": "System (administrators)",
+      "soloAdmin": true,
+      "pasos": [
+        "Menu (☰) → «System»: the same lists as the web (App users, Roles, Occupation, Localities, Payment dates, Zones, Services, Commissions, Commissioners, Assets, Supplies, Cancellation reasons, Service charges, Payment methods and Expense categories), with search.",
+        "«Add» creates a new one; tap a record to change or delete it (deleted items go to the web Trash, where they can be restored).",
+        "In Roles, Localities, Services, Commissions, Payment methods and the others that use the name as key, the name is changed on the web (there it also changes in every order).",
+        "App users: name, phone, email, role, occupation, localities, salary and whether they earn commissions. With «Uses the app» you set their username and password (when changing it, leave the password empty to keep it). Deleting removes their app access.",
+        "Roles: the permission (administrator, viewer or technician) is copied to every user with that role."
+      ]
+    },
+    {
       "titulo": "Finance (administrators)",
       "soloAdmin": true,
       "pasos": [
@@ -204,7 +215,10 @@
         "Prospects: possible customers with photo, location, locality, who found them and installation date (red light if today, yellow if tomorrow). «Create order» opens a new order with their data.",
         "Incomplete: mark a completed order that left something pending, with a return date and reason; see them in the menu with their light and resolve them from the order.",
         "Technicians only see their own: their orders (create, accept, finish, incomplete), Tools › Free IPs and Help. Admin items (Dashboard, Finance, Commissions, Modems, Prospects, To authorize, Map of the day) no longer appear to them.",
-        "«New Services» menu (Upcoming, Pending, Delete ISP invoice, Prospects, History) and «Cancelled» menu (New Services, Cable TV, Double Play TV, Permanent, Temporary), as on the web (administrators)."
+        "«New Services» menu (Upcoming, Pending, Delete ISP invoice, Prospects, History) and «Cancelled» menu (New Services, Cable TV, Double Play TV, Permanent, Temporary), as on the web (administrators).",
+        "«System» menu with its 15 lists, as on the web, view-only (administrators).",
+        "System: add, change and delete from the app in Occupation, Localities, Payment dates, Zones, Services, Commissions, Commissioners, Assets, Supplies, Cancellation reasons, Service charges, Payment methods and Expense categories.",
+        "System › App users and Roles: add, change and delete from the app, with the username and password to sign in to the app."
       ]
     },
     {

@@ -19,12 +19,10 @@ class TextosEs extends Textos {
   String get tuMundo => 'tu mundo';
 
   @override
-  String get loginSubtitulo =>
-      'Atiende tus órdenes de trabajo desde donde estés.';
+  String get loginSubtitulo => 'Atiende tus órdenes de trabajo desde donde estés.';
 
   @override
-  String get loginInstruccion =>
-      'Entra con el usuario y la contraseña que te dio la oficina.';
+  String get loginInstruccion => 'Entra con el usuario y la contraseña que te dio la oficina.';
 
   @override
   String get usuario => 'Usuario';
@@ -56,20 +54,16 @@ class TextosEs extends Textos {
   }
 
   @override
-  String get errSinAccesoApp =>
-      'Tu usuario no tiene acceso a la app. Pídeselo a la oficina.';
+  String get errSinAccesoApp => 'Tu usuario no tiene acceso a la app. Pídeselo a la oficina.';
 
   @override
-  String get errCuentaDesactivada =>
-      'Tu cuenta está desactivada. Habla con la oficina.';
+  String get errCuentaDesactivada => 'Tu cuenta está desactivada. Habla con la oficina.';
 
   @override
-  String get errDemasiadosIntentos =>
-      'Demasiados intentos seguidos. Espera unos minutos y vuelve a intentar.';
+  String get errDemasiadosIntentos => 'Demasiados intentos seguidos. Espera unos minutos y vuelve a intentar.';
 
   @override
-  String get errSinInternet =>
-      'No hay conexión a internet. Revisa tus datos o el wifi.';
+  String get errSinInternet => 'No hay conexión a internet. Revisa tus datos o el wifi.';
 
   @override
   String errOtro(String detalle) {
@@ -80,8 +74,7 @@ class TextosEs extends Textos {
   String get errYaTomada => 'Otro técnico ya aceptó esta orden.';
 
   @override
-  String get errSinPermiso =>
-      'No tienes permiso para cambiar esta orden. Habla con la oficina.';
+  String get errSinPermiso => 'No tienes permiso para cambiar esta orden. Habla con la oficina.';
 
   @override
   String get navPendientes => 'Pendientes';
@@ -177,8 +170,7 @@ class TextosEs extends Textos {
   String get cerrarSesionPregunta => '¿Cerrar sesión?';
 
   @override
-  String get cerrarSesionTexto =>
-      'Tendrás que volver a escribir tu usuario y contraseña.';
+  String get cerrarSesionTexto => 'Tendrás que volver a escribir tu usuario y contraseña.';
 
   @override
   String get cancelar => 'Cancelar';
@@ -277,8 +269,7 @@ class TextosEs extends Textos {
   String get aceptarPregunta => '¿Aceptar esta orden?';
 
   @override
-  String get aceptarTexto =>
-      'Quedará a tu nombre y pasará a «En proceso». La oficina lo verá en la web.';
+  String get aceptarTexto => 'Quedará a tu nombre y pasará a «En proceso». La oficina lo verá en la web.';
 
   @override
   String get aceptar => 'Aceptar';
@@ -346,8 +337,7 @@ class TextosEs extends Textos {
   String get elCliente => 'el cliente';
 
   @override
-  String get cobroSinConceptos =>
-      'No hay cobros registrados. Se agregan en la web, en Sistema › Cobro de servicios.';
+  String get cobroSinConceptos => 'No hay cobros registrados. Se agregan en la web, en Sistema › Cobro de servicios.';
 
   @override
   String get importe => 'Importe';
@@ -386,16 +376,14 @@ class TextosEs extends Textos {
   String get notaEfectivo => 'La orden quedará completada.';
 
   @override
-  String get notaTransferencia =>
-      'Toma foto del comprobante: la oficina lo revisa en la web y completa la orden.';
+  String get notaTransferencia => 'Toma foto del comprobante: la oficina lo revisa en la web y completa la orden.';
 
   @override
   String get notaPendiente =>
       'La orden sigue en proceso hasta que la oficina lo autorice; el cliente quedará pendiente de pago.';
 
   @override
-  String get notaSinCosto =>
-      'No se cobra. La orden sigue en proceso hasta que la oficina lo autorice.';
+  String get notaSinCosto => 'No se cobra. La orden sigue en proceso hasta que la oficina lo autorice.';
 
   @override
   String get guardarCompletar => 'Guardar y completar';
@@ -423,8 +411,7 @@ class TextosEs extends Textos {
   String get msgPorAutorizar => 'Esperando que la oficina autorice el cobro.';
 
   @override
-  String get msgTransferencia =>
-      'La oficina revisará el comprobante de la transferencia y completará la orden.';
+  String get msgTransferencia => 'La oficina revisará el comprobante de la transferencia y completará la orden.';
 
   @override
   String get estPorAutorizar => 'Por autorizar';
@@ -458,8 +445,7 @@ class TextosEs extends Textos {
   String get menuIps => 'IPs libres';
 
   @override
-  String get ipsDescripcion =>
-      'Aparta la IP que vas a usar para que nadie más la tome.';
+  String get ipsDescripcion => 'Aparta la IP que vas a usar para que nadie más la tome.';
 
   @override
   String ipsRouter(String fecha) {
@@ -495,12 +481,7 @@ class TextosEs extends Textos {
 
   @override
   String ipsCuantasLibres(int n) {
-    String _temp0 = intl.Intl.pluralLogic(
-      n,
-      locale: localeName,
-      other: '$n libres',
-      one: '1 libre',
-    );
+    String _temp0 = intl.Intl.pluralLogic(n, locale: localeName, other: '$n libres', one: '1 libre');
     return '$_temp0';
   }
 
@@ -537,8 +518,7 @@ class TextosEs extends Textos {
   }
 
   @override
-  String get ipsLiberarTexto =>
-      'Vuelve a quedar libre para que otra persona la pueda usar.';
+  String get ipsLiberarTexto => 'Vuelve a quedar libre para que otra persona la pueda usar.';
 
   @override
   String ipsApartadaOk(String ip) {
@@ -559,8 +539,7 @@ class TextosEs extends Textos {
   }
 
   @override
-  String get errIpOcupada =>
-      'Esa IP ya no está libre: otra persona la ocupó o la oficina cambió la lista.';
+  String get errIpOcupada => 'Esa IP ya no está libre: otra persona la ocupó o la oficina cambió la lista.';
 
   @override
   String get ipsTodasVlan => 'Todas';
@@ -673,8 +652,7 @@ class TextosEs extends Textos {
   String get editarOrden => 'Editar orden';
 
   @override
-  String get foSubtituloNueva =>
-      'Llena los datos: la oficina y los técnicos la ven al momento.';
+  String get foSubtituloNueva => 'Llena los datos: la oficina y los técnicos la ven al momento.';
 
   @override
   String get foSeccionCliente => 'Cliente';
@@ -743,19 +721,16 @@ class TextosEs extends Textos {
   String get errFoHoraPasada => 'Esa hora ya pasó.';
 
   @override
-  String get errFoCompletadaFutura =>
-      'Una orden completada no puede pasar a un día futuro.';
+  String get errFoCompletadaFutura => 'Una orden completada no puede pasar a un día futuro.';
 
   @override
   String get errUbicacionApagada => 'Activa la ubicación del teléfono.';
 
   @override
-  String get errUbicacionPermiso =>
-      'Sin permiso de ubicación: actívalo en los ajustes del teléfono.';
+  String get errUbicacionPermiso => 'Sin permiso de ubicación: actívalo en los ajustes del teléfono.';
 
   @override
-  String get errUbicacionOtro =>
-      'No se pudo obtener la ubicación. Intenta de nuevo.';
+  String get errUbicacionOtro => 'No se pudo obtener la ubicación. Intenta de nuevo.';
 
   @override
   String ordenCreada(String folio) {
@@ -777,15 +752,13 @@ class TextosEs extends Textos {
   }
 
   @override
-  String get eliminarTexto =>
-      'Se va a la Papelera de la web: ahí se puede restaurar durante 30 días.';
+  String get eliminarTexto => 'Se va a la Papelera de la web: ahí se puede restaurar durante 30 días.';
 
   @override
   String get ordenEliminada => 'La orden se movió a la Papelera.';
 
   @override
-  String get msgSoloConsulta =>
-      'Tu rol es de consulta: puedes ver la orden, pero no cambiarla.';
+  String get msgSoloConsulta => 'Tu rol es de consulta: puedes ver la orden, pero no cambiarla.';
 
   @override
   String get menuModems => 'Módems por recuperar';
@@ -856,8 +829,7 @@ class TextosEs extends Textos {
   }
 
   @override
-  String get modemRecuperadoOk =>
-      '¡Listo! Módem recuperado: la comisión ya cuenta.';
+  String get modemRecuperadoOk => '¡Listo! Módem recuperado: la comisión ya cuenta.';
 
   @override
   String get modemVacio => 'No hay módems por recuperar. ¡Todo al día!';
@@ -890,8 +862,7 @@ class TextosEs extends Textos {
   String get foBuscarPais => 'Buscar país o lada';
 
   @override
-  String get foLlegaSinTecnico =>
-      'La orden llega sin técnico: el primero que la acepte se la queda.';
+  String get foLlegaSinTecnico => 'La orden llega sin técnico: el primero que la acepte se la queda.';
 
   @override
   String get foDatosNuevo => 'Datos del servicio nuevo';
@@ -962,15 +933,13 @@ class TextosEs extends Textos {
   String get foFechaRegresoAyuda => 'La web avisa 3 días antes.';
 
   @override
-  String get foSinCategoriasModem =>
-      'No hay categorías de módem: agrégalas en la web (Sistema › Activos).';
+  String get foSinCategoriasModem => 'No hay categorías de módem: agrégalas en la web (Sistema › Activos).';
 
   @override
   String get errFoPlan => 'Elige el plan (el módem que se instala).';
 
   @override
-  String get errFoComision =>
-      'Elige la comisión de quien consiguió el servicio.';
+  String get errFoComision => 'Elige la comisión de quien consiguió el servicio.';
 
   @override
   String get errFoMotivo => 'Elige el motivo de la cancelación.';
@@ -988,8 +957,7 @@ class TextosEs extends Textos {
   String get errFoRegreso => 'Elige la fecha supuesta de regreso.';
 
   @override
-  String get errFoRegresoPasada =>
-      'La fecha de regreso no puede ser anterior a hoy.';
+  String get errFoRegresoPasada => 'La fecha de regreso no puede ser anterior a hoy.';
 
   @override
   String get menuAdmin => 'Administración';
@@ -1146,8 +1114,7 @@ class TextosEs extends Textos {
   String get autVacio => 'No hay cobros esperando autorización.';
 
   @override
-  String get autNota =>
-      'Se autorizan desde la web, en Finanzas › Pendientes de pago.';
+  String get autNota => 'Se autorizan desde la web, en Finanzas › Pendientes de pago.';
 
   @override
   String get dashNuevo => 'Nuevo';
@@ -1216,8 +1183,7 @@ class TextosEs extends Textos {
   String get finComisiones => 'Comisiones';
 
   @override
-  String get finComisionesNoCuentan =>
-      'No cuentan como gasto: en la web no está la partida de comisiones.';
+  String get finComisionesNoCuentan => 'No cuentan como gasto: en la web no está la partida de comisiones.';
 
   @override
   String get finSinFormaPago => 'Sin forma de pago';
@@ -1267,8 +1233,7 @@ class TextosEs extends Textos {
   String get matQuitar => 'Quitar';
 
   @override
-  String get matSinPred =>
-      'Este servicio no trae insumos: agrégalos si se usaron.';
+  String get matSinPred => 'Este servicio no trae insumos: agrégalos si se usaron.';
 
   @override
   String get matGastoModem => 'Gasto del módem';
@@ -1296,8 +1261,7 @@ class TextosEs extends Textos {
   String get incTitulo => 'Orden inconclusa';
 
   @override
-  String get incExplica =>
-      'Se completó pero quedó algo pendiente. Elige cuándo se regresa y qué falta.';
+  String get incExplica => 'Se completó pero quedó algo pendiente. Elige cuándo se regresa y qué falta.';
 
   @override
   String get incFecha => 'Fecha de regreso';
@@ -1373,8 +1337,7 @@ class TextosEs extends Textos {
   String get prosEditar => 'Editar prospecto';
 
   @override
-  String get prosExplica =>
-      'Posible cliente de un servicio nuevo. Ningún dato es obligatorio.';
+  String get prosExplica => 'Posible cliente de un servicio nuevo. Ningún dato es obligatorio.';
 
   @override
   String get prosNombre => 'Nombre';
@@ -1452,8 +1415,7 @@ class TextosEs extends Textos {
   }
 
   @override
-  String get errProsDiaPasado =>
-      'La fecha de instalación no puede ser anterior a hoy.';
+  String get errProsDiaPasado => 'La fecha de instalación no puede ser anterior a hoy.';
 
   @override
   String get menuMapaDia => 'Mapa del día';
@@ -1482,8 +1444,7 @@ class TextosEs extends Textos {
   String get fotTitulo => 'Fotos del trabajo';
 
   @override
-  String get fotNinguna =>
-      'Todavía no hay fotos. Toma fotos del trabajo: la oficina las ve en la web.';
+  String get fotNinguna => 'Todavía no hay fotos. Toma fotos del trabajo: la oficina las ve en la web.';
 
   @override
   String fotMax(int n) {
@@ -1506,8 +1467,7 @@ class TextosEs extends Textos {
   String get compTitulo => 'Comprobante de la transferencia';
 
   @override
-  String get compExplica =>
-      'Opcional, pero ayuda: con la foto la oficina completa la orden sin pedírtelo otra vez.';
+  String get compExplica => 'Opcional, pero ayuda: con la foto la oficina completa la orden sin pedírtelo otra vez.';
 
   @override
   String get menuNuevosServicios => 'Nuevos Servicios';
@@ -1631,9 +1591,319 @@ class TextosEs extends Textos {
   String get ifaVacio => 'No hay facturas por eliminar en estas fechas.';
 
   @override
-  String get ifaSinFechas =>
-      'No hay Fechas de pago: se configuran en la web, en Sistema › Fechas de pago.';
+  String get ifaSinFechas => 'No hay Fechas de pago: se configuran en la web, en Sistema › Fechas de pago.';
 
   @override
   String get ifaGuardada => 'Marcada como eliminada en el ISP.';
+
+  @override
+  String get menuSistema => 'Sistema';
+
+  @override
+  String get menuUsuariosApp => 'Usuarios app';
+
+  @override
+  String get menuRoles => 'Roles';
+
+  @override
+  String get menuOcupacion => 'Ocupación';
+
+  @override
+  String get menuLocalidades => 'Localidades';
+
+  @override
+  String get menuFechasPago => 'Fechas de pago';
+
+  @override
+  String get menuZonas => 'Zonas';
+
+  @override
+  String get menuServicios => 'Servicios';
+
+  @override
+  String get menuComisionesCat => 'Comisiones';
+
+  @override
+  String get menuComisionistas => 'Comisionistas';
+
+  @override
+  String get menuActivos => 'Activos';
+
+  @override
+  String get menuInsumos => 'Insumos';
+
+  @override
+  String get menuMotivosCancelacion => 'Motivos de Cancelación';
+
+  @override
+  String get menuCobroServicios => 'Cobro de servicios';
+
+  @override
+  String get menuFormasPago => 'Formas de pago';
+
+  @override
+  String get menuPartidaGastos => 'Partida de Gastos';
+
+  @override
+  String get sisSoloVer => 'Aquí solo se ve. Para agregar o cambiar, usa la web (Sistema).';
+
+  @override
+  String get sisVacio => 'No hay nada registrado.';
+
+  @override
+  String get sisBuscar => 'Buscar';
+
+  @override
+  String sisUsuarios(int n) {
+    return '$n usuarios';
+  }
+
+  @override
+  String sisPago(String de, String a) {
+    return 'Pago del $de al $a';
+  }
+
+  @override
+  String sisFacturaDia(String d) {
+    return 'factura el día $d';
+  }
+
+  @override
+  String sisInstalaciones(String de, String a) {
+    return 'instalaciones del $de al $a';
+  }
+
+  @override
+  String get sisLlevaComision => 'Lleva comisión';
+
+  @override
+  String get sisLlevaCobro => 'Lleva cobro';
+
+  @override
+  String get sisLlevaMateriales => 'Lleva materiales';
+
+  @override
+  String get sisPideMotivo => 'Pide escribir el motivo';
+
+  @override
+  String get sisAutomatica => 'Se calcula sola';
+
+  @override
+  String get sisInactiva => 'Inactiva';
+
+  @override
+  String get sisSinAcceso => 'Sin acceso a la app';
+
+  @override
+  String get sisAgregar => 'Agregar';
+
+  @override
+  String get sisNuevo => 'Nuevo';
+
+  @override
+  String get sisGuardar => 'Guardar';
+
+  @override
+  String get sisBorrar => 'Borrar';
+
+  @override
+  String get sisGuardado => 'Guardado.';
+
+  @override
+  String get sisBorrado => 'Borrado: queda en la Papelera de la web.';
+
+  @override
+  String sisBorrarPregunta(String nombre) {
+    return '¿Borrar «$nombre»?';
+  }
+
+  @override
+  String get sisBorrarTexto => 'Se va a la Papelera de la web; ahí se puede restaurar.';
+
+  @override
+  String get sisBorrarLocalidad => 'También se borran sus zonas. Las órdenes ya hechas no cambian.';
+
+  @override
+  String get sisNombreFijo => 'El nombre se cambia en la web: allá también se cambia en todas las órdenes que lo usan.';
+
+  @override
+  String get sisElegir => 'Elegir';
+
+  @override
+  String get sisCampoName => 'Nombre';
+
+  @override
+  String get sisCampoServiceName => 'Nombre del cobro';
+
+  @override
+  String get sisCampoDescription => 'Descripción';
+
+  @override
+  String get sisCampoAmount => 'Importe';
+
+  @override
+  String get sisCampoPrice => 'Precio';
+
+  @override
+  String get sisCampoUnit => 'Unidad (pza, m…)';
+
+  @override
+  String get sisCampoBrand => 'Marca';
+
+  @override
+  String get sisCampoModel => 'Modelo';
+
+  @override
+  String get sisCampoCategory => 'Categoría';
+
+  @override
+  String get sisCampoZoneIds => 'Localidades (sin ninguna = todas)';
+
+  @override
+  String get sisCampoLocality => 'Localidad';
+
+  @override
+  String get sisCampoCommissionIds => 'Comisiones que cobra';
+
+  @override
+  String get sisCampoIsp => 'Va con el ISP';
+
+  @override
+  String get sisCampoPayFrom => 'Pago desde el día';
+
+  @override
+  String get sisCampoPayTo => 'Pago hasta el día';
+
+  @override
+  String get sisCampoInvoiceDay => 'Día de la factura del ISP';
+
+  @override
+  String get sisCampoInstallFrom => 'Instalaciones desde el día';
+
+  @override
+  String get sisCampoInstallTo => 'Instalaciones hasta el día';
+
+  @override
+  String get errSisNombre => 'Escribe el nombre.';
+
+  @override
+  String get errSisYaExiste => 'Ya hay uno con ese nombre.';
+
+  @override
+  String get errSisDia => 'Los días van del 1 al 31.';
+
+  @override
+  String get errSisImporte => 'Escribe un importe válido.';
+
+  @override
+  String get errSisLocalidad => 'Elige la localidad.';
+
+  @override
+  String get errSisCategoria => 'Elige la categoría.';
+
+  @override
+  String get errSisFechaChoca => 'Esos días de instalación ya entran en otra fecha de pago de la misma localidad.';
+
+  @override
+  String get sisCampoPermission => 'Permiso';
+
+  @override
+  String get errSisPermiso => 'Elige el permiso.';
+
+  @override
+  String get permisoAdmin => 'Administrador del sistema (control total)';
+
+  @override
+  String get permisoConsultor => 'Consultor (solo ve, no cambia nada)';
+
+  @override
+  String get permisoTecnico => 'Técnico (crea y procesa, no borra)';
+
+  @override
+  String get usuCorreo => 'Correo';
+
+  @override
+  String get usuRol => 'Rol';
+
+  @override
+  String get usuOcupacion => 'Ocupación';
+
+  @override
+  String get usuSinOcupacion => 'Sin ocupación';
+
+  @override
+  String get usuLocalidadesAyuda => 'Si no marcas ninguna, ve todas.';
+
+  @override
+  String get usuAsalariado => 'Tiene sueldo';
+
+  @override
+  String get usuSueldo => 'Sueldo semanal';
+
+  @override
+  String get usuComisionista => 'Cobra comisiones';
+
+  @override
+  String get usuAcceso => 'Entra a la app';
+
+  @override
+  String get usuUsuario => 'Usuario de la app';
+
+  @override
+  String get usuUsuarioAyuda => 'De 3 a 30 letras sin acentos, números, punto o guion. Sin espacios.';
+
+  @override
+  String get usuContrasena => 'Contraseña';
+
+  @override
+  String get usuContrasenaCambiar => 'Déjala vacía para no cambiarla.';
+
+  @override
+  String get usuContrasenaNueva => 'Al menos 8 caracteres.';
+
+  @override
+  String get usuMostrar => 'Mostrar contraseña';
+
+  @override
+  String get usuOcultar => 'Ocultar contraseña';
+
+  @override
+  String get usuBorrarTexto =>
+      'Se le quita la entrada a la app y su ficha va a la Papelera de la web. Desde ahí se recupera la ficha; para volver a entrar a la app hay que ponerle una contraseña nueva.';
+
+  @override
+  String get errUsuTelefono => 'Ese teléfono no es válido para el país elegido. Revisa el número o cambia el país.';
+
+  @override
+  String get errUsuCorreo => 'El correo no es válido (ejemplo: nombre@correo.com).';
+
+  @override
+  String get errUsuCorreoRepetido => 'Ya hay otro usuario con ese correo.';
+
+  @override
+  String get errUsuRol => 'Elige el rol.';
+
+  @override
+  String get errUsuSueldo => 'Escribe el sueldo semanal.';
+
+  @override
+  String get errUsuUsuario => 'Escribe el usuario con el que entrará a la app.';
+
+  @override
+  String get errUsuUsuarioFormato =>
+      'El usuario debe tener de 3 a 30 letras sin acentos, números, punto o guion, sin espacios.';
+
+  @override
+  String get errUsuUsuarioOcupado => 'Ese usuario ya lo tiene otra persona.';
+
+  @override
+  String get errUsuContrasena => 'Escribe la contraseña para la app.';
+
+  @override
+  String get errUsuContrasenaCorta => 'La contraseña debe tener al menos 8 caracteres.';
+
+  @override
+  String errUsuCuenta(String detalle) {
+    return 'La ficha se guardó, pero no se pudo dar o cambiar su acceso a la app ($detalle). Ábrela y vuelve a guardar, o hazlo en la web.';
+  }
 }

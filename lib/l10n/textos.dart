@@ -62,8 +62,7 @@ import 'textos_es.dart';
 /// be consistent with the languages listed in the Textos.supportedLocales
 /// property.
 abstract class Textos {
-  Textos(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  Textos(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -83,19 +82,15 @@ abstract class Textos {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('es'),
-  ];
+  static const List<Locale> supportedLocales = <Locale>[Locale('en'), Locale('es')];
 
   /// No description provided for @appTitulo.
   ///
@@ -2964,6 +2959,600 @@ abstract class Textos {
   /// In es, this message translates to:
   /// **'Marcada como eliminada en el ISP.'**
   String get ifaGuardada;
+
+  /// No description provided for @menuSistema.
+  ///
+  /// In es, this message translates to:
+  /// **'Sistema'**
+  String get menuSistema;
+
+  /// No description provided for @menuUsuariosApp.
+  ///
+  /// In es, this message translates to:
+  /// **'Usuarios app'**
+  String get menuUsuariosApp;
+
+  /// No description provided for @menuRoles.
+  ///
+  /// In es, this message translates to:
+  /// **'Roles'**
+  String get menuRoles;
+
+  /// No description provided for @menuOcupacion.
+  ///
+  /// In es, this message translates to:
+  /// **'Ocupación'**
+  String get menuOcupacion;
+
+  /// No description provided for @menuLocalidades.
+  ///
+  /// In es, this message translates to:
+  /// **'Localidades'**
+  String get menuLocalidades;
+
+  /// No description provided for @menuFechasPago.
+  ///
+  /// In es, this message translates to:
+  /// **'Fechas de pago'**
+  String get menuFechasPago;
+
+  /// No description provided for @menuZonas.
+  ///
+  /// In es, this message translates to:
+  /// **'Zonas'**
+  String get menuZonas;
+
+  /// No description provided for @menuServicios.
+  ///
+  /// In es, this message translates to:
+  /// **'Servicios'**
+  String get menuServicios;
+
+  /// No description provided for @menuComisionesCat.
+  ///
+  /// In es, this message translates to:
+  /// **'Comisiones'**
+  String get menuComisionesCat;
+
+  /// No description provided for @menuComisionistas.
+  ///
+  /// In es, this message translates to:
+  /// **'Comisionistas'**
+  String get menuComisionistas;
+
+  /// No description provided for @menuActivos.
+  ///
+  /// In es, this message translates to:
+  /// **'Activos'**
+  String get menuActivos;
+
+  /// No description provided for @menuInsumos.
+  ///
+  /// In es, this message translates to:
+  /// **'Insumos'**
+  String get menuInsumos;
+
+  /// No description provided for @menuMotivosCancelacion.
+  ///
+  /// In es, this message translates to:
+  /// **'Motivos de Cancelación'**
+  String get menuMotivosCancelacion;
+
+  /// No description provided for @menuCobroServicios.
+  ///
+  /// In es, this message translates to:
+  /// **'Cobro de servicios'**
+  String get menuCobroServicios;
+
+  /// No description provided for @menuFormasPago.
+  ///
+  /// In es, this message translates to:
+  /// **'Formas de pago'**
+  String get menuFormasPago;
+
+  /// No description provided for @menuPartidaGastos.
+  ///
+  /// In es, this message translates to:
+  /// **'Partida de Gastos'**
+  String get menuPartidaGastos;
+
+  /// No description provided for @sisSoloVer.
+  ///
+  /// In es, this message translates to:
+  /// **'Aquí solo se ve. Para agregar o cambiar, usa la web (Sistema).'**
+  String get sisSoloVer;
+
+  /// No description provided for @sisVacio.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay nada registrado.'**
+  String get sisVacio;
+
+  /// No description provided for @sisBuscar.
+  ///
+  /// In es, this message translates to:
+  /// **'Buscar'**
+  String get sisBuscar;
+
+  /// No description provided for @sisUsuarios.
+  ///
+  /// In es, this message translates to:
+  /// **'{n} usuarios'**
+  String sisUsuarios(int n);
+
+  /// No description provided for @sisPago.
+  ///
+  /// In es, this message translates to:
+  /// **'Pago del {de} al {a}'**
+  String sisPago(String de, String a);
+
+  /// No description provided for @sisFacturaDia.
+  ///
+  /// In es, this message translates to:
+  /// **'factura el día {d}'**
+  String sisFacturaDia(String d);
+
+  /// No description provided for @sisInstalaciones.
+  ///
+  /// In es, this message translates to:
+  /// **'instalaciones del {de} al {a}'**
+  String sisInstalaciones(String de, String a);
+
+  /// No description provided for @sisLlevaComision.
+  ///
+  /// In es, this message translates to:
+  /// **'Lleva comisión'**
+  String get sisLlevaComision;
+
+  /// No description provided for @sisLlevaCobro.
+  ///
+  /// In es, this message translates to:
+  /// **'Lleva cobro'**
+  String get sisLlevaCobro;
+
+  /// No description provided for @sisLlevaMateriales.
+  ///
+  /// In es, this message translates to:
+  /// **'Lleva materiales'**
+  String get sisLlevaMateriales;
+
+  /// No description provided for @sisPideMotivo.
+  ///
+  /// In es, this message translates to:
+  /// **'Pide escribir el motivo'**
+  String get sisPideMotivo;
+
+  /// No description provided for @sisAutomatica.
+  ///
+  /// In es, this message translates to:
+  /// **'Se calcula sola'**
+  String get sisAutomatica;
+
+  /// No description provided for @sisInactiva.
+  ///
+  /// In es, this message translates to:
+  /// **'Inactiva'**
+  String get sisInactiva;
+
+  /// No description provided for @sisSinAcceso.
+  ///
+  /// In es, this message translates to:
+  /// **'Sin acceso a la app'**
+  String get sisSinAcceso;
+
+  /// No description provided for @sisAgregar.
+  ///
+  /// In es, this message translates to:
+  /// **'Agregar'**
+  String get sisAgregar;
+
+  /// No description provided for @sisNuevo.
+  ///
+  /// In es, this message translates to:
+  /// **'Nuevo'**
+  String get sisNuevo;
+
+  /// No description provided for @sisGuardar.
+  ///
+  /// In es, this message translates to:
+  /// **'Guardar'**
+  String get sisGuardar;
+
+  /// No description provided for @sisBorrar.
+  ///
+  /// In es, this message translates to:
+  /// **'Borrar'**
+  String get sisBorrar;
+
+  /// No description provided for @sisGuardado.
+  ///
+  /// In es, this message translates to:
+  /// **'Guardado.'**
+  String get sisGuardado;
+
+  /// No description provided for @sisBorrado.
+  ///
+  /// In es, this message translates to:
+  /// **'Borrado: queda en la Papelera de la web.'**
+  String get sisBorrado;
+
+  /// No description provided for @sisBorrarPregunta.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Borrar «{nombre}»?'**
+  String sisBorrarPregunta(String nombre);
+
+  /// No description provided for @sisBorrarTexto.
+  ///
+  /// In es, this message translates to:
+  /// **'Se va a la Papelera de la web; ahí se puede restaurar.'**
+  String get sisBorrarTexto;
+
+  /// No description provided for @sisBorrarLocalidad.
+  ///
+  /// In es, this message translates to:
+  /// **'También se borran sus zonas. Las órdenes ya hechas no cambian.'**
+  String get sisBorrarLocalidad;
+
+  /// No description provided for @sisNombreFijo.
+  ///
+  /// In es, this message translates to:
+  /// **'El nombre se cambia en la web: allá también se cambia en todas las órdenes que lo usan.'**
+  String get sisNombreFijo;
+
+  /// No description provided for @sisElegir.
+  ///
+  /// In es, this message translates to:
+  /// **'Elegir'**
+  String get sisElegir;
+
+  /// No description provided for @sisCampoName.
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre'**
+  String get sisCampoName;
+
+  /// No description provided for @sisCampoServiceName.
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre del cobro'**
+  String get sisCampoServiceName;
+
+  /// No description provided for @sisCampoDescription.
+  ///
+  /// In es, this message translates to:
+  /// **'Descripción'**
+  String get sisCampoDescription;
+
+  /// No description provided for @sisCampoAmount.
+  ///
+  /// In es, this message translates to:
+  /// **'Importe'**
+  String get sisCampoAmount;
+
+  /// No description provided for @sisCampoPrice.
+  ///
+  /// In es, this message translates to:
+  /// **'Precio'**
+  String get sisCampoPrice;
+
+  /// No description provided for @sisCampoUnit.
+  ///
+  /// In es, this message translates to:
+  /// **'Unidad (pza, m…)'**
+  String get sisCampoUnit;
+
+  /// No description provided for @sisCampoBrand.
+  ///
+  /// In es, this message translates to:
+  /// **'Marca'**
+  String get sisCampoBrand;
+
+  /// No description provided for @sisCampoModel.
+  ///
+  /// In es, this message translates to:
+  /// **'Modelo'**
+  String get sisCampoModel;
+
+  /// No description provided for @sisCampoCategory.
+  ///
+  /// In es, this message translates to:
+  /// **'Categoría'**
+  String get sisCampoCategory;
+
+  /// No description provided for @sisCampoZoneIds.
+  ///
+  /// In es, this message translates to:
+  /// **'Localidades (sin ninguna = todas)'**
+  String get sisCampoZoneIds;
+
+  /// No description provided for @sisCampoLocality.
+  ///
+  /// In es, this message translates to:
+  /// **'Localidad'**
+  String get sisCampoLocality;
+
+  /// No description provided for @sisCampoCommissionIds.
+  ///
+  /// In es, this message translates to:
+  /// **'Comisiones que cobra'**
+  String get sisCampoCommissionIds;
+
+  /// No description provided for @sisCampoIsp.
+  ///
+  /// In es, this message translates to:
+  /// **'Va con el ISP'**
+  String get sisCampoIsp;
+
+  /// No description provided for @sisCampoPayFrom.
+  ///
+  /// In es, this message translates to:
+  /// **'Pago desde el día'**
+  String get sisCampoPayFrom;
+
+  /// No description provided for @sisCampoPayTo.
+  ///
+  /// In es, this message translates to:
+  /// **'Pago hasta el día'**
+  String get sisCampoPayTo;
+
+  /// No description provided for @sisCampoInvoiceDay.
+  ///
+  /// In es, this message translates to:
+  /// **'Día de la factura del ISP'**
+  String get sisCampoInvoiceDay;
+
+  /// No description provided for @sisCampoInstallFrom.
+  ///
+  /// In es, this message translates to:
+  /// **'Instalaciones desde el día'**
+  String get sisCampoInstallFrom;
+
+  /// No description provided for @sisCampoInstallTo.
+  ///
+  /// In es, this message translates to:
+  /// **'Instalaciones hasta el día'**
+  String get sisCampoInstallTo;
+
+  /// No description provided for @errSisNombre.
+  ///
+  /// In es, this message translates to:
+  /// **'Escribe el nombre.'**
+  String get errSisNombre;
+
+  /// No description provided for @errSisYaExiste.
+  ///
+  /// In es, this message translates to:
+  /// **'Ya hay uno con ese nombre.'**
+  String get errSisYaExiste;
+
+  /// No description provided for @errSisDia.
+  ///
+  /// In es, this message translates to:
+  /// **'Los días van del 1 al 31.'**
+  String get errSisDia;
+
+  /// No description provided for @errSisImporte.
+  ///
+  /// In es, this message translates to:
+  /// **'Escribe un importe válido.'**
+  String get errSisImporte;
+
+  /// No description provided for @errSisLocalidad.
+  ///
+  /// In es, this message translates to:
+  /// **'Elige la localidad.'**
+  String get errSisLocalidad;
+
+  /// No description provided for @errSisCategoria.
+  ///
+  /// In es, this message translates to:
+  /// **'Elige la categoría.'**
+  String get errSisCategoria;
+
+  /// No description provided for @errSisFechaChoca.
+  ///
+  /// In es, this message translates to:
+  /// **'Esos días de instalación ya entran en otra fecha de pago de la misma localidad.'**
+  String get errSisFechaChoca;
+
+  /// No description provided for @sisCampoPermission.
+  ///
+  /// In es, this message translates to:
+  /// **'Permiso'**
+  String get sisCampoPermission;
+
+  /// No description provided for @errSisPermiso.
+  ///
+  /// In es, this message translates to:
+  /// **'Elige el permiso.'**
+  String get errSisPermiso;
+
+  /// No description provided for @permisoAdmin.
+  ///
+  /// In es, this message translates to:
+  /// **'Administrador del sistema (control total)'**
+  String get permisoAdmin;
+
+  /// No description provided for @permisoConsultor.
+  ///
+  /// In es, this message translates to:
+  /// **'Consultor (solo ve, no cambia nada)'**
+  String get permisoConsultor;
+
+  /// No description provided for @permisoTecnico.
+  ///
+  /// In es, this message translates to:
+  /// **'Técnico (crea y procesa, no borra)'**
+  String get permisoTecnico;
+
+  /// No description provided for @usuCorreo.
+  ///
+  /// In es, this message translates to:
+  /// **'Correo'**
+  String get usuCorreo;
+
+  /// No description provided for @usuRol.
+  ///
+  /// In es, this message translates to:
+  /// **'Rol'**
+  String get usuRol;
+
+  /// No description provided for @usuOcupacion.
+  ///
+  /// In es, this message translates to:
+  /// **'Ocupación'**
+  String get usuOcupacion;
+
+  /// No description provided for @usuSinOcupacion.
+  ///
+  /// In es, this message translates to:
+  /// **'Sin ocupación'**
+  String get usuSinOcupacion;
+
+  /// No description provided for @usuLocalidadesAyuda.
+  ///
+  /// In es, this message translates to:
+  /// **'Si no marcas ninguna, ve todas.'**
+  String get usuLocalidadesAyuda;
+
+  /// No description provided for @usuAsalariado.
+  ///
+  /// In es, this message translates to:
+  /// **'Tiene sueldo'**
+  String get usuAsalariado;
+
+  /// No description provided for @usuSueldo.
+  ///
+  /// In es, this message translates to:
+  /// **'Sueldo semanal'**
+  String get usuSueldo;
+
+  /// No description provided for @usuComisionista.
+  ///
+  /// In es, this message translates to:
+  /// **'Cobra comisiones'**
+  String get usuComisionista;
+
+  /// No description provided for @usuAcceso.
+  ///
+  /// In es, this message translates to:
+  /// **'Entra a la app'**
+  String get usuAcceso;
+
+  /// No description provided for @usuUsuario.
+  ///
+  /// In es, this message translates to:
+  /// **'Usuario de la app'**
+  String get usuUsuario;
+
+  /// No description provided for @usuUsuarioAyuda.
+  ///
+  /// In es, this message translates to:
+  /// **'De 3 a 30 letras sin acentos, números, punto o guion. Sin espacios.'**
+  String get usuUsuarioAyuda;
+
+  /// No description provided for @usuContrasena.
+  ///
+  /// In es, this message translates to:
+  /// **'Contraseña'**
+  String get usuContrasena;
+
+  /// No description provided for @usuContrasenaCambiar.
+  ///
+  /// In es, this message translates to:
+  /// **'Déjala vacía para no cambiarla.'**
+  String get usuContrasenaCambiar;
+
+  /// No description provided for @usuContrasenaNueva.
+  ///
+  /// In es, this message translates to:
+  /// **'Al menos 8 caracteres.'**
+  String get usuContrasenaNueva;
+
+  /// No description provided for @usuMostrar.
+  ///
+  /// In es, this message translates to:
+  /// **'Mostrar contraseña'**
+  String get usuMostrar;
+
+  /// No description provided for @usuOcultar.
+  ///
+  /// In es, this message translates to:
+  /// **'Ocultar contraseña'**
+  String get usuOcultar;
+
+  /// No description provided for @usuBorrarTexto.
+  ///
+  /// In es, this message translates to:
+  /// **'Se le quita la entrada a la app y su ficha va a la Papelera de la web. Desde ahí se recupera la ficha; para volver a entrar a la app hay que ponerle una contraseña nueva.'**
+  String get usuBorrarTexto;
+
+  /// No description provided for @errUsuTelefono.
+  ///
+  /// In es, this message translates to:
+  /// **'Ese teléfono no es válido para el país elegido. Revisa el número o cambia el país.'**
+  String get errUsuTelefono;
+
+  /// No description provided for @errUsuCorreo.
+  ///
+  /// In es, this message translates to:
+  /// **'El correo no es válido (ejemplo: nombre@correo.com).'**
+  String get errUsuCorreo;
+
+  /// No description provided for @errUsuCorreoRepetido.
+  ///
+  /// In es, this message translates to:
+  /// **'Ya hay otro usuario con ese correo.'**
+  String get errUsuCorreoRepetido;
+
+  /// No description provided for @errUsuRol.
+  ///
+  /// In es, this message translates to:
+  /// **'Elige el rol.'**
+  String get errUsuRol;
+
+  /// No description provided for @errUsuSueldo.
+  ///
+  /// In es, this message translates to:
+  /// **'Escribe el sueldo semanal.'**
+  String get errUsuSueldo;
+
+  /// No description provided for @errUsuUsuario.
+  ///
+  /// In es, this message translates to:
+  /// **'Escribe el usuario con el que entrará a la app.'**
+  String get errUsuUsuario;
+
+  /// No description provided for @errUsuUsuarioFormato.
+  ///
+  /// In es, this message translates to:
+  /// **'El usuario debe tener de 3 a 30 letras sin acentos, números, punto o guion, sin espacios.'**
+  String get errUsuUsuarioFormato;
+
+  /// No description provided for @errUsuUsuarioOcupado.
+  ///
+  /// In es, this message translates to:
+  /// **'Ese usuario ya lo tiene otra persona.'**
+  String get errUsuUsuarioOcupado;
+
+  /// No description provided for @errUsuContrasena.
+  ///
+  /// In es, this message translates to:
+  /// **'Escribe la contraseña para la app.'**
+  String get errUsuContrasena;
+
+  /// No description provided for @errUsuContrasenaCorta.
+  ///
+  /// In es, this message translates to:
+  /// **'La contraseña debe tener al menos 8 caracteres.'**
+  String get errUsuContrasenaCorta;
+
+  /// No description provided for @errUsuCuenta.
+  ///
+  /// In es, this message translates to:
+  /// **'La ficha se guardó, pero no se pudo dar o cambiar su acceso a la app ({detalle}). Ábrela y vuelve a guardar, o hazlo en la web.'**
+  String errUsuCuenta(String detalle);
 }
 
 class _TextosDelegate extends LocalizationsDelegate<Textos> {
@@ -2975,8 +3564,7 @@ class _TextosDelegate extends LocalizationsDelegate<Textos> {
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'es'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'es'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_TextosDelegate old) => false;

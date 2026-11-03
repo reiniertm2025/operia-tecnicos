@@ -37,6 +37,7 @@ void main() {
       GrupoMenu.recuperarModem,
       GrupoMenu.finanzas,
       GrupoMenu.reportes,
+      GrupoMenu.sistema,
       GrupoMenu.herramientas,
     ]);
   });

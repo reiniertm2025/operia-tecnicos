@@ -170,6 +170,17 @@
       ]
     },
     {
+      "titulo": "Sistema (administradores)",
+      "soloAdmin": true,
+      "pasos": [
+        "Menú (☰) → «Sistema»: las mismas listas de la web (Usuarios app, Roles, Ocupación, Localidades, Fechas de pago, Zonas, Servicios, Comisiones, Comisionistas, Activos, Insumos, Motivos de Cancelación, Cobro de servicios, Formas de pago y Partida de Gastos), con buscador.",
+        "«Agregar» crea uno nuevo; toca un registro para cambiarlo o borrarlo (lo borrado va a la Papelera de la web, donde se puede restaurar).",
+        "En Roles, Localidades, Servicios, Comisiones, Formas de pago y las demás que usan el nombre como llave, el nombre se cambia en la web (allá también se cambia en todas las órdenes).",
+        "Usuarios app: nombre, teléfono, correo, rol, ocupación, localidades, sueldo y si cobra comisiones. Con «Entra a la app» se le pone su usuario y contraseña (al cambiarlo, deja la contraseña vacía para no cambiarla). Borrar le quita la entrada a la app.",
+        "Roles: el permiso (administrador, consultor o técnico) se copia a todos los usuarios con ese rol."
+      ]
+    },
+    {
       "titulo": "Finanzas (administradores)",
       "soloAdmin": true,
       "pasos": [
@@ -204,7 +215,10 @@
         "Prospectos: posibles clientes con foto, ubicación, localidad, quién lo prospectó y fecha de instalación (luz roja si es hoy, amarilla si es mañana). «Crear orden» abre la orden nueva con sus datos.",
         "Inconclusas: marca una orden completada que dejó algo pendiente, con la fecha de regreso y el motivo; se ven en el menú con su semáforo y se resuelven desde la orden.",
         "Los técnicos solo ven lo suyo: sus órdenes (crear, aceptar, culminar, inconclusas), Herramientas › IPs libres y la Ayuda. Lo del administrador (Dashboard, Finanzas, Comisiones, Módems, Prospectos, Por autorizar, Mapa del día) ya no les aparece.",
-        "Menús «Nuevos Servicios» (Futuro, Pendientes, Eliminar factura del ISP, Prospectos, Histórico) y «Cancelados» (Nuevos Servicios, TV Cable, TV Doble Play, Definitivos, Temporales), como en la web (administradores)."
+        "Menús «Nuevos Servicios» (Futuro, Pendientes, Eliminar factura del ISP, Prospectos, Histórico) y «Cancelados» (Nuevos Servicios, TV Cable, TV Doble Play, Definitivos, Temporales), como en la web (administradores).",
+        "Menú «Sistema» con sus 15 listas, como en la web, para ver (administradores).",
+        "Sistema: agregar, cambiar y borrar desde la app en Ocupación, Localidades, Fechas de pago, Zonas, Servicios, Comisiones, Comisionistas, Activos, Insumos, Motivos de Cancelación, Cobro de servicios, Formas de pago y Partida de Gastos.",
+        "Sistema › Usuarios app y Roles: agregar, cambiar y borrar desde la app, con el usuario y la contraseña para entrar a la app."
       ]
     },
     {

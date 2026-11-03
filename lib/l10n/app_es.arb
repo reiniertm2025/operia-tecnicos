@@ -966,5 +966,152 @@
   "ifaHechas": "Completadas",
   "ifaVacio": "No hay facturas por eliminar en estas fechas.",
   "ifaSinFechas": "No hay Fechas de pago: se configuran en la web, en Sistema › Fechas de pago.",
-  "ifaGuardada": "Marcada como eliminada en el ISP."
+  "ifaGuardada": "Marcada como eliminada en el ISP.",
+  "menuSistema": "Sistema",
+  "menuUsuariosApp": "Usuarios app",
+  "menuRoles": "Roles",
+  "menuOcupacion": "Ocupación",
+  "menuLocalidades": "Localidades",
+  "menuFechasPago": "Fechas de pago",
+  "menuZonas": "Zonas",
+  "menuServicios": "Servicios",
+  "menuComisionesCat": "Comisiones",
+  "menuComisionistas": "Comisionistas",
+  "menuActivos": "Activos",
+  "menuInsumos": "Insumos",
+  "menuMotivosCancelacion": "Motivos de Cancelación",
+  "menuCobroServicios": "Cobro de servicios",
+  "menuFormasPago": "Formas de pago",
+  "menuPartidaGastos": "Partida de Gastos",
+  "sisSoloVer": "Aquí solo se ve. Para agregar o cambiar, usa la web (Sistema).",
+  "sisVacio": "No hay nada registrado.",
+  "sisBuscar": "Buscar",
+  "sisUsuarios": "{n} usuarios",
+  "@sisUsuarios": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "sisPago": "Pago del {de} al {a}",
+  "@sisPago": {
+    "placeholders": {
+      "de": {
+        "type": "String"
+      },
+      "a": {
+        "type": "String"
+      }
+    }
+  },
+  "sisFacturaDia": "factura el día {d}",
+  "@sisFacturaDia": {
+    "placeholders": {
+      "d": {
+        "type": "String"
+      }
+    }
+  },
+  "sisInstalaciones": "instalaciones del {de} al {a}",
+  "@sisInstalaciones": {
+    "placeholders": {
+      "de": {
+        "type": "String"
+      },
+      "a": {
+        "type": "String"
+      }
+    }
+  },
+  "sisLlevaComision": "Lleva comisión",
+  "sisLlevaCobro": "Lleva cobro",
+  "sisLlevaMateriales": "Lleva materiales",
+  "sisPideMotivo": "Pide escribir el motivo",
+  "sisAutomatica": "Se calcula sola",
+  "sisInactiva": "Inactiva",
+  "sisSinAcceso": "Sin acceso a la app",
+  "sisAgregar": "Agregar",
+  "sisNuevo": "Nuevo",
+  "sisGuardar": "Guardar",
+  "sisBorrar": "Borrar",
+  "sisGuardado": "Guardado.",
+  "sisBorrado": "Borrado: queda en la Papelera de la web.",
+  "sisBorrarPregunta": "¿Borrar «{nombre}»?",
+  "@sisBorrarPregunta": {
+    "placeholders": {
+      "nombre": {
+        "type": "String"
+      }
+    }
+  },
+  "sisBorrarTexto": "Se va a la Papelera de la web; ahí se puede restaurar.",
+  "sisBorrarLocalidad": "También se borran sus zonas. Las órdenes ya hechas no cambian.",
+  "sisNombreFijo": "El nombre se cambia en la web: allá también se cambia en todas las órdenes que lo usan.",
+  "sisElegir": "Elegir",
+  "sisCampoName": "Nombre",
+  "sisCampoServiceName": "Nombre del cobro",
+  "sisCampoDescription": "Descripción",
+  "sisCampoAmount": "Importe",
+  "sisCampoPrice": "Precio",
+  "sisCampoUnit": "Unidad (pza, m…)",
+  "sisCampoBrand": "Marca",
+  "sisCampoModel": "Modelo",
+  "sisCampoCategory": "Categoría",
+  "sisCampoZoneIds": "Localidades (sin ninguna = todas)",
+  "sisCampoLocality": "Localidad",
+  "sisCampoCommissionIds": "Comisiones que cobra",
+  "sisCampoIsp": "Va con el ISP",
+  "sisCampoPayFrom": "Pago desde el día",
+  "sisCampoPayTo": "Pago hasta el día",
+  "sisCampoInvoiceDay": "Día de la factura del ISP",
+  "sisCampoInstallFrom": "Instalaciones desde el día",
+  "sisCampoInstallTo": "Instalaciones hasta el día",
+  "errSisNombre": "Escribe el nombre.",
+  "errSisYaExiste": "Ya hay uno con ese nombre.",
+  "errSisDia": "Los días van del 1 al 31.",
+  "errSisImporte": "Escribe un importe válido.",
+  "errSisLocalidad": "Elige la localidad.",
+  "errSisCategoria": "Elige la categoría.",
+  "errSisFechaChoca": "Esos días de instalación ya entran en otra fecha de pago de la misma localidad.",
+  "sisCampoPermission": "Permiso",
+  "errSisPermiso": "Elige el permiso.",
+  "permisoAdmin": "Administrador del sistema (control total)",
+  "permisoConsultor": "Consultor (solo ve, no cambia nada)",
+  "permisoTecnico": "Técnico (crea y procesa, no borra)",
+  "usuCorreo": "Correo",
+  "usuRol": "Rol",
+  "usuOcupacion": "Ocupación",
+  "usuSinOcupacion": "Sin ocupación",
+  "usuLocalidadesAyuda": "Si no marcas ninguna, ve todas.",
+  "usuAsalariado": "Tiene sueldo",
+  "usuSueldo": "Sueldo semanal",
+  "usuComisionista": "Cobra comisiones",
+  "usuAcceso": "Entra a la app",
+  "usuUsuario": "Usuario de la app",
+  "usuUsuarioAyuda": "De 3 a 30 letras sin acentos, números, punto o guion. Sin espacios.",
+  "usuContrasena": "Contraseña",
+  "usuContrasenaCambiar": "Déjala vacía para no cambiarla.",
+  "usuContrasenaNueva": "Al menos 8 caracteres.",
+  "usuMostrar": "Mostrar contraseña",
+  "usuOcultar": "Ocultar contraseña",
+  "usuBorrarTexto": "Se le quita la entrada a la app y su ficha va a la Papelera de la web. Desde ahí se recupera la ficha; para volver a entrar a la app hay que ponerle una contraseña nueva.",
+  "errUsuTelefono": "Ese teléfono no es válido para el país elegido. Revisa el número o cambia el país.",
+  "errUsuCorreo": "El correo no es válido (ejemplo: nombre@correo.com).",
+  "errUsuCorreoRepetido": "Ya hay otro usuario con ese correo.",
+  "errUsuRol": "Elige el rol.",
+  "errUsuSueldo": "Escribe el sueldo semanal.",
+  "errUsuUsuario": "Escribe el usuario con el que entrará a la app.",
+  "errUsuUsuarioFormato": "El usuario debe tener de 3 a 30 letras sin acentos, números, punto o guion, sin espacios.",
+  "errUsuUsuarioOcupado": "Ese usuario ya lo tiene otra persona.",
+  "errUsuContrasena": "Escribe la contraseña para la app.",
+  "errUsuContrasenaCorta": "La contraseña debe tener al menos 8 caracteres.",
+  "errUsuCuenta": "La ficha se guardó, pero no se pudo dar o cambiar su acceso a la app ({detalle}). Ábrela y vuelve a guardar, o hazlo en la web.",
+  "@errUsuCuenta": {
+    "placeholders": {
+      "detalle": {
+        "type": "String"
+      }
+    }
+  }
 }

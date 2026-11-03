@@ -14,7 +14,9 @@ import '../logica/nuevos_cancelados.dart';
 import '../logica/nueva_orden.dart';
 import '../logica/orden.dart';
 import '../logica/prospectos.dart';
+import '../logica/sistema.dart';
 import '../logica/tablero.dart';
+import '../logica/usuarios.dart';
 import 'sesion.dart';
 
 /// Por qué no se pudo cambiar una orden. La pantalla lo convierte en un mensaje en el idioma del técnico.
@@ -78,6 +80,7 @@ class ServicioOrdenes {
   CatalogoMateriales? _materiales;
   final _porDia = <String, List<Orden>>{};
   List<FechaPago>? _fechasPago;
+  final _registros = <String, List<Registro>>{};
   final _periodos = <String, List<Orden>>{};
   Future<List<Orden>>? _sinAutorizar;
 
@@ -220,6 +223,108 @@ class ServicioOrdenes {
         .where(campo, isLessThan: Timestamp.fromDate(finDeRango(r)))
         .get();
     return _porDia[clave] = _ordenes(q);
+  }
+
+  /// Una colección de Sistema (solo el administrador, para ver), leída una vez; `recargar` vuelve a pedirla.
+  Future<List<Registro>> registros(String coleccion, {bool recargar = false}) async {
+    final guardados = _registros[coleccion];
+    if (guardados != null && !recargar) return guardados;
+    final q = await _db.collection(coleccion).get();
+    return _registros[coleccion] = [
+      for (final d in q.docs)
+        if (d.id != '_seed') (id: d.id, datos: d.data()),
+    ];
+  }
+
+  /// Olvida la copia de una colección de Sistema (la próxima vez se lee de nuevo).
+  void olvidar(String coleccion) => _registros.remove(coleccion);
+
+  /// Crea o cambia un registro de Sistema (solo el administrador), con los mismos datos que la web. Devuelve false si no
+  /// hubo señal (queda en el celular y se sube después).
+  Future<bool> guardarRegistro(
+    Catalogo c,
+    Map<String, Object?> valores,
+    Tecnico t, {
+    Registro? antes,
+    required List<Registro> existentes,
+    String nombreLocalidad = '',
+  }) async {
+    final col = _db.collection(coleccionDe(c));
+    final datos = datosRegistro(
+      c,
+      valores,
+      antes: antes,
+      existentes: existentes,
+      userId: t.userId,
+      nombre: t.nombre,
+      nombreLocalidad: nombreLocalidad,
+    );
+    var llave = antes == null ? llaveNueva(c, valores, nombreLocalidad: nombreLocalidad) : null;
+    // un motivo nuevo cuya llave ya existe usa otra (como la web); y «Otros» baja para quedar al final
+    if (c == Catalogo.motivosCancelacion && llave != null && existentes.any((r) => r.id == llave)) {
+      llave = '$llave ${DateTime.now().millisecondsSinceEpoch}';
+    }
+    final otros = c == Catalogo.motivosCancelacion && antes == null ? otrosQueBaja(existentes, datos['order']) : null;
+    // al cambiar el permiso de un rol, sus usuarios llevan el permiso nuevo (como `queuePermSync` de la web)
+    final delRol = c == Catalogo.roles && antes != null
+        ? usuariosDelRol(antes.id, datos['permission'], await registros('users'))
+        : const <({String id, Map<String, Object?> datos})>[];
+    Future<void> escribir() async {
+      final lote = _db.batch();
+      if (antes != null) {
+        lote.update(col.doc(antes.id), datos);
+      } else {
+        lote.set(llave != null ? col.doc(llave) : col.doc(), datos);
+      }
+      for (final u in delRol) {
+        lote.update(_db.collection('users').doc(u.id), u.datos);
+      }
+      if (otros != null) lote.update(col.doc(otros.id), {'order': (num.tryParse('${datos['order']}') ?? 0) + 1});
+      await lote.commit();
+    }
+
+    var enLinea = true;
+    await seguro(() => escribir().timeout(espera, onTimeout: () => enLinea = false));
+    _registros.remove(coleccionDe(c));
+    if (delRol.isNotEmpty) _registros.remove('users');
+    return enLinea;
+  }
+
+  /// Borra un registro de Sistema mandándolo a la Papelera de la web (como `trashDel`); una localidad se lleva sus zonas.
+  Future<bool> borrarRegistro(Catalogo c, Registro r, Tecnico t) async {
+    final coleccion = coleccionDe(c);
+    // se lee al momento (no la copia del celular), para que la Papelera guarde lo último, como `trashDel`
+    final actual = await _db.collection(coleccion).doc(r.id).get();
+    if (!actual.exists) return true;
+    r = (id: r.id, datos: actual.data()!);
+    final zonas = c == Catalogo.localidades
+        ? [
+            for (final z in (await _db.collection('localityZones').where('localityId', isEqualTo: r.id).get()).docs)
+              (id: z.id, datos: z.data()),
+          ]
+        : const <Registro>[];
+    final lote = _db.batch();
+    final principal = _db.collection('trash').doc();
+    final relacionados = <String>[];
+    for (final z in zonas) {
+      final ref = _db.collection('trash').doc();
+      relacionados.add(ref.id);
+      lote
+        ..set(ref, datosPapeleraRegistro('localityZones', z, userId: t.userId, nombre: t.nombre, padre: principal.id))
+        ..delete(_db.collection('localityZones').doc(z.id));
+    }
+    lote
+      ..set(
+        principal,
+        datosPapeleraRegistro(coleccion, r, userId: t.userId, nombre: t.nombre, relacionados: relacionados),
+      )
+      ..delete(_db.collection(coleccion).doc(r.id));
+    var enLinea = true;
+    await seguro(() => lote.commit().timeout(espera, onTimeout: () => enLinea = false));
+    _registros
+      ..remove(coleccion)
+      ..remove('localityZones');
+    return enLinea;
   }
 
   /// Sistema › Fechas de pago (`payDates`), leídas una vez.

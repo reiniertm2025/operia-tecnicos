@@ -919,3 +919,11 @@ mixin FiltroDeZona<W extends StatefulWidget> on State<W> {
       ),
   ];
 }
+
+/// El nombre de un permiso de rol (`PERMS` de la web) en el idioma de la app.
+String nombrePermiso(Textos t, String p) => switch (p) {
+  'admin' => t.permisoAdmin,
+  'consultor' => t.permisoConsultor,
+  'tecnico' => t.permisoTecnico,
+  _ => p,
+};
