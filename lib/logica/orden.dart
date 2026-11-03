@@ -259,3 +259,16 @@ String _sinAcentos(String s) {
   }
   return b.toString();
 }
+
+/// Un registro con datos de un cliente (prospecto, cancelación temporal…), leídos como texto.
+abstract class RegistroCliente {
+  const RegistroCliente(this.id, this.datos);
+  final String id;
+  final Map<String, dynamic> datos;
+
+  String texto(String campo) => '${datos[campo] ?? ''}'.trim();
+  String get nombre => texto('name');
+  String get telefono => texto('phone');
+  String get direccion => texto('address');
+  String get zonaId => texto('zoneId');
+}

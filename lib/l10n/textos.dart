@@ -2736,6 +2736,234 @@ abstract class Textos {
   /// In es, this message translates to:
   /// **'Opcional, pero ayuda: con la foto la oficina completa la orden sin pedírtelo otra vez.'**
   String get compExplica;
+
+  /// No description provided for @menuNuevosServicios.
+  ///
+  /// In es, this message translates to:
+  /// **'Nuevos Servicios'**
+  String get menuNuevosServicios;
+
+  /// No description provided for @menuCancelados.
+  ///
+  /// In es, this message translates to:
+  /// **'Cancelados'**
+  String get menuCancelados;
+
+  /// No description provided for @menuFuturo.
+  ///
+  /// In es, this message translates to:
+  /// **'Futuro'**
+  String get menuFuturo;
+
+  /// No description provided for @menuNsPendientes.
+  ///
+  /// In es, this message translates to:
+  /// **'Pendientes'**
+  String get menuNsPendientes;
+
+  /// No description provided for @menuFacturaIsp.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar factura del ISP'**
+  String get menuFacturaIsp;
+
+  /// No description provided for @menuNsHistorico.
+  ///
+  /// In es, this message translates to:
+  /// **'Histórico'**
+  String get menuNsHistorico;
+
+  /// No description provided for @menuNcNuevos.
+  ///
+  /// In es, this message translates to:
+  /// **'Nuevos Servicios'**
+  String get menuNcNuevos;
+
+  /// No description provided for @menuTvCable.
+  ///
+  /// In es, this message translates to:
+  /// **'TV Cable'**
+  String get menuTvCable;
+
+  /// No description provided for @menuTvDoblePlay.
+  ///
+  /// In es, this message translates to:
+  /// **'TV Doble Play'**
+  String get menuTvDoblePlay;
+
+  /// No description provided for @menuDefinitivos.
+  ///
+  /// In es, this message translates to:
+  /// **'Definitivos'**
+  String get menuDefinitivos;
+
+  /// No description provided for @menuTemporales.
+  ///
+  /// In es, this message translates to:
+  /// **'Temporales'**
+  String get menuTemporales;
+
+  /// No description provided for @nsAtrasado1.
+  ///
+  /// In es, this message translates to:
+  /// **'Atrasado 1 día'**
+  String get nsAtrasado1;
+
+  /// No description provided for @nsAtrasadoN.
+  ///
+  /// In es, this message translates to:
+  /// **'Atrasado {n} días'**
+  String nsAtrasadoN(int n);
+
+  /// No description provided for @nsTocaHoy.
+  ///
+  /// In es, this message translates to:
+  /// **'Toca hoy'**
+  String get nsTocaHoy;
+
+  /// No description provided for @nsManana.
+  ///
+  /// In es, this message translates to:
+  /// **'Mañana'**
+  String get nsManana;
+
+  /// No description provided for @nsEnDias.
+  ///
+  /// In es, this message translates to:
+  /// **'En {n} días'**
+  String nsEnDias(int n);
+
+  /// No description provided for @listaVacia.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay órdenes en estas fechas.'**
+  String get listaVacia;
+
+  /// No description provided for @futVacio.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay órdenes para los días que vienen.'**
+  String get futVacio;
+
+  /// No description provided for @npVacio.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay servicios nuevos pendientes.'**
+  String get npVacio;
+
+  /// No description provided for @defModemRecuperado.
+  ///
+  /// In es, this message translates to:
+  /// **'Módem recuperado'**
+  String get defModemRecuperado;
+
+  /// No description provided for @tcActiva.
+  ///
+  /// In es, this message translates to:
+  /// **'Activa'**
+  String get tcActiva;
+
+  /// No description provided for @tcReactivada.
+  ///
+  /// In es, this message translates to:
+  /// **'Reactivada'**
+  String get tcReactivada;
+
+  /// No description provided for @tcRegresa.
+  ///
+  /// In es, this message translates to:
+  /// **'Regresa el {fecha}'**
+  String tcRegresa(String fecha);
+
+  /// No description provided for @tcRecogerModem.
+  ///
+  /// In es, this message translates to:
+  /// **'Recoger módem: {modem}'**
+  String tcRecogerModem(String modem);
+
+  /// No description provided for @tcVencida.
+  ///
+  /// In es, this message translates to:
+  /// **'Ya toca regresar'**
+  String get tcVencida;
+
+  /// No description provided for @tcPronto.
+  ///
+  /// In es, this message translates to:
+  /// **'Regresa pronto'**
+  String get tcPronto;
+
+  /// No description provided for @tcVacio.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay cancelaciones temporales en estas fechas.'**
+  String get tcVacio;
+
+  /// No description provided for @ifaExplica.
+  ///
+  /// In es, this message translates to:
+  /// **'Servicios nuevos ya instalados que pagaron al instalarse: hay que eliminar en el ISP la factura de su primer pago para que no les suspendan el servicio.'**
+  String get ifaExplica;
+
+  /// No description provided for @ifaFactura.
+  ///
+  /// In es, this message translates to:
+  /// **'Factura del ISP: {fecha}'**
+  String ifaFactura(String fecha);
+
+  /// No description provided for @ifaPago.
+  ///
+  /// In es, this message translates to:
+  /// **'Pago del {de} al {a}'**
+  String ifaPago(String de, String a);
+
+  /// No description provided for @ifaMarcar.
+  ///
+  /// In es, this message translates to:
+  /// **'Ya la eliminé'**
+  String get ifaMarcar;
+
+  /// No description provided for @ifaDeshacer.
+  ///
+  /// In es, this message translates to:
+  /// **'Deshacer'**
+  String get ifaDeshacer;
+
+  /// No description provided for @ifaHecha.
+  ///
+  /// In es, this message translates to:
+  /// **'Completado'**
+  String get ifaHecha;
+
+  /// No description provided for @ifaPendientes.
+  ///
+  /// In es, this message translates to:
+  /// **'Pendientes'**
+  String get ifaPendientes;
+
+  /// No description provided for @ifaHechas.
+  ///
+  /// In es, this message translates to:
+  /// **'Completadas'**
+  String get ifaHechas;
+
+  /// No description provided for @ifaVacio.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay facturas por eliminar en estas fechas.'**
+  String get ifaVacio;
+
+  /// No description provided for @ifaSinFechas.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay Fechas de pago: se configuran en la web, en Sistema › Fechas de pago.'**
+  String get ifaSinFechas;
+
+  /// No description provided for @ifaGuardada.
+  ///
+  /// In es, this message translates to:
+  /// **'Marcada como eliminada en el ISP.'**
+  String get ifaGuardada;
 }
 
 class _TextosDelegate extends LocalizationsDelegate<Textos> {

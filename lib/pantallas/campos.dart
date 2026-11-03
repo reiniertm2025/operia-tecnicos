@@ -13,12 +13,6 @@ import 'diseno.dart';
 
 /// Campos que comparten los formularios (orden y prospecto): teléfono con país y ubicación con GPS.
 
-/// País del teléfono por omisión: el del celular (si no se sabe, México, como la web).
-String paisDelCelular() {
-  final p = WidgetsBinding.instance.platformDispatcher.locale.countryCode ?? '';
-  return ladaDe(p).isEmpty ? 'MX' : p.toUpperCase();
-}
-
 final _paises = <String, Future<Map<String, String>>>{};
 
 /// Nombre de cada país (ISO → nombre) en el idioma de la app, de assets/paises; se lee una vez.

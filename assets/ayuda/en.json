@@ -89,7 +89,8 @@
       "pasos": [
         "Menu (☰) → «Map of the day»: your orders for today (and overdue ones) on the map. Yellow = pending, purple = in progress, green = done today.",
         "Tap a pin to see the order; tap the card to open it. At the top choose Streets or Satellite; the right button shows all again."
-      ]
+      ],
+      "soloAdmin": true
     },
     {
       "titulo": "Prospects",
@@ -98,7 +99,8 @@
         "«New prospect»: name, phone, address, location (or «Use my location»), locality, who found them, installation date, comment and photo. Nothing is required.",
         "The red light means the installation is today (or overdue); yellow means tomorrow.",
         "«Create order» opens a new order already filled in (new service, commissioner and comment). Once created, the prospect moves to «Assigned»."
-      ]
+      ],
+      "soloAdmin": true
     },
     {
       "titulo": "Incomplete orders",
@@ -115,7 +117,8 @@
         "A commissioner (System › Commissioners on the web) picks up the modem and earns the commission. The administrator assigns it with «Assign».",
         "When it is brought back, the administrator taps «I recovered it». The office sees it right away and the commission starts counting.",
         "Use Call and the map to reach the customer."
-      ]
+      ],
+      "soloAdmin": true
     },
     {
       "titulo": "Free IPs",
@@ -157,6 +160,16 @@
       ]
     },
     {
+      "titulo": "New Services and Cancelled (administrators)",
+      "soloAdmin": true,
+      "pasos": [
+        "Menu (☰) → «New Services»: Upcoming (orders for coming days), Pending (new services to install, with days late), Delete ISP invoice, Prospects and History, same as on the web.",
+        "Delete ISP invoice: installed new services that paid when installed; once you delete their first invoice at the ISP, tap «Deleted it» (it can be undone).",
+        "Menu (☰) → «Cancelled»: cancelled New Services, Cable TV, Double Play TV, Permanent (with their modem status) and Temporary (with their return date).",
+        "At the top choose the dates and the locality; tap an order to see it."
+      ]
+    },
+    {
       "titulo": "Finance (administrators)",
       "soloAdmin": true,
       "pasos": [
@@ -189,7 +202,9 @@
       "cambios": [
         "Map of the day: today's orders on the map, colored by status; streets or satellite, as on the web.",
         "Prospects: possible customers with photo, location, locality, who found them and installation date (red light if today, yellow if tomorrow). «Create order» opens a new order with their data.",
-        "Incomplete: mark a completed order that left something pending, with a return date and reason; see them in the menu with their light and resolve them from the order."
+        "Incomplete: mark a completed order that left something pending, with a return date and reason; see them in the menu with their light and resolve them from the order.",
+        "Technicians only see their own: their orders (create, accept, finish, incomplete), Tools › Free IPs and Help. Admin items (Dashboard, Finance, Commissions, Modems, Prospects, To authorize, Map of the day) no longer appear to them.",
+        "«New Services» menu (Upcoming, Pending, Delete ISP invoice, Prospects, History) and «Cancelled» menu (New Services, Cable TV, Double Play TV, Permanent, Temporary), as on the web (administrators)."
       ]
     },
     {

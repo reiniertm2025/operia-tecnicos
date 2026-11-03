@@ -1510,4 +1510,132 @@ class TextosEn extends Textos {
   @override
   String get compExplica =>
       'Optional but helpful: with the photo the office completes the order without asking again.';
+
+  @override
+  String get menuNuevosServicios => 'New Services';
+
+  @override
+  String get menuCancelados => 'Cancelled';
+
+  @override
+  String get menuFuturo => 'Upcoming';
+
+  @override
+  String get menuNsPendientes => 'Pending';
+
+  @override
+  String get menuFacturaIsp => 'Delete ISP invoice';
+
+  @override
+  String get menuNsHistorico => 'History';
+
+  @override
+  String get menuNcNuevos => 'New Services';
+
+  @override
+  String get menuTvCable => 'Cable TV';
+
+  @override
+  String get menuTvDoblePlay => 'Double Play TV';
+
+  @override
+  String get menuDefinitivos => 'Permanent';
+
+  @override
+  String get menuTemporales => 'Temporary';
+
+  @override
+  String get nsAtrasado1 => '1 day late';
+
+  @override
+  String nsAtrasadoN(int n) {
+    return '$n days late';
+  }
+
+  @override
+  String get nsTocaHoy => 'Due today';
+
+  @override
+  String get nsManana => 'Tomorrow';
+
+  @override
+  String nsEnDias(int n) {
+    return 'In $n days';
+  }
+
+  @override
+  String get listaVacia => 'No orders in these dates.';
+
+  @override
+  String get futVacio => 'No orders for the coming days.';
+
+  @override
+  String get npVacio => 'No pending new services.';
+
+  @override
+  String get defModemRecuperado => 'Modem recovered';
+
+  @override
+  String get tcActiva => 'Active';
+
+  @override
+  String get tcReactivada => 'Reactivated';
+
+  @override
+  String tcRegresa(String fecha) {
+    return 'Back on $fecha';
+  }
+
+  @override
+  String tcRecogerModem(String modem) {
+    return 'Pick up modem: $modem';
+  }
+
+  @override
+  String get tcVencida => 'Due to come back';
+
+  @override
+  String get tcPronto => 'Coming back soon';
+
+  @override
+  String get tcVacio => 'No temporary cancellations in these dates.';
+
+  @override
+  String get ifaExplica =>
+      'New services already installed that paid when installed: their first-payment invoice must be deleted at the ISP so the service is not suspended.';
+
+  @override
+  String ifaFactura(String fecha) {
+    return 'ISP invoice: $fecha';
+  }
+
+  @override
+  String ifaPago(String de, String a) {
+    return 'Payment $de to $a';
+  }
+
+  @override
+  String get ifaMarcar => 'Deleted it';
+
+  @override
+  String get ifaDeshacer => 'Undo';
+
+  @override
+  String get ifaHecha => 'Done';
+
+  @override
+  String get ifaPendientes => 'Pending';
+
+  @override
+  String get ifaHechas => 'Done';
+
+  @override
+  String get ifaVacio => 'No invoices to delete in these dates.';
+
+  @override
+  String get ifaSinFechas =>
+      'No payment dates: they are set on the web, in System › Payment dates.';
+
+  @override
+  String get ifaGuardada => 'Marked as deleted at the ISP.';
 }

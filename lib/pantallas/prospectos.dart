@@ -102,10 +102,6 @@ class _PantallaProspectosState extends State<PantallaProspectos> {
           final cargando = cargaOError(t, foto);
           final r = _rango;
           final todos = foto.data ?? const <Prospecto>[];
-          final zonas = [
-            for (final z in widget.nombresZonas.keys)
-              if (todos.any((p) => p.zonaId == z)) z,
-          ];
           final lista = ordenarProspectos([
             for (final p in todos)
               if (p.asignado == _asignados &&
@@ -130,25 +126,13 @@ class _PantallaProspectosState extends State<PantallaProspectos> {
                   onSelectionChanged: (s) => setState(() => _asignados = s.first),
                 ),
               ),
-              if (zonas.length > 1)
-                SizedBox(
-                  height: 52,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.fromLTRB(16, 8, 8, 0),
-                    children: [
-                      for (final z in <String?>[null, ...zonas])
-                        Padding(
-                          padding: const EdgeInsets.only(right: 8),
-                          child: ChoiceChip(
-                            label: Text(z == null ? t.todas : (widget.nombresZonas[z] ?? z)),
-                            selected: _zona == z,
-                            onSelected: (_) => setState(() => _zona = z),
-                          ),
-                        ),
-                    ],
-                  ),
-                ),
+              chipsZonas(
+                t,
+                deLaLista: todos.map((p) => p.zonaId),
+                nombres: widget.nombresZonas,
+                elegida: _zona,
+                alElegir: (z) => setState(() => _zona = z),
+              ),
               Expanded(
                 child:
                     cargando ??
@@ -170,7 +154,6 @@ class _PantallaProspectosState extends State<PantallaProspectos> {
   Widget _tarjeta(Textos t, Prospecto p, String hoy, int posicion) {
     final colores = Theme.of(context).colorScheme;
     final o = p.comoOrden;
-    final telefono = llamarA(o), mapa = mapaDe(o);
     final luz = luzProspecto(p, hoy);
     final detalle = [
       p.diaInstalacion.isEmpty ? t.prosSinDia : fechaCorta(context, p.diaInstalacion),
@@ -220,16 +203,7 @@ class _PantallaProspectosState extends State<PantallaProspectos> {
               ),
               Row(
                 children: [
-                  IconButton(
-                    tooltip: t.llamar,
-                    onPressed: telefono == null ? null : () => abrirFuera(context, telefono),
-                    icon: const Icon(Icons.phone_rounded),
-                  ),
-                  IconButton(
-                    tooltip: t.verEnMapa,
-                    onPressed: mapa == null ? null : () => abrirFuera(context, mapa),
-                    icon: const Icon(Icons.near_me_rounded),
-                  ),
+                  ...botonesLlamarYMapa(context, o),
                   const Spacer(),
                   if (_puedeEditar)
                     IconButton(
@@ -299,9 +273,7 @@ class PantallaFormProspecto extends StatefulWidget {
 
 class _PantallaFormProspectoState extends State<PantallaFormProspecto> with GuardarYCerrar {
   late final DatosProspecto _d = widget.prospecto == null
-      ? (DatosProspecto()
-          ..pais = paisDelCelular()
-          ..zonaId = widget.tecnico.zonas.length == 1 ? widget.tecnico.zonas.first : '')
+      ? (DatosProspecto()..zonaId = widget.tecnico.zonas.length == 1 ? widget.tecnico.zonas.first : '')
       : DatosProspecto.de(widget.prospecto!);
   late final _nombre = TextEditingController(text: _d.nombre);
   late final _telefono = TextEditingController(text: _d.telefono);

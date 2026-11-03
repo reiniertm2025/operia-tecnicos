@@ -10,6 +10,7 @@ import '../logica/inconclusas.dart';
 import '../logica/materiales.dart';
 import '../logica/metricas.dart';
 import '../logica/modems.dart';
+import '../logica/nuevos_cancelados.dart';
 import '../logica/nueva_orden.dart';
 import '../logica/orden.dart';
 import '../logica/prospectos.dart';
@@ -75,6 +76,8 @@ class ServicioOrdenes {
   List<Map<String, dynamic>>? _ingresos, _partidas;
   Catalogos? _catalogos;
   CatalogoMateriales? _materiales;
+  final _porDia = <String, List<Orden>>{};
+  List<FechaPago>? _fechasPago;
   final _periodos = <String, List<Orden>>{};
   Future<List<Orden>>? _sinAutorizar;
 
@@ -184,6 +187,68 @@ class ServicioOrdenes {
     () =>
         _db.collection('prospects').doc(p.id).update(datosProspectoAsignado(orden.id, orden.folio, t.userId, t.nombre)),
   );
+
+  /// Las órdenes cuyo día de servicio cae en el rango (como `ticketWorkDay` de la web: `workDate`, o el día en que se
+  /// creó si no lo tiene), para Nuevos Servicios y Cancelados. Se lee una vez por rango; `recargar` vuelve a pedir.
+  Future<List<Orden>> ordenesPorDia(RangoDias r, {bool recargar = false}) async {
+    final clave = 'dia|${textoDia(r.desde)}|${textoDia(r.hasta)}';
+    final guardadas = _porDia[clave];
+    if (guardadas != null && !recargar) return guardadas;
+    final de = textoDia(r.desde), a = textoDia(r.hasta);
+    final q = await Future.wait([
+      _tickets.where('workDate', isGreaterThanOrEqualTo: de).where('workDate', isLessThanOrEqualTo: a).get(),
+      _tickets
+          .where('createdAt', isGreaterThanOrEqualTo: Timestamp.fromDate(r.desde))
+          .where('createdAt', isLessThan: Timestamp.fromDate(finDeRango(r)))
+          .get(),
+    ]);
+    return _porDia[clave] = [
+      for (final o in unirSinRepetir([_ordenes(q[0]), _ordenes(q[1])]))
+        if (o.dia.compareTo(de) >= 0 && o.dia.compareTo(a) <= 0) o,
+    ];
+  }
+
+  /// Las completadas en el rango (para Eliminar factura del ISP, que va por el día de instalación).
+  /// Las órdenes cuya fecha `campo` (`completedAt`, `cancelledAt`, `createdAt`) cae en el rango: Eliminar factura del
+  /// ISP va por la instalación, Cancelados › Nuevos Servicios por la cancelación y Definitivos por el registro.
+  Future<List<Orden>> ordenesPorFecha(String campo, RangoDias r, {bool recargar = false}) async {
+    final clave = '$campo|${textoDia(r.desde)}|${textoDia(r.hasta)}';
+    final guardadas = _porDia[clave];
+    if (guardadas != null && !recargar) return guardadas;
+    final q = await _tickets
+        .where(campo, isGreaterThanOrEqualTo: Timestamp.fromDate(r.desde))
+        .where(campo, isLessThan: Timestamp.fromDate(finDeRango(r)))
+        .get();
+    return _porDia[clave] = _ordenes(q);
+  }
+
+  /// Sistema › Fechas de pago (`payDates`), leídas una vez.
+  Future<List<FechaPago>> fechasDePago({bool recargar = false}) async {
+    final guardadas = _fechasPago;
+    if (guardadas != null && !recargar) return guardadas;
+    final q = await _db.collection('payDates').get();
+    return _fechasPago = [
+      for (final d in q.docs)
+        if (d.id != '_seed') FechaPago.de(d.id, d.data()),
+    ];
+  }
+
+  /// Marca (o desmarca) que ya se eliminó en el ISP la factura de esa orden.
+  Future<bool> marcarFacturaIsp(FilaFactura f, Tecnico t, {required bool hecha}) =>
+      _guardar(f.orden, hecha ? datosFacturaEliminada(f, t.userId, t.nombre) : datosFacturaPendiente());
+
+  /// Cancelados › Temporales registrados esos días (`tempCancels`, solo el administrador), sin los anulados.
+  Future<List<Temporal>> temporales(RangoDias r, {bool recargar = false}) async {
+    final q = await _db
+        .collection('tempCancels')
+        .where('createdAt', isGreaterThanOrEqualTo: Timestamp.fromDate(r.desde))
+        .where('createdAt', isLessThan: Timestamp.fromDate(finDeRango(r)))
+        .get();
+    return [
+      for (final d in q.docs)
+        if (Temporal(d.id, d.data()) case final x when !x.anulado) x,
+    ]..sort((a, b) => b.dia.compareTo(a.dia));
+  }
 
   /// Las fotos de la orden (`phFetch` de la web): las numeradas, o la única vieja sin número.
   Future<List<String>> fotosDeOrden(Orden o) async {
@@ -341,7 +406,7 @@ class ServicioOrdenes {
       final datos = datosOrdenNueva(d, cat, folio: folio, userId: t.userId, nombre: t.nombre, ahora: DateTime.now());
       await _tickets.doc(id).set(datos).timeout(espera, onTimeout: () {});
       // la orden ya quedó guardada: si falla el registro de Temporales no se avisa como error (se repetiría la orden)
-      if (datos['tempCancel'] != null) await _registrarTemporalSinFallar(id, datos, t);
+      if (datos['tempCancel'] != null) await _registrarTemporalSinFallar(id, datos, t, nueva: true);
     });
     return (id: id, folio: folio);
   }
@@ -359,9 +424,14 @@ class ServicioOrdenes {
   }
 
   /// El registro de Temporales es aparte de la orden: si falla (sin señal), la orden igual quedó bien.
-  Future<void> _registrarTemporalSinFallar(String ticketId, Map<String, Object?> orden, Tecnico t) async {
+  Future<void> _registrarTemporalSinFallar(
+    String ticketId,
+    Map<String, Object?> orden,
+    Tecnico t, {
+    bool nueva = false,
+  }) async {
     try {
-      await _registrarTemporal(ticketId, orden, t);
+      await _registrarTemporal(ticketId, orden, t, nueva: nueva);
     } on FirebaseException {
       // se corrige al volver a guardar la orden
     }
@@ -369,23 +439,25 @@ class ServicioOrdenes {
 
   /// Cancelados › Temporales como `tcSyncTicket` de la web: la orden temporal tiene su registro `tk_<id>`; si deja de ser
   /// temporal (o se elimina), su registro se anula.
-  Future<void> _registrarTemporal(String ticketId, Map<String, Object?> orden, Tecnico t) async {
+  /// En una orden `nueva` su registro no puede existir todavía: no se lee (el técnico solo puede crearlo, no leer los
+  /// registros; los ve el administrador).
+  Future<void> _registrarTemporal(String ticketId, Map<String, Object?> orden, Tecnico t, {bool nueva = false}) async {
     final ref = _db.collection('tempCancels').doc('tk_$ticketId');
     final temporal = orden['tempCancel'];
-    final DocumentSnapshot<Map<String, dynamic>> actual;
+    final bool existe;
     try {
-      actual = await ref.get().timeout(espera);
+      existe = !nueva && (await ref.get().timeout(espera)).exists;
     } on TimeoutException {
       return; // sin señal: se corrige al volver a guardar
     }
     if (temporal is Map<String, Object?>) {
       await ref
           .set(
-            datosRegistroTemporal(ticketId, orden, temporal, existe: actual.exists, userId: t.userId, nombre: t.nombre),
+            datosRegistroTemporal(ticketId, orden, temporal, existe: existe, userId: t.userId, nombre: t.nombre),
             SetOptions(merge: true),
           )
           .timeout(espera, onTimeout: () {});
-    } else if (actual.exists) {
+    } else if (existe) {
       await ref
           .update({
             'voided': true,

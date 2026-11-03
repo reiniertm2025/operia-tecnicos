@@ -883,5 +883,88 @@
   "fotQuitarTexto": "Se borra de la orden también en la web.",
   "fotQuitar": "Quitar",
   "compTitulo": "Comprobante de la transferencia",
-  "compExplica": "Opcional, pero ayuda: con la foto la oficina completa la orden sin pedírtelo otra vez."
+  "compExplica": "Opcional, pero ayuda: con la foto la oficina completa la orden sin pedírtelo otra vez.",
+  "menuNuevosServicios": "Nuevos Servicios",
+  "menuCancelados": "Cancelados",
+  "menuFuturo": "Futuro",
+  "menuNsPendientes": "Pendientes",
+  "menuFacturaIsp": "Eliminar factura del ISP",
+  "menuNsHistorico": "Histórico",
+  "menuNcNuevos": "Nuevos Servicios",
+  "menuTvCable": "TV Cable",
+  "menuTvDoblePlay": "TV Doble Play",
+  "menuDefinitivos": "Definitivos",
+  "menuTemporales": "Temporales",
+  "nsAtrasado1": "Atrasado 1 día",
+  "nsAtrasadoN": "Atrasado {n} días",
+  "@nsAtrasadoN": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "nsTocaHoy": "Toca hoy",
+  "nsManana": "Mañana",
+  "nsEnDias": "En {n} días",
+  "@nsEnDias": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "listaVacia": "No hay órdenes en estas fechas.",
+  "futVacio": "No hay órdenes para los días que vienen.",
+  "npVacio": "No hay servicios nuevos pendientes.",
+  "defModemRecuperado": "Módem recuperado",
+  "tcActiva": "Activa",
+  "tcReactivada": "Reactivada",
+  "tcRegresa": "Regresa el {fecha}",
+  "@tcRegresa": {
+    "placeholders": {
+      "fecha": {
+        "type": "String"
+      }
+    }
+  },
+  "tcRecogerModem": "Recoger módem: {modem}",
+  "@tcRecogerModem": {
+    "placeholders": {
+      "modem": {
+        "type": "String"
+      }
+    }
+  },
+  "tcVencida": "Ya toca regresar",
+  "tcPronto": "Regresa pronto",
+  "tcVacio": "No hay cancelaciones temporales en estas fechas.",
+  "ifaExplica": "Servicios nuevos ya instalados que pagaron al instalarse: hay que eliminar en el ISP la factura de su primer pago para que no les suspendan el servicio.",
+  "ifaFactura": "Factura del ISP: {fecha}",
+  "@ifaFactura": {
+    "placeholders": {
+      "fecha": {
+        "type": "String"
+      }
+    }
+  },
+  "ifaPago": "Pago del {de} al {a}",
+  "@ifaPago": {
+    "placeholders": {
+      "de": {
+        "type": "String"
+      },
+      "a": {
+        "type": "String"
+      }
+    }
+  },
+  "ifaMarcar": "Ya la eliminé",
+  "ifaDeshacer": "Deshacer",
+  "ifaHecha": "Completado",
+  "ifaPendientes": "Pendientes",
+  "ifaHechas": "Completadas",
+  "ifaVacio": "No hay facturas por eliminar en estas fechas.",
+  "ifaSinFechas": "No hay Fechas de pago: se configuran en la web, en Sistema › Fechas de pago.",
+  "ifaGuardada": "Marcada como eliminada en el ISP."
 }

@@ -774,6 +774,16 @@ mixin LecturaPorPeriodo<W extends StatefulWidget, D> on State<W> {
     carga = leer();
   });
 
+  /// Lo leído: si falló, el aviso (con los botones de fechas); mientras lee, el esqueleto.
+  Widget conDatos(Textos t, Widget Function(D datos) hecho) => FutureBuilder<D>(
+    future: carga,
+    builder: (context, foto) {
+      if (foto.hasError) return errorDelPeriodo(t, foto.error!);
+      final d = foto.data;
+      return d == null ? const ListaEsqueleto() : hecho(d);
+    },
+  );
+
   /// Si falló la lectura: el aviso, sin perder los botones de fechas ni el jalar para recargar.
   Widget errorDelPeriodo(Textos t, Object error) => listaDelPeriodo(t, [
     Padding(
@@ -833,4 +843,79 @@ class EscuchaTablero extends StatelessWidget {
       ),
     ),
   );
+}
+
+/// Chips de localidad sobre la lista: «Todas» y las que aparecen en ella.
+Widget chipsZonas(
+  Textos t, {
+  required Iterable<String> deLaLista,
+  required Map<String, String> nombres,
+  required String? elegida,
+  required ValueChanged<String?> alElegir,
+}) {
+  final zonas = [
+    for (final z in nombres.keys)
+      if (deLaLista.contains(z)) z,
+  ];
+  if (zonas.length < 2) return const SizedBox.shrink();
+  return SizedBox(
+    height: 52,
+    child: ListView(
+      scrollDirection: Axis.horizontal,
+      padding: const EdgeInsets.fromLTRB(16, 8, 8, 0),
+      children: [
+        for (final z in <String?>[null, ...zonas])
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: ChoiceChip(
+              label: Text(z == null ? t.todas : (nombres[z] ?? z)),
+              selected: elegida == z,
+              onSelected: (_) => alElegir(z),
+            ),
+          ),
+      ],
+    ),
+  );
+}
+
+/// Llamar y Ver en mapa de un cliente (sin teléfono o sin ubicación, el botón queda apagado).
+List<Widget> botonesLlamarYMapa(BuildContext context, Orden o) {
+  final t = Textos.of(context);
+  final telefono = llamarA(o), mapa = mapaDe(o);
+  return [
+    IconButton(
+      tooltip: t.llamar,
+      onPressed: telefono == null ? null : () => abrirFuera(context, telefono),
+      icon: const Icon(Icons.phone_rounded),
+    ),
+    IconButton(
+      tooltip: t.verEnMapa,
+      onPressed: mapa == null ? null : () => abrirFuera(context, mapa),
+      icon: const Icon(Icons.near_me_rounded),
+    ),
+  ];
+}
+
+/// Listas con chips de localidad arriba: la localidad elegida (null = todas).
+mixin FiltroDeZona<W extends StatefulWidget> on State<W> {
+  String? zona;
+
+  bool enZona(String zonaId) => zona == null || zonaId == zona;
+
+  /// Los chips (con las localidades de `todas`) y, si no queda nada, el aviso.
+  List<Widget> encabezadoDeZona(
+    Textos t, {
+    required Iterable<String> todas,
+    required Map<String, String> nombres,
+    required bool vacia,
+    required IconData icono,
+    required String textoVacio,
+  }) => [
+    chipsZonas(t, deLaLista: todas, nombres: nombres, elegida: zona, alElegir: (z) => setState(() => zona = z)),
+    if (vacia)
+      Padding(
+        padding: const EdgeInsets.only(top: 40),
+        child: AvisoCentral(icono: icono, texto: textoVacio),
+      ),
+  ];
 }

@@ -3,6 +3,7 @@ import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:operia_tecnicos/logica/nueva_orden.dart';
 import 'package:operia_tecnicos/logica/orden.dart';
+import 'package:operia_tecnicos/logica/prospectos.dart';
 import 'package:operia_tecnicos/logica/telefono.dart';
 import 'package:operia_tecnicos/servicios/ordenes.dart';
 import 'package:operia_tecnicos/servicios/sesion.dart';
@@ -65,6 +66,14 @@ void main() {
     expect(separarTelefono('+52 993 123 4567')?.iso, 'MX');
     expect(ladaDe('CO'), '57');
     expect(bandera('MX'), '🇲🇽');
+  });
+
+  test('el teléfono sale con México (+52) por omisión; el guardado con «+» conserva su país', () {
+    expect(DatosOrden().pais, 'MX');
+    expect(DatosProspecto().pais, 'MX');
+    expect(DatosOrden.de(Orden('a', const {'clientPhone': '+1 213 373 4253'})).pais, 'US');
+    final sinLada = DatosOrden.de(Orden('b', const {'clientPhone': '9931234567'}));
+    expect((sinLada.pais, sinLada.telefono), ('MX', '9931234567'));
   });
 
   test('folio, coordenadas', () {

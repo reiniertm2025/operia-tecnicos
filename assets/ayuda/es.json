@@ -89,7 +89,8 @@
       "pasos": [
         "Menú (☰) → «Mapa del día»: tus órdenes de hoy (y las atrasadas) en el mapa. Amarillo = pendiente, morado = en proceso, verde = culminada hoy.",
         "Toca un punto para ver la orden; toca la tarjeta para abrirla. Arriba eliges Calles o Satélite y el botón de la derecha vuelve a mostrarlas todas."
-      ]
+      ],
+      "soloAdmin": true
     },
     {
       "titulo": "Prospectos",
@@ -98,7 +99,8 @@
         "«Nuevo prospecto»: nombre, teléfono, dirección, ubicación (o «Usar mi ubicación»), localidad, quién lo prospectó, fecha de instalación, comentario y foto. Nada es obligatorio.",
         "La luz roja dice que la instalación es hoy (o ya pasó); la amarilla, que es mañana.",
         "«Crear orden» abre la orden nueva ya llena (servicio nuevo, comisionista y comentario). Al crearla, el prospecto pasa a «Asignados»."
-      ]
+      ],
+      "soloAdmin": true
     },
     {
       "titulo": "Órdenes inconclusas",
@@ -115,7 +117,8 @@
         "El módem lo recupera un comisionista (Sistema › Comisionistas de la web): él cobra la comisión. El administrador lo asigna con «Asignar».",
         "Cuando lo traigan, el administrador toca «Ya lo recuperé». La oficina lo ve al momento y la comisión empieza a contar.",
         "Con Llamar y el mapa se llega al cliente."
-      ]
+      ],
+      "soloAdmin": true
     },
     {
       "titulo": "IPs libres",
@@ -157,6 +160,16 @@
       ]
     },
     {
+      "titulo": "Nuevos Servicios y Cancelados (administradores)",
+      "soloAdmin": true,
+      "pasos": [
+        "Menú (☰) → «Nuevos Servicios»: Futuro (órdenes de días que vienen), Pendientes (servicios nuevos por instalar, con cuántos días de atraso), Eliminar factura del ISP, Prospectos e Histórico, igual que en la web.",
+        "Eliminar factura del ISP: los servicios nuevos instalados que pagaron al instalarse; cuando elimines en el ISP la factura de su primer pago, toca «Ya la eliminé» (se puede deshacer).",
+        "Menú (☰) → «Cancelados»: Nuevos Servicios cancelados, TV Cable, TV Doble Play, Definitivos (con cómo va su módem) y Temporales (con su fecha de regreso).",
+        "Arriba eliges las fechas y la localidad; toca una orden para verla."
+      ]
+    },
+    {
       "titulo": "Finanzas (administradores)",
       "soloAdmin": true,
       "pasos": [
@@ -189,7 +202,9 @@
       "cambios": [
         "Mapa del día: las órdenes de hoy en el mapa, con el color de su estado; calles o satélite, como en la web.",
         "Prospectos: posibles clientes con foto, ubicación, localidad, quién lo prospectó y fecha de instalación (luz roja si es hoy, amarilla si es mañana). «Crear orden» abre la orden nueva con sus datos.",
-        "Inconclusas: marca una orden completada que dejó algo pendiente, con la fecha de regreso y el motivo; se ven en el menú con su semáforo y se resuelven desde la orden."
+        "Inconclusas: marca una orden completada que dejó algo pendiente, con la fecha de regreso y el motivo; se ven en el menú con su semáforo y se resuelven desde la orden.",
+        "Los técnicos solo ven lo suyo: sus órdenes (crear, aceptar, culminar, inconclusas), Herramientas › IPs libres y la Ayuda. Lo del administrador (Dashboard, Finanzas, Comisiones, Módems, Prospectos, Por autorizar, Mapa del día) ya no les aparece.",
+        "Menús «Nuevos Servicios» (Futuro, Pendientes, Eliminar factura del ISP, Prospectos, Histórico) y «Cancelados» (Nuevos Servicios, TV Cable, TV Doble Play, Definitivos, Temporales), como en la web (administradores)."
       ]
     },
     {

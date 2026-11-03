@@ -10,17 +10,11 @@ import 'telefono.dart';
 /// documento) y photoCount, comment, installDate (AAAA-MM-DD), prospectorId/prospectorName (un comisionista),
 /// status ('pendiente' | 'asignado'), ticketId/ticketFolio al asignarlo. Ningún campo es obligatorio.
 
-class Prospecto {
-  const Prospecto(this.id, this.datos);
-  final String id;
-  final Map<String, dynamic> datos;
+class Prospecto extends RegistroCliente {
+  const Prospecto(super.id, super.datos);
 
-  String _t(String c) => '${datos[c] ?? ''}'.trim();
-  String get nombre => _t('name');
-  String get telefono => _t('phone');
-  String get direccion => _t('address');
+  String _t(String c) => texto(c);
   String get coordenadas => _t('coordinates');
-  String get zonaId => _t('zoneId');
   String get comentario => _t('comment');
   String get diaInstalacion => _t('installDate');
   String get prospectorId => _t('prospectorId');

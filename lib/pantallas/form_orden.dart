@@ -40,8 +40,9 @@ class PantallaFormOrden extends StatefulWidget {
 
 class _PantallaFormOrdenState extends State<PantallaFormOrden> {
   late final DatosOrden _d = widget.orden == null
-      ? (widget.inicial ?? DatosOrden(pais: paisDelCelular()))
-      : DatosOrden.de(widget.orden!, pais: paisDelCelular());
+      // el teléfono sale con México (+52), como la web; el de una orden guardada con «+» conserva su país
+      ? (widget.inicial ?? DatosOrden())
+      : DatosOrden.de(widget.orden!);
   late final _cliente = TextEditingController(text: _d.cliente);
   late final _telefono = TextEditingController(text: _d.telefono);
   late final _direccion = TextEditingController(text: _d.direccion);

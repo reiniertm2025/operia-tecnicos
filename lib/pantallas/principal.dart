@@ -4,6 +4,7 @@ import 'package:intl/intl.dart';
 
 import '../l10n/textos.dart';
 import '../logica/fechas.dart';
+import '../logica/menu.dart';
 import '../logica/orden.dart';
 import '../logica/tablero.dart';
 import '../servicios/ajustes.dart';
@@ -23,6 +24,7 @@ import 'comisiones.dart';
 import 'ips.dart';
 import 'mapa_dia.dart';
 import 'modems.dart';
+import 'nuevos_cancelados.dart';
 import 'por_autorizar.dart';
 import 'prospectos.dart';
 import 'terminos.dart';
@@ -481,7 +483,6 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
     final colores = Theme.of(context).colorScheme;
     final misZonas = yo.esAdmin ? t.todasLasLocalidades : yo.zonas.map((z) => _nombresZonas[z] ?? z).join(', ');
     final inicial = (yo.nombre.isEmpty ? t.tecnico : yo.nombre).characters.first.toUpperCase();
-    final (mapa, modems, inconclusas, prospectos, ips) = _opcionesComunes(t);
     return NavigationDrawer(
       children: [
         Container(
@@ -541,7 +542,7 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
           ),
         ),
         const SizedBox(height: 4),
-        if (yo.esAdmin) ..._menuAdmin(t) else ...[mapa, prospectos, inconclusas, modems, ips],
+        ..._menuDelRol(t),
         const Divider(indent: 24, endIndent: 24, height: 16),
         _opcion(Icons.menu_book_rounded, t.menuAyuda, () => _verAyuda(0)),
         _opcion(Icons.auto_awesome_rounded, t.menuNovedades, () => _verAyuda(1)),
@@ -566,84 +567,135 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
     );
   }
 
-  (Widget, Widget, Widget, Widget, Widget) _opcionesComunes(Textos t) => (
-    _opcion(
-      Icons.map_rounded,
-      t.menuMapaDia,
-      () => _ir((_) => PantallaMapaDia(tecnico: widget.tecnico, servicio: _servicio, nombresZonas: _nombresZonas)),
-    ),
-    _opcion(
-      Icons.inventory_2_rounded,
-      t.menuModems,
-      () => _ir((_) => PantallaModems(tecnico: widget.tecnico, servicio: _servicio, nombresZonas: _nombresZonas)),
-    ),
-    _opcion(
-      Icons.flag_rounded,
-      t.menuInconclusas,
-      () => _ir((_) => PantallaInconclusas(tecnico: widget.tecnico, servicio: _servicio, nombresZonas: _nombresZonas)),
-    ),
-    _opcion(
-      Icons.person_search_rounded,
-      t.menuProspectos,
-      () => _ir((_) => PantallaProspectos(tecnico: widget.tecnico, servicio: _servicio, nombresZonas: _nombresZonas)),
-    ),
-    _opcion(Icons.lan_rounded, t.menuIps, _verIps),
-  );
-
-  /// Menú del administrador, en grupos como el menú de la web (Dashboard, Órdenes de trabajo, Recuperar módem, Finanzas,
-  /// Reportes, Herramientas). Las comisiones las cobran los comisionistas: solo él ve el Pago de comisiones.
-  List<Widget> _menuAdmin(Textos t) {
-    final (mapa, modems, inconclusas, prospectos, ips) = _opcionesComunes(t);
+  /// El menú según quién entró (`menuPara`): el administrador en grupos como la web; el técnico, solo lo suyo.
+  List<Widget> _menuDelRol(Textos t) {
+    final yo = widget.tecnico;
     void pestana(int i) {
       Navigator.pop(context);
       setState(() => _pestana = i);
     }
 
-    return [
-      Padding(
-        padding: const EdgeInsets.fromLTRB(28, 8, 16, 4),
-        child: Text(
-          t.menuAdmin.toUpperCase(),
-          style: Theme.of(context).textTheme.labelSmall?.copyWith(letterSpacing: 1.2, fontWeight: FontWeight.w700),
-        ),
-      ),
-      _opcion(
+    Widget opcion(OpcionMenu o) => switch (o) {
+      OpcionMenu.dashboard => _opcion(
         Icons.insights_rounded,
         t.menuDashboard,
         () => _ir((_) => PantallaDashboard(servicio: _servicio, nombresZonas: _nombresZonas)),
       ),
-      _grupo(Icons.assignment_rounded, t.menuOrdenesTrabajo, [
-        _opcion(Icons.today_rounded, t.menuDelDia, () => pestana(0)),
-        mapa,
-        _opcion(Icons.history_rounded, t.menuHistorico, () => pestana(3)),
-        inconclusas,
-        prospectos,
-      ]),
-      _grupo(Icons.inventory_2_outlined, t.menuRecuperarModem, [modems]),
-      _grupo(Icons.account_balance_wallet_rounded, t.menuFinanzas, [
-        _opcion(
-          Icons.query_stats_rounded,
-          t.menuResumenFinanzas,
-          () => _ir((_) => PantallaFinanzas(servicio: _servicio, nombresZonas: _nombresZonas)),
-        ),
-        _opcion(
-          Icons.pending_actions_rounded,
-          t.menuPorAutorizar,
-          () => _ir(
-            (_) => PantallaPorAutorizar(tecnico: widget.tecnico, servicio: _servicio, nombresZonas: _nombresZonas),
+      OpcionMenu.delDia => _opcion(Icons.today_rounded, t.menuDelDia, () => pestana(0)),
+      OpcionMenu.mapaDia => _opcion(
+        Icons.map_rounded,
+        t.menuMapaDia,
+        () => _ir((_) => PantallaMapaDia(tecnico: yo, servicio: _servicio, nombresZonas: _nombresZonas)),
+      ),
+      OpcionMenu.historico => _opcion(Icons.history_rounded, t.menuHistorico, () => pestana(3)),
+      OpcionMenu.inconclusas => _opcion(
+        Icons.flag_rounded,
+        t.menuInconclusas,
+        () => _ir((_) => PantallaInconclusas(tecnico: yo, servicio: _servicio, nombresZonas: _nombresZonas)),
+      ),
+      OpcionMenu.prospectos => _opcion(
+        Icons.person_search_rounded,
+        t.menuProspectos,
+        () => _ir((_) => PantallaProspectos(tecnico: yo, servicio: _servicio, nombresZonas: _nombresZonas)),
+      ),
+      OpcionMenu.futuro => _opcionAbiertas(Icons.calendar_month_rounded, t.menuFuturo, ListaAbiertas.futuro),
+      OpcionMenu.nsPendientes => _opcionAbiertas(Icons.pending_rounded, t.menuNsPendientes, ListaAbiertas.nsPendientes),
+      OpcionMenu.facturaIsp => _opcion(
+        Icons.receipt_long_rounded,
+        t.menuFacturaIsp,
+        () => _ir((_) => PantallaFacturaIsp(tecnico: yo, servicio: _servicio, nombresZonas: _nombresZonas)),
+      ),
+      OpcionMenu.nsHistorico => _opcionPorDia(Icons.history_rounded, t.menuNsHistorico, ListaPorDia.nsHistorico),
+      OpcionMenu.ncNuevos => _opcionPorDia(Icons.block_rounded, t.menuNcNuevos, ListaPorDia.ncNuevos),
+      OpcionMenu.tvCable => _opcionPorDia(Icons.tv_rounded, t.menuTvCable, ListaPorDia.tvCable),
+      OpcionMenu.tvDoblePlay => _opcionPorDia(Icons.satellite_alt_rounded, t.menuTvDoblePlay, ListaPorDia.tvDoblePlay),
+      OpcionMenu.definitivos => _opcionPorDia(Icons.person_off_rounded, t.menuDefinitivos, ListaPorDia.definitivos),
+      OpcionMenu.temporales => _opcion(
+        Icons.pause_circle_outline_rounded,
+        t.menuTemporales,
+        () => _ir((_) => PantallaTemporales(servicio: _servicio, nombresZonas: _nombresZonas)),
+      ),
+      OpcionMenu.modems => _opcion(
+        Icons.inventory_2_rounded,
+        t.menuModems,
+        () => _ir((_) => PantallaModems(tecnico: yo, servicio: _servicio, nombresZonas: _nombresZonas)),
+      ),
+      OpcionMenu.finanzas => _opcion(
+        Icons.query_stats_rounded,
+        t.menuResumenFinanzas,
+        () => _ir((_) => PantallaFinanzas(servicio: _servicio, nombresZonas: _nombresZonas)),
+      ),
+      OpcionMenu.porAutorizar => _opcion(
+        Icons.pending_actions_rounded,
+        t.menuPorAutorizar,
+        () => _ir((_) => PantallaPorAutorizar(tecnico: yo, servicio: _servicio, nombresZonas: _nombresZonas)),
+      ),
+      OpcionMenu.comisiones => _opcion(
+        Icons.savings_rounded,
+        t.menuComisiones,
+        () => _ir((_) => PantallaComisiones(servicio: _servicio, nombresZonas: _nombresZonas)),
+      ),
+      OpcionMenu.ips => _opcion(Icons.lan_rounded, t.menuIps, _verIps),
+    };
+    final (icono, nombre) = (
+      {
+        GrupoMenu.ordenesTrabajo: Icons.assignment_rounded,
+        GrupoMenu.nuevosServicios: Icons.add_home_work_rounded,
+        GrupoMenu.cancelados: Icons.block_rounded,
+        GrupoMenu.recuperarModem: Icons.inventory_2_outlined,
+        GrupoMenu.finanzas: Icons.account_balance_wallet_rounded,
+        GrupoMenu.reportes: Icons.bar_chart_rounded,
+        GrupoMenu.herramientas: Icons.handyman_rounded,
+      },
+      {
+        GrupoMenu.ordenesTrabajo: t.menuOrdenesTrabajo,
+        GrupoMenu.nuevosServicios: t.menuNuevosServicios,
+        GrupoMenu.cancelados: t.menuCancelados,
+        GrupoMenu.recuperarModem: t.menuRecuperarModem,
+        GrupoMenu.finanzas: t.menuFinanzas,
+        GrupoMenu.reportes: t.menuReportes,
+        GrupoMenu.herramientas: t.menuHerramientas,
+      },
+    );
+    return [
+      if (yo.esAdmin)
+        Padding(
+          padding: const EdgeInsets.fromLTRB(28, 8, 16, 4),
+          child: Text(
+            t.menuAdmin.toUpperCase(),
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(letterSpacing: 1.2, fontWeight: FontWeight.w700),
           ),
         ),
-      ]),
-      _grupo(Icons.bar_chart_rounded, t.menuReportes, [
-        _opcion(
-          Icons.savings_rounded,
-          t.menuComisiones,
-          () => _ir((_) => PantallaComisiones(servicio: _servicio, nombresZonas: _nombresZonas)),
-        ),
-      ]),
-      _grupo(Icons.handyman_rounded, t.menuHerramientas, [ips]),
+      for (final sec in menuPara(yo))
+        if (sec.grupo case final g?)
+          _grupo(icono[g]!, nombre[g]!, [for (final o in sec.opciones) opcion(o)])
+        else ...[
+          for (final o in sec.opciones) opcion(o),
+        ],
     ];
   }
+
+  Widget _opcionAbiertas(IconData icono, String texto, ListaAbiertas lista) => _opcion(
+    icono,
+    texto,
+    () => _ir(
+      (_) => PantallaListaAbiertas(
+        lista: lista,
+        tecnico: widget.tecnico,
+        servicio: _servicio,
+        nombresZonas: _nombresZonas,
+      ),
+    ),
+  );
+
+  Widget _opcionPorDia(IconData icono, String texto, ListaPorDia lista) => _opcion(
+    icono,
+    texto,
+    () => _ir(
+      (_) =>
+          PantallaListaPorDia(lista: lista, tecnico: widget.tecnico, servicio: _servicio, nombresZonas: _nombresZonas),
+    ),
+  );
 
   /// Grupo que se abre y cierra, con sus opciones un poco adentro.
   Widget _grupo(IconData icono, String texto, List<Widget> opciones) => Padding(

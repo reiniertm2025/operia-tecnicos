@@ -1508,4 +1508,132 @@ class TextosEs extends Textos {
   @override
   String get compExplica =>
       'Opcional, pero ayuda: con la foto la oficina completa la orden sin pedírtelo otra vez.';
+
+  @override
+  String get menuNuevosServicios => 'Nuevos Servicios';
+
+  @override
+  String get menuCancelados => 'Cancelados';
+
+  @override
+  String get menuFuturo => 'Futuro';
+
+  @override
+  String get menuNsPendientes => 'Pendientes';
+
+  @override
+  String get menuFacturaIsp => 'Eliminar factura del ISP';
+
+  @override
+  String get menuNsHistorico => 'Histórico';
+
+  @override
+  String get menuNcNuevos => 'Nuevos Servicios';
+
+  @override
+  String get menuTvCable => 'TV Cable';
+
+  @override
+  String get menuTvDoblePlay => 'TV Doble Play';
+
+  @override
+  String get menuDefinitivos => 'Definitivos';
+
+  @override
+  String get menuTemporales => 'Temporales';
+
+  @override
+  String get nsAtrasado1 => 'Atrasado 1 día';
+
+  @override
+  String nsAtrasadoN(int n) {
+    return 'Atrasado $n días';
+  }
+
+  @override
+  String get nsTocaHoy => 'Toca hoy';
+
+  @override
+  String get nsManana => 'Mañana';
+
+  @override
+  String nsEnDias(int n) {
+    return 'En $n días';
+  }
+
+  @override
+  String get listaVacia => 'No hay órdenes en estas fechas.';
+
+  @override
+  String get futVacio => 'No hay órdenes para los días que vienen.';
+
+  @override
+  String get npVacio => 'No hay servicios nuevos pendientes.';
+
+  @override
+  String get defModemRecuperado => 'Módem recuperado';
+
+  @override
+  String get tcActiva => 'Activa';
+
+  @override
+  String get tcReactivada => 'Reactivada';
+
+  @override
+  String tcRegresa(String fecha) {
+    return 'Regresa el $fecha';
+  }
+
+  @override
+  String tcRecogerModem(String modem) {
+    return 'Recoger módem: $modem';
+  }
+
+  @override
+  String get tcVencida => 'Ya toca regresar';
+
+  @override
+  String get tcPronto => 'Regresa pronto';
+
+  @override
+  String get tcVacio => 'No hay cancelaciones temporales en estas fechas.';
+
+  @override
+  String get ifaExplica =>
+      'Servicios nuevos ya instalados que pagaron al instalarse: hay que eliminar en el ISP la factura de su primer pago para que no les suspendan el servicio.';
+
+  @override
+  String ifaFactura(String fecha) {
+    return 'Factura del ISP: $fecha';
+  }
+
+  @override
+  String ifaPago(String de, String a) {
+    return 'Pago del $de al $a';
+  }
+
+  @override
+  String get ifaMarcar => 'Ya la eliminé';
+
+  @override
+  String get ifaDeshacer => 'Deshacer';
+
+  @override
+  String get ifaHecha => 'Completado';
+
+  @override
+  String get ifaPendientes => 'Pendientes';
+
+  @override
+  String get ifaHechas => 'Completadas';
+
+  @override
+  String get ifaVacio => 'No hay facturas por eliminar en estas fechas.';
+
+  @override
+  String get ifaSinFechas =>
+      'No hay Fechas de pago: se configuran en la web, en Sistema › Fechas de pago.';
+
+  @override
+  String get ifaGuardada => 'Marcada como eliminada en el ISP.';
 }
