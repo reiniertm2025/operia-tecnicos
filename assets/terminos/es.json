@@ -1,0 +1,57 @@
+{
+  "version": "2026-11-02",
+  "intro": "Estos términos explican cómo se usa la app Operia Técnicos. Léelos con calma: para entrar a la app necesitas aceptarlos. Si algo no te queda claro, pregunta en la oficina antes de aceptar.",
+  "secciones": [
+    {
+      "icono": "app",
+      "titulo": "Para qué es la app",
+      "texto": "Operia Técnicos es una herramienta de trabajo de la empresa. Sirve para ver, aceptar y completar las órdenes de trabajo, registrar cobros y apartar IPs. Usa la misma información que la web de la oficina: lo que haces aquí lo ve la oficina al momento."
+    },
+    {
+      "icono": "cuenta",
+      "titulo": "Tu cuenta es personal",
+      "texto": "Tu usuario y contraseña son solo tuyos: no los prestes ni los compartas. Todo lo que se haga con tu cuenta queda a tu nombre. Si pierdes el teléfono o crees que alguien conoce tu contraseña, avisa a la oficina de inmediato. La empresa puede desactivar tu acceso en cualquier momento."
+    },
+    {
+      "icono": "uso",
+      "titulo": "Uso correcto",
+      "texto": "Usa la app solo para tu trabajo. La información que registras debe ser real: el estado de la orden, tus comentarios, lo que cobraste y cómo te pagó el cliente. No marques como terminada una orden que no hiciste ni registres datos falsos."
+    },
+    {
+      "icono": "datos",
+      "titulo": "Datos de los clientes",
+      "texto": "Verás nombres, teléfonos, direcciones y ubicaciones de clientes. Son confidenciales: úsalos solo para atender el servicio. No los compartas, no les tomes capturas para enviarlas a otras personas y no los guardes fuera de la app. Su cuidado está protegido por la ley de protección de datos personales."
+    },
+    {
+      "icono": "cobros",
+      "titulo": "Cobros",
+      "texto": "Registra en la app exactamente lo que cobraste. El dinero en efectivo se entrega a la oficina como indique la empresa. Los cobros pendientes o sin costo los revisa y autoriza la oficina. Un cobro registrado de forma incorrecta puede generar descuentos o medidas internas."
+    },
+    {
+      "icono": "red",
+      "titulo": "IPs y equipo de red",
+      "texto": "Aparta solo las IPs que vayas a usar y libéralas si al final no las usaste. No cambies la configuración de la red ni de los equipos sin autorización de la empresa."
+    },
+    {
+      "icono": "registro",
+      "titulo": "Qué queda registrado",
+      "texto": "La app guarda quién hizo cada cambio y cuándo: aceptar, empezar y terminar órdenes, cobros, comentarios e IPs apartadas. También guarda la fecha en que aceptaste estos términos. Esta información la usa la empresa para su control interno."
+    },
+    {
+      "icono": "equipo",
+      "titulo": "Tu teléfono e internet",
+      "texto": "La app usa los datos o el wifi de tu teléfono. Si no hay señal, algunos cambios se guardan en el teléfono y se envían solos cuando vuelve el internet; aceptar órdenes y apartar IPs sí necesitan internet. Mantén la app actualizada con la versión que te dé la oficina."
+    },
+    {
+      "icono": "cambios",
+      "titulo": "Cambios a estos términos",
+      "texto": "La empresa puede cambiar estos términos. Cuando cambien, la app te los mostrará de nuevo y tendrás que aceptarlos para seguir usándola."
+    },
+    {
+      "icono": "faltas",
+      "titulo": "Si no se cumplen",
+      "texto": "No cumplir estos términos puede llevar a la suspensión de tu acceso a la app y a las medidas que marque el reglamento de la empresa."
+    }
+  ],
+  "cierre": "Al tocar «Aceptar y entrar» confirmas que leíste estos términos y que los aceptas."
+}

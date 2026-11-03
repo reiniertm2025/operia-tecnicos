@@ -1,0 +1,25 @@
+# SOLO MIRAR con la sesión del administrador ya abierta: Finanzas › Resumen y Reportes › Pago de comisiones.
+# No cambia nada. Correr: maestro test .maestro/admin-finanzas-solo-mirar.yaml --test-output-dir build/maestro
+appId: com.operia.operia_tecnicos
+---
+- launchApp
+- assertNotVisible: "Entrar|Sign in"
+- extendedWaitUntil:
+    visible: "(?s).*(Pendientes|Pending)\n.*"
+    timeout: 20000
+- tapOn: "Abrir el men. de navegaci.n|Open navigation menu"
+- tapOn: "Finanzas|Finance"
+- tapOn: "Resumen|Summary"
+- extendedWaitUntil:
+    visible: "Ingresos de servicios|Service income"
+    timeout: 20000
+- takeScreenshot: f1-finanzas
+- back
+- tapOn: "Abrir el men. de navegaci.n|Open navigation menu"
+- tapOn: "Reportes|Reports"
+- tapOn: "Pago de comisiones|Commission payments"
+- extendedWaitUntil:
+    visible: "(?s).*(comisionistas|commissioners).*"
+    timeout: 20000
+- takeScreenshot: f2-comisiones
+- back

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- azul marino del ícono y de la pantalla de entrada (marca de Operia) -->
+    <color name="operia_marino">#0B1630</color>
+</resources>

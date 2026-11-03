@@ -1,0 +1,9 @@
+# Prueba mínima: abre la app y comprueba que arranca (entrada o pantalla principal). No cambia datos.
+# Correr con el teléfono conectado por wifi (adb): maestro test .maestro/abrir-app.yaml
+# No usar clearState: borraría la sesión guardada en el teléfono.
+appId: com.operia.operia_tecnicos
+---
+- launchApp
+- extendedWaitUntil:
+    visible: "Operia Técnicos|Entrar|Pendientes|Operia Technicians|Sign in|Pending"
+    timeout: 15000

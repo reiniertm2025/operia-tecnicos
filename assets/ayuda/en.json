@@ -1,0 +1,336 @@
+{
+  "manual": [
+    {
+      "titulo": "Signing in",
+      "pasos": [
+        "Enter the username and password the office gave you (the same ones in «App users» on the web).",
+        "You stay signed in on this phone: next time you go straight in.",
+        "With «Remember username and password» checked, your details are already filled in after signing out. They are stored encrypted only on this phone; uncheck it if the phone is shared.",
+        "If you see «Your user has no access to the app», ask the office to enable it."
+      ]
+    },
+    {
+      "titulo": "Terms and conditions",
+      "pasos": [
+        "The first time you sign in, and whenever they change, the app shows you the terms and conditions.",
+        "Scroll to the end, check «I have read and accept» and tap «Accept and enter». If you do not accept them, you cannot use the app.",
+        "The date you accepted them is stored in your profile. You can read them again in the menu (☰) → «Terms and conditions»."
+      ]
+    },
+    {
+      "titulo": "The main screen",
+      "pasos": [
+        "At the top you see your greeting, the date and how many orders are pending, in progress and done today. Tap a total to go to that list.",
+        "When you scroll down the list, the header shrinks to leave more room."
+      ]
+    },
+    {
+      "titulo": "The bottom menu",
+      "pasos": [
+        "Pending: orders not done yet. Those with no technician in your locations can be accepted.",
+        "In progress: the orders you are working on.",
+        "Done: orders completed today.",
+        "History: all your orders, newest first. Tap «Show more» to see older ones.",
+        "Above the history choose the dates: All, Today, This week, This month, Last month or «Choose dates» to pick a range in the calendar (it searches by the day the order was created, like the web).",
+        "The number on each button tells how many orders there are.",
+        "Above each list there is a search box: type the customer, folio, phone, address, service, technician or location. In History it searches the orders already loaded; tap «Show more» to search older ones."
+      ]
+    },
+    {
+      "titulo": "Filtering by location",
+      "pasos": [
+        "Your locations are shown below the header. Tap one to see only its orders, or «All» to see everything.",
+        "Each user's locations are chosen on the web, in «App users»."
+      ]
+    },
+    {
+      "titulo": "Working on an order",
+      "pasos": [
+        "Tap an order to see its details. «Call» dials the customer and «Open map» opens Google Maps.",
+        "«Accept order»: the order is assigned to you and moves to «In progress». The office sees it on the web right away.",
+        "«Start» saves the time you began the job.",
+        "Write what you did in «My comments» and tap «Save comments».",
+        "When finished tap «I'm done». Repairs, cancellations and services with no charge are completed.",
+        "If the order has a charge, the Payment screen opens: 1) select what was charged (for «Otros» and «Reconexión» enter the amount and a comment); 2) choose how the customer paid.",
+        "Cash: the order is completed. Transfer: the office uploads the receipt and completes it. Payment pending or No charge: the office approves it on the web; meanwhile the order shows «To approve».",
+        "You can save without signal too: changes are sent automatically when internet is back (accepting an order does need internet)."
+      ]
+    },
+    {
+      "titulo": "Create orders",
+      "pasos": [
+        "Tap «New order» (bottom right). Enter the customer and the address. The phone is optional: tap the flag to choose the country (its code appears) and type the number.",
+        "Location: tap «Use my location» if you are at the address, or paste the coordinates or a Google Maps link.",
+        "Choose the location and the service: all the web services appear. Each service asks for its data, as on the web: new service (plan, TVs and who brought it with their commission), permanent cancellation (reason and modem), temporary cancellation (whether the modem is picked up or the return date) and Double Play TV cancellation (modem).",
+        "Choose the day and time. The order arrives without a technician: the first one who accepts it takes it.",
+        "The folio is set automatically, as on the web (for example 042-TECO). Technicians and administrators create orders; view-only users can only look."
+      ]
+    },
+    {
+      "titulo": "New order alerts",
+      "pasos": [
+        "When you sign in, the app asks permission to show notifications and to not be limited by battery saving: accept both.",
+        "An ongoing notice «Watching for new orders» stays at the top with how many pending orders you have. While it is there, the app alerts with sound even when closed, even after restarting the phone.",
+        "It alerts you when a new order arrives in your locations or when one is assigned to you. Tap the alert to open the app.",
+        "When you sign out the ongoing notice is removed."
+      ]
+    },
+    {
+      "titulo": "Materials when finishing",
+      "pasos": [
+        "If the service uses materials (the office sets it in System › Services), tapping «Done» opens the «Materials» window, same as on the web.",
+        "Modem installed: starts on «None». If you installed one, tap its type (for example Double Play modem) and choose the model.",
+        "Supplies: the service ones come filled in (or your locality average). Change the quantity if you used another, add or remove. If none were used, turn off «Uses supplies».",
+        "Tap «Continue» and go on as usual (payment or finish). What you mark comes out of the office inventory."
+      ]
+    },
+    {
+      "titulo": "Map of the day",
+      "pasos": [
+        "Menu (☰) → «Map of the day»: your orders for today (and overdue ones) on the map. Yellow = pending, purple = in progress, green = done today.",
+        "Tap a pin to see the order; tap the card to open it. At the top choose Streets or Satellite; the right button shows all again."
+      ]
+    },
+    {
+      "titulo": "Prospects",
+      "pasos": [
+        "Menu (☰) → «Prospects»: possible new-service customers, same as on the web.",
+        "«New prospect»: name, phone, address, location (or «Use my location»), locality, who found them, installation date, comment and photo. Nothing is required.",
+        "The red light means the installation is today (or overdue); yellow means tomorrow.",
+        "«Create order» opens a new order already filled in (new service, commissioner and comment). Once created, the prospect moves to «Assigned»."
+      ]
+    },
+    {
+      "titulo": "Incomplete orders",
+      "pasos": [
+        "If you completed an order but something is pending (for example, the right modem is missing), in the order tap «Mark incomplete», choose the return date and write what is missing.",
+        "Menu (☰) → «Incomplete»: overdue, today and upcoming.",
+        "When it is solved, in the order tap «Resolve»."
+      ]
+    },
+    {
+      "titulo": "Modems to recover",
+      "pasos": [
+        "In the menu (☰) → «Modems to recover» you see customers who cancelled and the modem to bring back (Internet or Double Play) in your localities.",
+        "A commissioner (System › Commissioners on the web) picks up the modem and earns the commission. The administrator assigns it with «Assign».",
+        "When it is brought back, the administrator taps «I recovered it». The office sees it right away and the commission starts counting.",
+        "Use Call and the map to reach the customer."
+      ]
+    },
+    {
+      "titulo": "Free IPs",
+      "pasos": [
+        "In the menu (☰) → «Free IPs» you see the IPs the office published for your locations, based on the router.",
+        "At the top choose what to see: Free, Taken, Mine (the ones you reserved) or All. Below, choose the VLAN and pick one or more segments; you can also search an IP.",
+        "«Reserve»: the IP is marked as taken under your name so nobody else uses it. The web shows «Taken · your name · from the app».",
+        "With the copy button you pass the IP to the customer's device without typing it.",
+        "«Release»: if you did not use it after all, it becomes free again. Only whoever reserved it or an administrator can release it.",
+        "Reserving needs internet: that way two technicians never end up with the same IP."
+      ]
+    },
+    {
+      "titulo": "Administrators",
+      "soloAdmin": true,
+      "pasos": [
+        "They see orders from all locations and all technicians; each card shows the technician.",
+        "History shows all orders; with the filter, those of one location."
+      ]
+    },
+    {
+      "titulo": "Edit and delete (administrators)",
+      "soloAdmin": true,
+      "pasos": [
+        "In the details of any order, the menu (⋮) at the top has «Edit» and «Delete», in any status.",
+        "When editing you change the customer data, location, location area (the folio letters change, as on the web), the service with its data and the day. The technician is not changed here.",
+        "«Delete» sends the order to the web Trash: it can be restored there for 30 days."
+      ]
+    },
+    {
+      "titulo": "Admin menu and Dashboard",
+      "soloAdmin": true,
+      "pasos": [
+        "In the menu (☰) administrators have the «Administration» section, organized like the web menu: Dashboard, Work orders, Modem recovery, Finance, Reports and Tools. Tap a group to open it.",
+        "Dashboard: how much was collected, how many requests came in, how many were completed, open ones, service time, new services, pending payments, postponed and cancelled. Arrows compare with the previous days (green = better, red = worse).",
+        "Choose the period (Today, This week, This month, Last month) and, at the top, the locality. Below are the daily chart, where requests stand, and the numbers by locality and by technician. Tap a bar in the chart to see its numbers.",
+        "Numbers are read once when you open it; pull the screen down to refresh them.",
+        "Finance › To authorize: «pending payment» or «no charge» payments waiting for authorization. They are authorized on the web (Finance › Pending payments)."
+      ]
+    },
+    {
+      "titulo": "Finance (administrators)",
+      "soloAdmin": true,
+      "pasos": [
+        "Menu (☰) → Finance → «Summary»: income (service income and order payments), expenses (expenses and commissions) and the period result.",
+        "Choose the period and, at the top, the locality. It is a summary of the web Financial statement: salaries and materials are on the web.",
+        "Finance → «To authorize»: payments waiting for your authorization (authorized on the web)."
+      ]
+    },
+    {
+      "titulo": "Commission payments (administrators)",
+      "soloAdmin": true,
+      "pasos": [
+        "Menu (☰) → Reports → «Commission payments»: what each commissioner earns in the period, same as on the web.",
+        "It counts installations they brought in (completed), modems they recovered and those from ISP imports.",
+        "At the top: total, still to hand over and already handed over. Commissions are handed over from the web."
+      ]
+    },
+    {
+      "titulo": "Language and appearance",
+      "pasos": [
+        "In the menu (☰) → «Language» choose Español, English or the phone language.",
+        "In the menu (☰) → «Appearance» choose Light, Dark or Automatic (changes on its own, like the phone)."
+      ]
+    }
+  ],
+  "novedades": [
+    {
+      "version": "1.9.0",
+      "fecha": "2026-11-03",
+      "cambios": [
+        "Map of the day: today's orders on the map, colored by status; streets or satellite, as on the web.",
+        "Prospects: possible customers with photo, location, locality, who found them and installation date (red light if today, yellow if tomorrow). «Create order» opens a new order with their data.",
+        "Incomplete: mark a completed order that left something pending, with a return date and reason; see them in the menu with their light and resolve them from the order."
+      ]
+    },
+    {
+      "version": "1.8.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Admin menu in groups, like the web: Dashboard, Work orders, Modem recovery, Finance, Reports and Tools.",
+        "Dashboard: income, requests, completed, service time, new services, pending payment, postponed and cancelled, with arrows against the previous period, a daily chart and numbers by locality and technician.",
+        "To authorize: the list of payments waiting for office authorization.",
+        "Notification when the office moves an in-progress order back to «pending».",
+        "Notifications only arrive for the localities the user has checked (administrators too). With none checked, for all of them.",
+        "Finance (administrators): summary of income, payments, expenses, commissions and period result, by locality.",
+        "Commission payments (administrators): what each commissioner earns. Commissions belong to commissioners, not to app users.",
+        "Modems to recover: the administrator assigns them to a commissioner (no more «I will take it»).",
+        "Materials when finishing: installed modem and supplies, as on the web, depending on the service.",
+        "Date filter on every screen with a period (Dashboard, Finance, Commission payments and History): today, week, month, last month or «Choose dates».",
+        "Commission payments: filter by locality and by commissioner (or all), with totals."
+      ]
+    },
+    {
+      "version": "1.7.1",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Phone from any country: flag, country code and number validated as on the web. It is no longer required.",
+        "When creating an order all the web services appear, with their data: new service, permanent, temporary and TV cancellation.",
+        "New orders arrive without a technician: the first one who accepts it takes it."
+      ]
+    },
+    {
+      "version": "1.7.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "New «Modems to recover» section: «I take it» and «I recovered it», with the commission you earn.",
+        "New «My commissions» section: installations and modems in the period, to be paid and paid."
+      ]
+    },
+    {
+      "version": "1.6.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Create orders from the app (technicians and administrators), with automatic folio and «Use my location».",
+        "Administrators can edit and delete orders in any status (deleting sends them to the web Trash).",
+        "View-only users can only look: no buttons to change orders."
+      ]
+    },
+    {
+      "version": "1.5.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "New order alerts: notification with sound when an order arrives in your locations or is assigned to you, even when the app is closed.",
+        "Ongoing notice «Watching for new orders» with how many pending orders you have.",
+        "Locations appear in the same order as on the web (System › Locations)."
+      ]
+    },
+    {
+      "version": "1.4.2",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Search box in Pending, In progress, Done and History: by customer, folio, phone, address, service, technician or location."
+      ]
+    },
+    {
+      "version": "1.4.1",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "History: search by date range (Today, This week, This month, Last month or any dates you pick in the calendar)."
+      ]
+    },
+    {
+      "version": "1.4.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Terms and conditions: they must be accepted the first time you enter the app (and whenever they change).",
+        "They can be read again in the menu (☰) → «Terms and conditions»."
+      ]
+    },
+    {
+      "version": "1.3.1",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Free IPs: first choose the VLAN, then pick one or more segments.",
+        "Large totals now fit in their boxes and the IP always shows on one line.",
+        "When scrolling down, the header fades out and no longer overlaps the locations."
+      ]
+    },
+    {
+      "version": "1.3.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "New «Free IPs» section in the menu (☰): the IPs the office publishes for your locations.",
+        "Reserve the IP you are going to use and release it if you did not use it; the web sees it right away («from the app»).",
+        "Free, Taken, Mine and All filters, search by IP or segment and a button to copy the IP."
+      ]
+    },
+    {
+      "version": "1.2.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "«I'm done» now records the payment just like the web: what was charged and how the customer paid.",
+        "Cash completes the order; Transfer, Payment pending and No charge go to the office.",
+        "New «To approve» label while the office reviews a pending or no-charge payment."
+      ]
+    },
+    {
+      "version": "1.1.2",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "New design: blue header with your greeting and today's totals, which shrinks as you scroll.",
+        "Cards with shadows, a strip in the status color and a service-type icon; they appear one after another and sink when tapped.",
+        "The order details have big Call and Map buttons, data organized with icons and the main action fixed at the bottom.",
+        "Smooth transitions between screens and tabs; while loading, sample cards are shown instead of a spinner.",
+        "New «Appearance» option in the menu (☰): Automatic, Light or Dark."
+      ]
+    },
+    {
+      "version": "1.1.1",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "«Remember username and password» checkbox on the sign-in screen (stored encrypted on the phone).",
+        "The clock and icons at the top are white on the sign-in screen."
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Bottom menu: Pending, In progress, Done today and History.",
+        "Location filter, with «All».",
+        "Administrators see all locations and who each order belongs to.",
+        "Accept orders with no technician in your locations (they move to «In progress»).",
+        "The app is now in Spanish and English.",
+        "New sign-in screen with the web's animated background.",
+        "Help, manual and what's new in the menu (☰)."
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "First version: sign in with the app user, see my orders, call the customer, open the map, start, comment and finish."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,336 @@
+{
+  "manual": [
+    {
+      "titulo": "Entrar a la app",
+      "pasos": [
+        "Escribe el usuario y la contraseña que te dio la oficina (los mismos de «Usuarios app» en la web).",
+        "La sesión queda abierta en el teléfono: la próxima vez entras directo.",
+        "Con «Recordar usuario y contraseña» marcada, al cerrar sesión tus datos ya quedan escritos. Se guardan cifrados solo en este teléfono; desmárcala si el teléfono es compartido.",
+        "Si sale «Tu usuario no tiene acceso a la app», pide a la oficina que lo active."
+      ]
+    },
+    {
+      "titulo": "Términos y condiciones",
+      "pasos": [
+        "La primera vez que entras, y cada vez que cambien, la app te muestra los términos y condiciones.",
+        "Desliza hasta el final, marca «Leí y acepto» y toca «Aceptar y entrar». Si no los aceptas, no puedes usar la app.",
+        "La fecha en que los aceptaste queda guardada en tu ficha. Puedes volver a leerlos en el menú (☰) → «Términos y condiciones»."
+      ]
+    },
+    {
+      "titulo": "La pantalla principal",
+      "pasos": [
+        "Arriba ves tu saludo, la fecha y cuántas órdenes hay pendientes, en proceso y culminadas hoy. Toca un total para ir a esa lista.",
+        "Al bajar en la lista, el encabezado se hace pequeño para dejar más espacio."
+      ]
+    },
+    {
+      "titulo": "El menú de abajo",
+      "pasos": [
+        "Pendientes: órdenes sin hacer. Las que no tienen técnico en tus localidades las puedes aceptar.",
+        "En proceso: las órdenes que estás atendiendo.",
+        "Culminadas: las que se completaron hoy.",
+        "Historial: todas tus órdenes, de la más nueva a la más vieja. Toca «Ver más» para ver las anteriores.",
+        "Arriba del historial eliges las fechas: Todas, Hoy, Esta semana, Este mes, Mes anterior o «Elegir fechas» para escoger un rango en el calendario (se busca por el día en que se creó la orden, como en la web).",
+        "El número en cada botón dice cuántas órdenes hay.",
+        "Arriba de cada lista hay un buscador: escribe el cliente, folio, teléfono, dirección, servicio, técnico o localidad. En Historial busca en las órdenes ya cargadas; toca «Ver más» para buscar en las anteriores."
+      ]
+    },
+    {
+      "titulo": "Filtrar por localidad",
+      "pasos": [
+        "Bajo el encabezado salen tus localidades. Toca una para ver solo sus órdenes, o «Todas» para verlas todas.",
+        "Las localidades de cada usuario se eligen en la web, en «Usuarios app»."
+      ]
+    },
+    {
+      "titulo": "Atender una orden",
+      "pasos": [
+        "Toca una orden para ver sus datos. Con «Llamar» marcas al cliente y con «Ver en mapa» abres Google Maps.",
+        "«Aceptar orden»: la orden queda a tu nombre y pasa a «En proceso». La oficina lo ve al momento en la web.",
+        "«Empezar» guarda la hora en que comenzaste el trabajo.",
+        "Escribe lo que hiciste en «Mis comentarios» y toca «Guardar comentarios».",
+        "Al acabar toca «Terminé». Las reparaciones, bajas y servicios que no cobran quedan completadas.",
+        "Si la orden lleva cobro, se abre el Cobro: 1) marca lo que se cobró (en «Otros» y «Reconexión» escribe el importe y un comentario); 2) elige cómo pagó el cliente.",
+        "Efectivo: la orden queda completada. Transferencia: la oficina sube el comprobante y la completa. Pendiente de pago o Sin costo: la oficina lo autoriza en la web; mientras, la orden dice «Por autorizar».",
+        "Sin señal también puedes guardar: los cambios se envían solos cuando vuelve el internet (aceptar una orden sí necesita internet)."
+      ]
+    },
+    {
+      "titulo": "Crear órdenes",
+      "pasos": [
+        "Toca «Nueva orden» (abajo a la derecha). Escribe el cliente y la dirección. El teléfono es opcional: toca la bandera para elegir el país (sale su lada) y escribe el número.",
+        "Ubicación: toca «Usar mi ubicación» si estás en el domicilio, o pega las coordenadas o un enlace de Google Maps.",
+        "Elige la localidad y el servicio: salen todos los de la web. Según el servicio se piden sus datos, igual que en la web: servicio nuevo (plan, televisiones y quién lo consiguió con su comisión), cancelación definitiva (motivo y módem), cancelación temporal (si se recoge el módem o la fecha de regreso) y cancelación de TV Doble Play (módem).",
+        "Elige el día y la hora. La orden llega sin técnico: el primero que la acepta se la queda.",
+        "El folio se pone solo, igual que en la web (por ejemplo 042-TECO). Los técnicos y administradores crean órdenes; los usuarios de consulta solo ven."
+      ]
+    },
+    {
+      "titulo": "Avisos de órdenes nuevas",
+      "pasos": [
+        "Al entrar, la app pide permiso para mostrar notificaciones y para no ser frenada por el ahorro de batería: acepta los dos.",
+        "Arriba queda un aviso fijo «Atento a órdenes nuevas» con cuántas pendientes tienes. Mientras esté, la app avisa con sonido aunque esté cerrada, incluso después de reiniciar el teléfono.",
+        "Te avisa cuando llega una orden nueva a tus localidades o cuando te asignan una. Toca el aviso para abrir la app.",
+        "Al cerrar sesión el aviso fijo se quita."
+      ]
+    },
+    {
+      "titulo": "Materiales al terminar",
+      "pasos": [
+        "Si el servicio lleva materiales (lo marca la oficina en Sistema › Servicios), al tocar «Terminé» sale la ventana «Materiales», igual que en la web.",
+        "Módem instalado: viene en «Ninguno». Si instalaste uno, toca su tipo (por ejemplo Modem Doble Play) y elige el modelo.",
+        "Insumos: ya vienen los del servicio (o el promedio de tu localidad). Cambia la cantidad si usaste otra, agrega o quita. Si no usaste, apaga «Lleva insumos».",
+        "Toca «Continuar» y sigue como siempre (cobro o terminar). Lo que marques sale del inventario de la oficina."
+      ]
+    },
+    {
+      "titulo": "Mapa del día",
+      "pasos": [
+        "Menú (☰) → «Mapa del día»: tus órdenes de hoy (y las atrasadas) en el mapa. Amarillo = pendiente, morado = en proceso, verde = culminada hoy.",
+        "Toca un punto para ver la orden; toca la tarjeta para abrirla. Arriba eliges Calles o Satélite y el botón de la derecha vuelve a mostrarlas todas."
+      ]
+    },
+    {
+      "titulo": "Prospectos",
+      "pasos": [
+        "Menú (☰) → «Prospectos»: los posibles clientes de un servicio nuevo, igual que en la web.",
+        "«Nuevo prospecto»: nombre, teléfono, dirección, ubicación (o «Usar mi ubicación»), localidad, quién lo prospectó, fecha de instalación, comentario y foto. Nada es obligatorio.",
+        "La luz roja dice que la instalación es hoy (o ya pasó); la amarilla, que es mañana.",
+        "«Crear orden» abre la orden nueva ya llena (servicio nuevo, comisionista y comentario). Al crearla, el prospecto pasa a «Asignados»."
+      ]
+    },
+    {
+      "titulo": "Órdenes inconclusas",
+      "pasos": [
+        "Si completaste una orden pero quedó algo pendiente (por ejemplo, falta el módem correcto), en la orden toca «Marcar inconclusa», elige la fecha de regreso y escribe qué falta.",
+        "Menú (☰) → «Inconclusas»: las atrasadas, las de hoy y las próximas.",
+        "Cuando quede resuelta, en la orden toca «Resolver»."
+      ]
+    },
+    {
+      "titulo": "Módems por recuperar",
+      "pasos": [
+        "En el menú (☰) → «Módems por recuperar» ves los clientes que cancelaron y el módem que hay que traer (Internet o Doble Play) de tus localidades.",
+        "El módem lo recupera un comisionista (Sistema › Comisionistas de la web): él cobra la comisión. El administrador lo asigna con «Asignar».",
+        "Cuando lo traigan, el administrador toca «Ya lo recuperé». La oficina lo ve al momento y la comisión empieza a contar.",
+        "Con Llamar y el mapa se llega al cliente."
+      ]
+    },
+    {
+      "titulo": "IPs libres",
+      "pasos": [
+        "En el menú (☰) → «IPs libres» ves las IPs que la oficina publicó para tus localidades, según el router.",
+        "Arriba eliges qué ver: Libres, Ocupadas, Mías (las que apartaste tú) o Todas. Abajo escoges la VLAN y marcas uno o varios segmentos; también puedes buscar una IP.",
+        "«Apartar»: la IP queda ocupada a tu nombre para que nadie más la use. En la web sale «Ocupada · tu nombre · desde la app».",
+        "Con el botón de copiar pasas la IP al equipo del cliente sin escribirla.",
+        "«Liberar»: si al final no la usaste, vuelve a quedar libre. Solo la libera quien la apartó o un administrador.",
+        "Apartar necesita internet: así nunca dos técnicos se quedan con la misma IP."
+      ]
+    },
+    {
+      "titulo": "Administradores",
+      "soloAdmin": true,
+      "pasos": [
+        "Ven las órdenes de todas las localidades y de todos los técnicos; cada tarjeta muestra el técnico.",
+        "El historial muestra todas las órdenes; con el filtro, las de una localidad."
+      ]
+    },
+    {
+      "titulo": "Editar y eliminar (administradores)",
+      "soloAdmin": true,
+      "pasos": [
+        "En el detalle de cualquier orden, el menú (⋮) de arriba tiene «Editar» y «Eliminar», en cualquier estado.",
+        "Al editar cambias los datos del cliente, la ubicación, la localidad (el folio cambia sus letras, como en la web), el servicio con sus datos y el día. El técnico no se cambia aquí.",
+        "«Eliminar» manda la orden a la Papelera de la web: ahí se puede restaurar durante 30 días."
+      ]
+    },
+    {
+      "titulo": "Menú del administrador y Dashboard",
+      "soloAdmin": true,
+      "pasos": [
+        "En el menú (☰) los administradores tienen la sección «Administración», ordenada como el menú de la web: Dashboard, Órdenes de trabajo, Recuperar módem, Finanzas, Reportes y Herramientas. Toca un grupo para abrirlo.",
+        "Dashboard: cuánto se cobró, cuántas solicitudes llegaron, cuántas se completaron, las abiertas, el tiempo de atención, los servicios nuevos, lo pendiente de cobro, las pospuestas y las canceladas. Las flechas comparan con los días anteriores (verde = mejora, rojo = empeora).",
+        "Elige el periodo (Hoy, Esta semana, Este mes, Mes anterior) y, arriba, la localidad. Abajo están la gráfica por día, cómo van las solicitudes, los números por localidad y por técnico. Toca una barra de la gráfica para ver sus números.",
+        "Los números se leen una vez al abrir; jala la pantalla hacia abajo para actualizarlos.",
+        "Finanzas › Por autorizar: los cobros «pendiente de pago» o «sin costo» que esperan autorización. Se autorizan en la web (Finanzas › Pendientes de pago)."
+      ]
+    },
+    {
+      "titulo": "Finanzas (administradores)",
+      "soloAdmin": true,
+      "pasos": [
+        "Menú (☰) → Finanzas → «Resumen»: entradas (ingresos de servicios y cobros de órdenes), salidas (gastos y comisiones) y el resultado del periodo.",
+        "Elige el periodo y, arriba, la localidad. Es un resumen del Estado financiero de la web: salarios y materiales se ven en la web.",
+        "Finanzas → «Por autorizar»: los cobros que esperan tu autorización (se autorizan en la web)."
+      ]
+    },
+    {
+      "titulo": "Pago de comisiones (administradores)",
+      "soloAdmin": true,
+      "pasos": [
+        "Menú (☰) → Reportes → «Pago de comisiones»: lo que gana cada comisionista en el periodo, igual que en la web.",
+        "Cuenta las instalaciones que consiguió (ya completadas), los módems que recuperó y los de Importados ISP.",
+        "Arriba sale el total, lo que falta entregar y lo ya entregado. Las comisiones se entregan desde la web."
+      ]
+    },
+    {
+      "titulo": "Idioma y apariencia",
+      "pasos": [
+        "En el menú (☰) → «Idioma» eliges Español, English o el idioma del teléfono.",
+        "En el menú (☰) → «Apariencia» eliges Claro, Oscuro o Automático (cambia solo, como el teléfono)."
+      ]
+    }
+  ],
+  "novedades": [
+    {
+      "version": "1.9.0",
+      "fecha": "2026-11-03",
+      "cambios": [
+        "Mapa del día: las órdenes de hoy en el mapa, con el color de su estado; calles o satélite, como en la web.",
+        "Prospectos: posibles clientes con foto, ubicación, localidad, quién lo prospectó y fecha de instalación (luz roja si es hoy, amarilla si es mañana). «Crear orden» abre la orden nueva con sus datos.",
+        "Inconclusas: marca una orden completada que dejó algo pendiente, con la fecha de regreso y el motivo; se ven en el menú con su semáforo y se resuelven desde la orden."
+      ]
+    },
+    {
+      "version": "1.8.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Menú del administrador en grupos, como el de la web: Dashboard, Órdenes de trabajo, Recuperar módem, Finanzas, Reportes y Herramientas.",
+        "Dashboard: ingresos, solicitudes, completadas, tiempo de atención, nuevos servicios, por cobrar, pospuestas y canceladas, con flechas contra el periodo anterior, gráfica por día y números por localidad y por técnico.",
+        "Por autorizar: la lista de cobros que esperan autorización de la oficina.",
+        "Aviso cuando la oficina regresa a «pendiente» una orden que estaba en proceso.",
+        "Los avisos llegan solo de las localidades que el usuario tiene marcadas (también a los administradores). Sin ninguna marcada, de todas.",
+        "Finanzas (administradores): resumen de ingresos, cobros, gastos, comisiones y resultado del periodo, por localidad.",
+        "Pago de comisiones (administradores): lo que gana cada comisionista. Las comisiones son de los comisionistas, no de los usuarios de la app.",
+        "Módems por recuperar: el administrador se los asigna a un comisionista (ya no hay «Me lo llevo»).",
+        "Materiales al terminar: módem instalado e insumos, como en la web, según el servicio.",
+        "Filtro de fechas en todas las pantallas con periodo (Dashboard, Finanzas, Pago de comisiones e Historial): Hoy, semana, mes, mes anterior o «Elegir fechas».",
+        "Pago de comisiones: filtro por localidad y por comisionista (o todos), con sus totales."
+      ]
+    },
+    {
+      "version": "1.7.1",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Teléfono de cualquier país: bandera, lada y número validado como en la web. Ya no es obligatorio.",
+        "Al crear una orden salen todos los servicios de la web, con sus datos: servicio nuevo, cancelación definitiva, temporal y de TV.",
+        "Las órdenes nuevas llegan sin técnico: el primero que la acepta se la queda."
+      ]
+    },
+    {
+      "version": "1.7.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Nueva sección «Módems por recuperar»: «Me lo llevo» y «Ya lo recuperé», con la comisión que ganas.",
+        "Nueva sección «Mis comisiones»: instalaciones y módems del periodo, por entregar y entregadas."
+      ]
+    },
+    {
+      "version": "1.6.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Crear órdenes desde la app (técnicos y administradores), con folio automático y «Usar mi ubicación».",
+        "Los administradores pueden editar y eliminar órdenes en cualquier estado (eliminar las manda a la Papelera de la web).",
+        "Los usuarios de consulta solo ven: sin botones para cambiar órdenes."
+      ]
+    },
+    {
+      "version": "1.5.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Avisos de órdenes nuevas: notificación con sonido cuando llega una orden a tus localidades o te asignan una, aunque la app esté cerrada.",
+        "Aviso fijo «Atento a órdenes nuevas» con cuántas órdenes pendientes tienes.",
+        "Las localidades salen en el mismo orden que en la web (Sistema › Localidades)."
+      ]
+    },
+    {
+      "version": "1.4.2",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Buscador en Pendientes, En proceso, Culminadas e Historial: por cliente, folio, teléfono, dirección, servicio, técnico o localidad."
+      ]
+    },
+    {
+      "version": "1.4.1",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Historial: búsqueda por rango de fechas (Hoy, Esta semana, Este mes, Mes anterior o las que elijas en el calendario)."
+      ]
+    },
+    {
+      "version": "1.4.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Términos y condiciones: hay que aceptarlos la primera vez que se entra a la app (y cuando cambien).",
+        "Se pueden volver a leer en el menú (☰) → «Términos y condiciones»."
+      ]
+    },
+    {
+      "version": "1.3.1",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "IPs libres: primero eliges la VLAN y después marcas uno o varios segmentos.",
+        "Los totales grandes ya caben en sus cuadros y la IP siempre se ve en un solo renglón.",
+        "Al bajar en la lista, el encabezado se desvanece y ya no se encima con las localidades."
+      ]
+    },
+    {
+      "version": "1.3.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Nueva sección «IPs libres» en el menú (☰): las IPs que publica la oficina para tus localidades.",
+        "Aparta la IP que vas a usar y libérala si no la usaste; la web lo ve al momento («desde la app»).",
+        "Filtros Libres, Ocupadas, Mías y Todas, búsqueda por IP o segmento y botón para copiar la IP."
+      ]
+    },
+    {
+      "version": "1.2.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "«Terminé» ahora registra el cobro igual que la web: qué se cobró y cómo pagó el cliente.",
+        "Efectivo completa la orden; Transferencia, Pendiente de pago y Sin costo pasan a la oficina.",
+        "Nueva etiqueta «Por autorizar» mientras la oficina revisa un cobro pendiente o sin costo."
+      ]
+    },
+    {
+      "version": "1.1.2",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Diseño nuevo: encabezado azul con tu saludo y los totales del día, que se encoge al bajar.",
+        "Tarjetas con sombra, franja del color del estado e ícono del tipo de servicio; aparecen una tras otra y se hunden al tocarlas.",
+        "El detalle de la orden tiene botones grandes de Llamar y Mapa, los datos ordenados con íconos y la acción principal fija abajo.",
+        "Transiciones suaves entre pantallas y pestañas; mientras cargan, se ven tarjetas de muestra en vez de una rueda.",
+        "Nueva opción «Apariencia» en el menú (☰): Automático, Claro u Oscuro."
+      ]
+    },
+    {
+      "version": "1.1.1",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Casilla «Recordar usuario y contraseña» en la entrada (se guardan cifrados en el teléfono).",
+        "La hora y los íconos de arriba se ven en blanco en la entrada."
+      ]
+    },
+    {
+      "version": "1.1.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Menú de abajo: Pendientes, En proceso, Culminadas de hoy e Historial.",
+        "Filtro por localidad, con «Todas».",
+        "Los administradores ven todas las localidades y de quién es cada orden.",
+        "Aceptar órdenes sin técnico de tus localidades (pasan a «En proceso»).",
+        "La app ya está en español e inglés.",
+        "Nueva pantalla de entrada con el fondo animado de la web.",
+        "Ayuda, manual y novedades en el menú (☰)."
+      ]
+    },
+    {
+      "version": "1.0.0",
+      "fecha": "2026-11-02",
+      "cambios": [
+        "Primera versión: entrar con el usuario de la app, ver mis órdenes, llamar al cliente, abrir el mapa, empezar, comentar y terminar."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(flutter analyze *)",
+      "Bash(flutter analyze)",
+      "Bash(flutter test *)",
+      "Bash(flutter test)",
+      "Bash(flutter build apk *)",
+      "Bash(flutter pub get)",
+      "Bash(flutter doctor *)",
+      "Bash(dart format *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(grep *)",
+      "Bash(ls *)",
+      "Bash(wc *)",
+      "Bash(sed -n *)",
+      "Bash(head *)",
+      "Bash(tail *)"
+    ],
+    "deny": [
+      "Read(./**/*.jks)",
+      "Read(./android/key.properties)",
+      "Bash(git add -A*)",
+      "Bash(git add .)",
+      "Bash(git add --all*)"
+    ],
+    "ask": [
+      "Bash(git push *)"
+    ]
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1085454478818",
+    "project_id": "cabletech-81e62",
+    "storage_bucket": "cabletech-81e62.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085454478818:android:dc10530f612c6add82ddbb",
+        "android_client_info": {
+          "package_name": "com.elegantosstudio.cabletech_services"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA88DdbH156sQ6Wk75vWwdZIK4Pe-JFvDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1085454478818:android:16e3a542126769d282ddbb",
+        "android_client_info": {
+          "package_name": "com.operia.operia_tecnicos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA88DdbH156sQ6Wk75vWwdZIK4Pe-JFvDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

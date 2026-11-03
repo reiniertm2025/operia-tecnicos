@@ -1,0 +1,887 @@
+{
+  "@@locale": "es",
+  "appTitulo": "Operia Técnicos",
+  "conectando": "Conectando",
+  "tuMundo": "tu mundo",
+  "loginSubtitulo": "Atiende tus órdenes de trabajo desde donde estés.",
+  "loginInstruccion": "Entra con el usuario y la contraseña que te dio la oficina.",
+  "usuario": "Usuario",
+  "contrasena": "Contraseña",
+  "verContrasena": "Ver contraseña",
+  "ocultarContrasena": "Ocultar contraseña",
+  "entrar": "Entrar",
+  "recordarDatos": "Recordar usuario y contraseña",
+  "errFaltanDatos": "Escribe tu usuario y tu contraseña.",
+  "errDatosIncorrectos": "Usuario o contraseña incorrectos.",
+  "errTipoDesconocido": "Tipo de contraseña desconocido ({detalle}). Habla con la oficina.",
+  "@errTipoDesconocido": {
+    "placeholders": {
+      "detalle": {
+        "type": "String"
+      }
+    }
+  },
+  "errSinAccesoApp": "Tu usuario no tiene acceso a la app. Pídeselo a la oficina.",
+  "errCuentaDesactivada": "Tu cuenta está desactivada. Habla con la oficina.",
+  "errDemasiadosIntentos": "Demasiados intentos seguidos. Espera unos minutos y vuelve a intentar.",
+  "errSinInternet": "No hay conexión a internet. Revisa tus datos o el wifi.",
+  "errOtro": "No se pudo completar ({detalle}).",
+  "@errOtro": {
+    "placeholders": {
+      "detalle": {
+        "type": "String"
+      }
+    }
+  },
+  "errYaTomada": "Otro técnico ya aceptó esta orden.",
+  "errSinPermiso": "No tienes permiso para cambiar esta orden. Habla con la oficina.",
+  "navPendientes": "Pendientes",
+  "navEnProceso": "En proceso",
+  "navCulminadas": "Culminadas",
+  "navHistorial": "Historial",
+  "todas": "Todas",
+  "atrasadas": "Atrasadas",
+  "hoy": "Hoy",
+  "proximosDias": "Próximos días",
+  "seccion": "{titulo} ({n})",
+  "@seccion": {
+    "placeholders": {
+      "titulo": {
+        "type": "String"
+      },
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "vacioPendientes": "No hay órdenes pendientes.",
+  "vacioEnProceso": "No tienes órdenes en proceso.",
+  "vacioCulminadas": "Hoy todavía no se culmina ninguna orden.",
+  "vacioHistorial": "Todavía no hay órdenes en el historial.",
+  "errorCargar": "No se pudieron cargar las órdenes.\nRevisa tu internet.\n\n({detalle})",
+  "@errorCargar": {
+    "placeholders": {
+      "detalle": {
+        "type": "String"
+      }
+    }
+  },
+  "cargarMas": "Ver más",
+  "hola": "Hola, {nombre}",
+  "@hola": {
+    "placeholders": {
+      "nombre": {
+        "type": "String"
+      }
+    }
+  },
+  "todasLasLocalidades": "Todas las localidades",
+  "menuAyuda": "Ayuda y manual",
+  "menuNovedades": "Novedades",
+  "menuIdioma": "Idioma",
+  "idiomaAutomatico": "Automático (el del teléfono)",
+  "menuApariencia": "Apariencia",
+  "temaAutomatico": "Automático (como el teléfono)",
+  "temaClaro": "Claro",
+  "temaOscuro": "Oscuro",
+  "idiomaEspanol": "Español",
+  "idiomaIngles": "English",
+  "cerrarSesion": "Cerrar sesión",
+  "cerrarSesionPregunta": "¿Cerrar sesión?",
+  "cerrarSesionTexto": "Tendrás que volver a escribir tu usuario y contraseña.",
+  "cancelar": "Cancelar",
+  "version": "Versión {v}",
+  "@version": {
+    "placeholders": {
+      "v": {
+        "type": "String"
+      }
+    }
+  },
+  "estPendiente": "Pendiente",
+  "estEnProceso": "En proceso",
+  "estCompletada": "Completada",
+  "estCancelada": "Cancelada",
+  "estFaltaCobro": "Falta cobro",
+  "sinNombre": "Sin nombre",
+  "folio": "Folio {f}",
+  "@folio": {
+    "placeholders": {
+      "f": {
+        "type": "String"
+      }
+    }
+  },
+  "orden": "Orden",
+  "sinTecnico": "Sin técnico",
+  "llamar": "Llamar",
+  "verEnMapa": "Ver en mapa",
+  "telefono": "Teléfono",
+  "direccion": "Dirección",
+  "localidad": "Localidad",
+  "servicio": "Servicio",
+  "diaServicio": "Día de servicio",
+  "descripcion": "Descripción",
+  "notaOficina": "Nota de la oficina",
+  "tecnico": "Técnico",
+  "misComentarios": "Mis comentarios",
+  "comentariosTecnico": "Comentarios del técnico",
+  "culminadaEl": "Culminada: {fecha}",
+  "@culminadaEl": {
+    "placeholders": {
+      "fecha": {
+        "type": "String"
+      }
+    }
+  },
+  "guardarComentarios": "Guardar comentarios",
+  "comentariosGuardados": "Comentarios guardados.",
+  "empezar": "Empezar",
+  "marcasteInicio": "Marcaste el inicio.",
+  "aceptarOrden": "Aceptar orden",
+  "aceptarPregunta": "¿Aceptar esta orden?",
+  "aceptarTexto": "Quedará a tu nombre y pasará a «En proceso». La oficina lo verá en la web.",
+  "aceptar": "Aceptar",
+  "ordenAceptada": "La orden ya es tuya.",
+  "termine": "Terminé",
+  "terminePregunta": "¿Terminaste el trabajo?",
+  "terminarDirecto": "La orden quedará como completada.",
+  "siTermine": "Sí, terminé",
+  "ordenCompletada": "Orden completada.",
+  "msgCancelada": "Esta orden fue cancelada.",
+  "msgCompletada": "Orden completada.",
+  "msgOtroTecnico": "Esta orden la tiene {nombre}.",
+  "@msgOtroTecnico": {
+    "placeholders": {
+      "nombre": {
+        "type": "String"
+      }
+    }
+  },
+  "otroTecnicoSinNombre": "otro técnico",
+  "sinSenal": "Sin señal: se enviará en cuanto haya internet.",
+  "noSePudoAbrir": "No se pudo abrir en este celular.",
+  "cobroTitulo": "Cobro",
+  "cobroPaso": "Paso {n} de 2",
+  "@cobroPaso": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "cobroQueSeCobro": "¿Qué se cobró?",
+  "cobroMarcaPlan": "Marca el plan que contrató {cliente}.",
+  "@cobroMarcaPlan": {
+    "placeholders": {
+      "cliente": {
+        "type": "String"
+      }
+    }
+  },
+  "cobroMarcaServicio": "Marca lo que se le cobró a {cliente}.",
+  "@cobroMarcaServicio": {
+    "placeholders": {
+      "cliente": {
+        "type": "String"
+      }
+    }
+  },
+  "elCliente": "el cliente",
+  "cobroSinConceptos": "No hay cobros registrados. Se agregan en la web, en Sistema › Cobro de servicios.",
+  "importe": "Importe",
+  "comentarioCobro": "Comentario del cobro",
+  "total": "Total",
+  "continuar": "Continuar",
+  "atras": "Atrás",
+  "completarSinCobro": "Completar sin cobro",
+  "cobroComoPago": "¿Cómo pagó el cliente?",
+  "pagoEfectivo": "Efectivo",
+  "pagoTransferencia": "Transferencia",
+  "pagoPendiente": "Pendiente de pago",
+  "pagoSinCosto": "Sin costo",
+  "notaEfectivo": "La orden quedará completada.",
+  "notaTransferencia": "Toma foto del comprobante: la oficina lo revisa en la web y completa la orden.",
+  "notaPendiente": "La orden sigue en proceso hasta que la oficina lo autorice; el cliente quedará pendiente de pago.",
+  "notaSinCosto": "No se cobra. La orden sigue en proceso hasta que la oficina lo autorice.",
+  "guardarCompletar": "Guardar y completar",
+  "enviarOficina": "Enviar a la oficina",
+  "elegirFormaPago": "Elige cómo pagó el cliente.",
+  "errImporteCobro": "Escribe un importe válido para «{nombre}».",
+  "@errImporteCobro": {
+    "placeholders": {
+      "nombre": {
+        "type": "String"
+      }
+    }
+  },
+  "errNotaCobro": "Escribe un comentario que explique el cobro de «{nombre}».",
+  "@errNotaCobro": {
+    "placeholders": {
+      "nombre": {
+        "type": "String"
+      }
+    }
+  },
+  "cobroEnviado": "Listo, se envió a la oficina.",
+  "msgPorAutorizar": "Esperando que la oficina autorice el cobro.",
+  "msgTransferencia": "La oficina revisará el comprobante de la transferencia y completará la orden.",
+  "estPorAutorizar": "Por autorizar",
+  "ayudaTitulo": "Ayuda",
+  "pestManual": "Manual",
+  "pestNovedades": "Novedades",
+  "pestAcerca": "Acerca de",
+  "acercaTexto": "App de los técnicos de Operia. Usa la misma información que la web: lo que haces aquí lo ve la oficina al momento.",
+  "versionInstalada": "Versión instalada",
+  "usuarioActual": "Usuario",
+  "rol": "Rol",
+  "menuIps": "IPs libres",
+  "ipsDescripcion": "Aparta la IP que vas a usar para que nadie más la tome.",
+  "ipsRouter": "Lista del router: {fecha}",
+  "@ipsRouter": {
+    "placeholders": {
+      "fecha": {
+        "type": "String"
+      }
+    }
+  },
+  "ipsLibres": "Libres",
+  "ipsOcupadas": "Ocupadas",
+  "ipsMias": "Mías",
+  "ipsTodas": "Todas",
+  "ipsBuscar": "Buscar IP o segmento",
+  "ipsVacio": "Todavía no hay IPs publicadas para tus localidades. La oficina las publica desde la web, en Herramientas › IPs libres.",
+  "ipsSinFiltro": "No hay IPs con estos filtros.",
+  "ipsVlan": "VLAN {vlan}",
+  "@ipsVlan": {
+    "placeholders": {
+      "vlan": {
+        "type": "String"
+      }
+    }
+  },
+  "ipsCuantasLibres": "{n, plural, =1{1 libre} other{{n} libres}}",
+  "@ipsCuantasLibres": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "ipsLibre": "Libre",
+  "ipsOcupada": "Ocupada",
+  "ipsDesdeApp": "desde la app",
+  "ipsDesdeWeb": "desde la web",
+  "ipsApartar": "Apartar",
+  "ipsLiberar": "Liberar",
+  "ipsApartarPregunta": "¿Apartar la IP {ip}?",
+  "@ipsApartarPregunta": {
+    "placeholders": {
+      "ip": {
+        "type": "String"
+      }
+    }
+  },
+  "ipsApartarTexto": "Queda ocupada a tu nombre para que nadie más la use. La oficina y los demás técnicos lo ven al momento.",
+  "ipsLiberarPregunta": "¿Liberar la IP {ip}?",
+  "@ipsLiberarPregunta": {
+    "placeholders": {
+      "ip": {
+        "type": "String"
+      }
+    }
+  },
+  "ipsLiberarTexto": "Vuelve a quedar libre para que otra persona la pueda usar.",
+  "ipsApartadaOk": "Apartaste la IP {ip}: ya sale ocupada.",
+  "@ipsApartadaOk": {
+    "placeholders": {
+      "ip": {
+        "type": "String"
+      }
+    }
+  },
+  "ipsLiberadaOk": "Liberaste la IP {ip}.",
+  "@ipsLiberadaOk": {
+    "placeholders": {
+      "ip": {
+        "type": "String"
+      }
+    }
+  },
+  "ipsCopiar": "Copiar IP",
+  "ipsCopiada": "IP {ip} copiada.",
+  "@ipsCopiada": {
+    "placeholders": {
+      "ip": {
+        "type": "String"
+      }
+    }
+  },
+  "errIpOcupada": "Esa IP ya no está libre: otra persona la ocupó o la oficina cambió la lista.",
+  "ipsTodasVlan": "Todas",
+  "ipsFiltroVlan": "VLAN",
+  "ipsFiltroSegmentos": "Segmentos (marca uno o varios)",
+  "terminosAntes": "Antes de empezar, {nombre}",
+  "@terminosAntes": {
+    "placeholders": {
+      "nombre": {
+        "type": "String"
+      }
+    }
+  },
+  "terminosTitulo": "Términos y condiciones",
+  "terminosActualizados": "Actualizados: {fecha}",
+  "@terminosActualizados": {
+    "placeholders": {
+      "fecha": {
+        "type": "String"
+      }
+    }
+  },
+  "terminosDesliza": "Desliza hasta el final para poder aceptar",
+  "terminosLeiAcepto": "Leí y acepto los términos y condiciones",
+  "terminosAceptar": "Aceptar y entrar",
+  "terminosNoAcepto": "No acepto",
+  "terminosSalirPregunta": "¿Salir sin aceptar?",
+  "terminosSalirTexto": "Para usar la app necesitas aceptar los términos y condiciones. Puedes volver a entrar cuando quieras.",
+  "terminosSalir": "Salir",
+  "histTodasFechas": "Todas las fechas",
+  "histSemana": "Esta semana",
+  "histMes": "Este mes",
+  "histMesAnterior": "Mes anterior",
+  "histElegirFechas": "Elegir fechas",
+  "histVacioRango": "No hay órdenes creadas en esas fechas.",
+  "buscarOrdenes": "Buscar: cliente, folio, teléfono, dirección…",
+  "buscarSinResultados": "No hay órdenes que coincidan con «{texto}».",
+  "@buscarSinResultados": {
+    "placeholders": {
+      "texto": {
+        "type": "String"
+      }
+    }
+  },
+  "avisoCanalFijo": "Aviso fijo",
+  "avisoCanalOrdenes": "Órdenes nuevas",
+  "avisoFijoTitulo": "Atento a órdenes nuevas",
+  "avisoFijoTexto": "Te aviso en cuanto llegue una orden.",
+  "avisoFijoPendientes": "{n, plural, =0{Sin órdenes pendientes} =1{1 orden pendiente} other{{n} órdenes pendientes}}",
+  "@avisoFijoPendientes": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "avisoNueva": "Nueva orden {folio}",
+  "@avisoNueva": {
+    "placeholders": {
+      "folio": {
+        "type": "String"
+      }
+    }
+  },
+  "avisoAsignada": "Te asignaron la orden {folio}",
+  "@avisoAsignada": {
+    "placeholders": {
+      "folio": {
+        "type": "String"
+      }
+    }
+  },
+  "nuevaOrden": "Nueva orden",
+  "editarOrden": "Editar orden",
+  "foSubtituloNueva": "Llena los datos: la oficina y los técnicos la ven al momento.",
+  "foSeccionCliente": "Cliente",
+  "foCliente": "Nombre del cliente",
+  "foDireccion": "Dirección (calle, número, colonia, referencias)",
+  "foSeccionUbicacion": "Ubicación",
+  "foCoordenadas": "Coordenadas o enlace de Google Maps",
+  "foMiUbicacion": "Usar mi ubicación",
+  "foElegirServicio": "Elige el servicio",
+  "foCuando": "¿Cuándo?",
+  "foManana": "Mañana",
+  "foOtroDia": "Otro día",
+  "foSinHora": "Sin hora",
+  "foElegirHora": "Elegir hora",
+  "foCrear": "Crear orden",
+  "foGuardar": "Guardar cambios",
+  "errFoCliente": "Escribe el nombre del cliente.",
+  "errFoTelefono": "Ese teléfono no es válido para {pais}. Revisa el número o cambia el país.",
+  "errFoCoordenadas": "No entiendo esas coordenadas: escribe «latitud, longitud» o pega un enlace de Google Maps.",
+  "errFoLocalidad": "Elige la localidad.",
+  "errFoServicio": "Elige el servicio.",
+  "errFoDiaPasado": "El día no puede ser anterior a hoy.",
+  "errFoHoraPasada": "Esa hora ya pasó.",
+  "errFoCompletadaFutura": "Una orden completada no puede pasar a un día futuro.",
+  "errUbicacionApagada": "Activa la ubicación del teléfono.",
+  "errUbicacionPermiso": "Sin permiso de ubicación: actívalo en los ajustes del teléfono.",
+  "errUbicacionOtro": "No se pudo obtener la ubicación. Intenta de nuevo.",
+  "ordenCreada": "Listo: se creó la orden {folio}.",
+  "@ordenCreada": {
+    "placeholders": {
+      "folio": {
+        "type": "String"
+      }
+    }
+  },
+  "ordenGuardada": "Cambios guardados.",
+  "menuEditar": "Editar",
+  "menuEliminar": "Eliminar",
+  "eliminarPregunta": "¿Eliminar la orden {folio}?",
+  "@eliminarPregunta": {
+    "placeholders": {
+      "folio": {
+        "type": "String"
+      }
+    }
+  },
+  "eliminarTexto": "Se va a la Papelera de la web: ahí se puede restaurar durante 30 días.",
+  "ordenEliminada": "La orden se movió a la Papelera.",
+  "msgSoloConsulta": "Tu rol es de consulta: puedes ver la orden, pero no cambiarla.",
+  "menuModems": "Módems por recuperar",
+  "menuComisiones": "Pago de comisiones",
+  "modemDescripcion": "Clientes que cancelaron: un comisionista va por el módem y se marca cuando lo traiga.",
+  "modemSinAsignar": "Sin asignar",
+  "modemAsignados": "Asignados",
+  "modemInternet": "Módem Internet",
+  "modemDoblePlay": "Módem Doble Play",
+  "modemLoRecuperasTu": "Lo recuperas tú",
+  "modemLoRecupera": "Lo recupera {nombre}",
+  "@modemLoRecupera": {
+    "placeholders": {
+      "nombre": {
+        "type": "String"
+      }
+    }
+  },
+  "modemComision": "Comisión {importe}",
+  "@modemComision": {
+    "placeholders": {
+      "importe": {
+        "type": "String"
+      }
+    }
+  },
+  "modemSoltar": "Soltar",
+  "modemAsignar": "Asignar",
+  "modemYaLoRecupere": "Ya lo recuperé",
+  "modemQuienRecupera": "¿Qué comisionista recupera el módem?",
+  "modemSoltado": "El módem quedó sin asignar.",
+  "modemAsignadoA": "Módem asignado a {nombre}.",
+  "@modemAsignadoA": {
+    "placeholders": {
+      "nombre": {
+        "type": "String"
+      }
+    }
+  },
+  "modemRecuperadoPregunta": "¿Ya tienes el módem?",
+  "modemRecuperadoTexto": "Confirma que ya se recuperó el módem de {cliente}. La oficina lo ve al momento.",
+  "@modemRecuperadoTexto": {
+    "placeholders": {
+      "cliente": {
+        "type": "String"
+      }
+    }
+  },
+  "modemGanas": "Comisión: {importe}.",
+  "@modemGanas": {
+    "placeholders": {
+      "importe": {
+        "type": "String"
+      }
+    }
+  },
+  "modemRecuperadoOk": "¡Listo! Módem recuperado: la comisión ya cuenta.",
+  "modemVacio": "No hay módems por recuperar. ¡Todo al día!",
+  "modemVacioFiltro": "No hay módems con este filtro.",
+  "comTotalPeriodo": "Total del periodo",
+  "comPorEntregar": "Por entregar",
+  "comEntregadas": "Entregadas",
+  "comEntregada": "Entregada",
+  "comSinImporte": "Sin importe",
+  "comVacio": "No hay comisiones en este periodo.",
+  "foOpcional": "Opcional",
+  "foBuscarPais": "Buscar país o lada",
+  "foLlegaSinTecnico": "La orden llega sin técnico: el primero que la acepte se la queda.",
+  "foDatosNuevo": "Datos del servicio nuevo",
+  "foPlan": "Plan (módem que se instala)",
+  "foTelevisiones": "Televisiones",
+  "foTvConCosto": "TV con costo",
+  "foTvSinCosto": "TV sin costo",
+  "foTvPrecio": "Cada TV con costo se cobra {precio} al completar. Total: {total}.",
+  "@foTvPrecio": {
+    "placeholders": {
+      "precio": {
+        "type": "String"
+      },
+      "total": {
+        "type": "String"
+      }
+    }
+  },
+  "foQuienLoConsiguio": "¿Quién consiguió este servicio?",
+  "foNingunoSinComision": "Ninguno (sin comisión)",
+  "foDatosBaja": "Cancelación definitiva",
+  "foMotivo": "Motivo",
+  "foOtros": "Otros",
+  "foEscribeMotivo": "Escribe el motivo",
+  "foModemRecuperar": "Módem a recuperar",
+  "foDatosTemporal": "Cancelación temporal",
+  "foMotivoOpcional": "Motivo (opcional)",
+  "foRecogeModem": "¿Se recoge el módem?",
+  "foSi": "Sí",
+  "foNo": "No",
+  "foModemSeRecoge": "Módem que se recoge",
+  "foFechaRegreso": "Fecha supuesta de regreso",
+  "foElegirFecha": "Elegir fecha",
+  "foFechaRegresoAyuda": "La web avisa 3 días antes.",
+  "foSinCategoriasModem": "No hay categorías de módem: agrégalas en la web (Sistema › Activos).",
+  "@errFoTelefono": {
+    "placeholders": {
+      "pais": {
+        "type": "String"
+      }
+    }
+  },
+  "errFoPlan": "Elige el plan (el módem que se instala).",
+  "errFoComision": "Elige la comisión de quien consiguió el servicio.",
+  "errFoMotivo": "Elige el motivo de la cancelación.",
+  "errFoMotivoOtro": "Escribe el motivo de la cancelación.",
+  "errFoModem": "Elige la categoría del módem.",
+  "errFoRecoge": "Elige si se recoge el módem.",
+  "errFoRegreso": "Elige la fecha supuesta de regreso.",
+  "errFoRegresoPasada": "La fecha de regreso no puede ser anterior a hoy.",
+  "menuAdmin": "Administración",
+  "menuDashboard": "Dashboard",
+  "menuOrdenesTrabajo": "Órdenes de trabajo",
+  "menuDelDia": "Del día",
+  "menuHistorico": "Histórico",
+  "menuPorAutorizar": "Por autorizar",
+  "menuRecuperarModem": "Recuperar módem",
+  "menuReportes": "Reportes",
+  "menuHerramientas": "Herramientas",
+  "dashRecibidas": "Solicitudes",
+  "dashRecibidasSub": "recibidas",
+  "dashCompletadas": "Completadas",
+  "dashCumplimiento": "{p} % de cumplimiento",
+  "@dashCumplimiento": {
+    "placeholders": {
+      "p": {
+        "type": "int"
+      }
+    }
+  },
+  "dashAbiertas": "Abiertas",
+  "dashAbiertasSub": "{p} pendientes · {e} en proceso",
+  "@dashAbiertasSub": {
+    "placeholders": {
+      "p": {
+        "type": "int"
+      },
+      "e": {
+        "type": "int"
+      }
+    }
+  },
+  "dashTiempo": "Tiempo de atención",
+  "dashTiempoSub": "promedio de {n} servicios",
+  "@dashTiempoSub": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "dashNuevos": "Nuevos servicios",
+  "dashNuevosSub": "instalaciones",
+  "dashIngresos": "Ingresos cobrados",
+  "dashIngresosSub": "{n} cobros",
+  "@dashIngresosSub": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "dashPorCobrar": "Pendiente de cobro",
+  "dashPorCobrarSub": "por cobrar",
+  "dashPospuestas": "Pospuestas",
+  "dashCanceladas": "Canceladas",
+  "dashDeLasSolicitudes": "{p} % de las solicitudes",
+  "@dashDeLasSolicitudes": {
+    "placeholders": {
+      "p": {
+        "type": "int"
+      }
+    }
+  },
+  "dashVsAnterior": "Las flechas comparan con los {dias} días anteriores.",
+  "@dashVsAnterior": {
+    "placeholders": {
+      "dias": {
+        "type": "int"
+      }
+    }
+  },
+  "dashSinDato": "—",
+  "dashMinutos": "{m} min",
+  "@dashMinutos": {
+    "placeholders": {
+      "m": {
+        "type": "int"
+      }
+    }
+  },
+  "dashHoras": "{h} h",
+  "@dashHoras": {
+    "placeholders": {
+      "h": {
+        "type": "String"
+      }
+    }
+  },
+  "dashDias": "{d} días",
+  "@dashDias": {
+    "placeholders": {
+      "d": {
+        "type": "String"
+      }
+    }
+  },
+  "dashTendencia": "Recibidas y completadas",
+  "dashEstados": "Cómo van las solicitudes",
+  "dashPorLocalidad": "Por localidad",
+  "dashPorTecnico": "Por técnico",
+  "dashLocalidadDetalle": "{n} recibidas · {d} completadas",
+  "@dashLocalidadDetalle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "d": {
+        "type": "int"
+      }
+    }
+  },
+  "dashTecnicoDetalle": "{n} completadas · {tiempo} en promedio",
+  "@dashTecnicoDetalle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      },
+      "tiempo": {
+        "type": "String"
+      }
+    }
+  },
+  "dashSinLocalidad": "Sin localidad",
+  "dashSinDatos": "No hay órdenes registradas en estas fechas.",
+  "dashNota": "Cuenta las órdenes registradas en el periodo (como el Dashboard de la web). Por técnico: las que completó en el periodo.",
+  "dashToca": "Toca una barra para ver sus números.",
+  "dashTramo": "{fecha}: {r} recibidas · {c} completadas",
+  "@dashTramo": {
+    "placeholders": {
+      "fecha": {
+        "type": "String"
+      },
+      "r": {
+        "type": "int"
+      },
+      "c": {
+        "type": "int"
+      }
+    }
+  },
+  "autVacio": "No hay cobros esperando autorización.",
+  "autNota": "Se autorizan desde la web, en Finanzas › Pendientes de pago.",
+  "dashNuevo": "Nuevo",
+  "dashPuntos": "{n} pts",
+  "@dashPuntos": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "avisoRegreso": "La orden {folio} regresó a Pendientes",
+  "@avisoRegreso": {
+    "placeholders": {
+      "folio": {
+        "type": "String"
+      }
+    }
+  },
+  "comNota": "Las comisiones las cobran los comisionistas (Sistema › Comisionistas de la web). Se entregan desde la web.",
+  "comTipoInstalacion": "Instalación",
+  "comTipoModem": "Módem recuperado",
+  "comTipoIsp": "Módem de Importados ISP",
+  "comSinNombre": "Sin nombre",
+  "comDeQuien": "{nombre} · {importe}",
+  "@comDeQuien": {
+    "placeholders": {
+      "nombre": {
+        "type": "String"
+      },
+      "importe": {
+        "type": "String"
+      }
+    }
+  },
+  "menuFinanzas": "Finanzas",
+  "menuResumenFinanzas": "Resumen",
+  "finResultado": "Resultado del periodo",
+  "finEntradas": "Entradas",
+  "finSalidas": "Salidas",
+  "finIngresosServicios": "Ingresos de servicios",
+  "finCobrosOrdenes": "Cobros de órdenes",
+  "finCobrosDetalle": "{n} órdenes cobradas en efectivo o transferencia",
+  "@finCobrosDetalle": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "finGastos": "Gastos",
+  "finComisiones": "Comisiones",
+  "finComisionesNoCuentan": "No cuentan como gasto: en la web no está la partida de comisiones.",
+  "finSinFormaPago": "Sin forma de pago",
+  "finOtrosGastos": "Otros gastos",
+  "finNada": "Nada en este periodo.",
+  "finNota": "Es un resumen del Estado financiero de la web. Salarios y materiales (AFT, insumos) se ven en la web.",
+  "comTodos": "Todos los comisionistas",
+  "matTitulo": "Materiales",
+  "matExplica": "Marca el módem que se instaló y los insumos que se usaron. Salen del inventario de la oficina.",
+  "matModem": "Módem instalado",
+  "matModemNinguno": "Ninguno",
+  "matModemNingunoSub": "No se instaló módem (sin gasto)",
+  "matInsumos": "Lleva insumos",
+  "matInsumoElige": "Elige el insumo",
+  "matCantidad": "Cantidad",
+  "matAgregar": "Agregar insumo",
+  "matQuitar": "Quitar",
+  "matSinPred": "Este servicio no trae insumos: agrégalos si se usaron.",
+  "matGastoModem": "Gasto del módem",
+  "matGastoInsumos": "Gasto de insumos",
+  "matTotal": "Total de materiales",
+  "matContinuar": "Continuar",
+  "matSinLista": "Sin señal no se pudo leer la lista de materiales: la orden se termina igual y la oficina los anota en la web.",
+  "menuInconclusas": "Inconclusas",
+  "incMarcar": "Marcar inconclusa",
+  "incTitulo": "Orden inconclusa",
+  "incExplica": "Se completó pero quedó algo pendiente. Elige cuándo se regresa y qué falta.",
+  "incFecha": "Fecha de regreso",
+  "incMotivo": "¿Qué quedó pendiente?",
+  "incChipModem": "Falta poner el módem correcto",
+  "incChipMaterial": "Falta material",
+  "incChipTerminar": "Falta terminar la instalación",
+  "incChipSenal": "Regresar a revisar la señal",
+  "incGuardar": "Guardar",
+  "incFaltaFecha": "Elige la fecha de regreso.",
+  "incFaltaMotivo": "Escribe qué quedó pendiente.",
+  "incGuardada": "Orden marcada como inconclusa.",
+  "incResolver": "Resolver",
+  "incResolverPregunta": "¿Ya se resolvió?",
+  "incResolverTexto": "La orden {folio} deja de estar inconclusa.",
+  "@incResolverTexto": {
+    "placeholders": {
+      "folio": {
+        "type": "String"
+      }
+    }
+  },
+  "incResuelta": "Inconclusa resuelta.",
+  "incVuelve": "Vuelve el {fecha}",
+  "@incVuelve": {
+    "placeholders": {
+      "fecha": {
+        "type": "String"
+      }
+    }
+  },
+  "incSinFecha": "Sin fecha de regreso",
+  "incAtrasadas": "Atrasadas",
+  "incProximas": "Próximas",
+  "incVacio": "No hay órdenes inconclusas. ¡Todo terminado!",
+  "incCambiar": "Cambiar",
+  "menuProspectos": "Prospectos",
+  "prosNuevo": "Nuevo prospecto",
+  "prosEditar": "Editar prospecto",
+  "prosExplica": "Posible cliente de un servicio nuevo. Ningún dato es obligatorio.",
+  "prosNombre": "Nombre",
+  "prosSinLocalidad": "Sin localidad",
+  "prosQuien": "¿Quién lo prospectó?",
+  "prosNadie": "Nadie",
+  "prosDia": "Fecha de instalación",
+  "prosSinDia": "Sin fecha",
+  "prosComentario": "Comentario",
+  "prosFoto": "Foto",
+  "prosTomarFoto": "Tomar foto",
+  "prosGaleria": "Galería",
+  "prosQuitarFoto": "Quitar foto",
+  "prosFotoError": "No se pudo usar esa foto.",
+  "prosGuardar": "Guardar",
+  "prosGuardado": "Prospecto guardado.",
+  "prosCrearOrden": "Crear orden",
+  "prosAsignado": "Listo: el prospecto quedó asignado a la orden {folio}.",
+  "@prosAsignado": {
+    "placeholders": {
+      "folio": {
+        "type": "String"
+      }
+    }
+  },
+  "prosDescripcionOrden": "Prospecto: {texto}",
+  "@prosDescripcionOrden": {
+    "placeholders": {
+      "texto": {
+        "type": "String"
+      }
+    }
+  },
+  "prosVacio": "No hay prospectos en estas fechas.",
+  "prosPendientes": "Pendientes",
+  "prosAsignados": "Asignados",
+  "prosLuzHoy": "Instalar hoy (o ya pasó)",
+  "prosLuzManana": "Instalar mañana",
+  "prosOrden": "Orden {folio}",
+  "@prosOrden": {
+    "placeholders": {
+      "folio": {
+        "type": "String"
+      }
+    }
+  },
+  "errProsDiaPasado": "La fecha de instalación no puede ser anterior a hoy.",
+  "menuMapaDia": "Mapa del día",
+  "mapaCalles": "Calles",
+  "mapaSatelite": "Satélite",
+  "mapaSinUbicacion": "{n} sin ubicación",
+  "@mapaSinUbicacion": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "mapaVacio": "No hay órdenes para hoy con ubicación.",
+  "mapaCreditos": "© OpenStreetMap · Esri",
+  "mapaCentrar": "Ver todas",
+  "fotTitulo": "Fotos del trabajo",
+  "fotNinguna": "Todavía no hay fotos. Toma fotos del trabajo: la oficina las ve en la web.",
+  "fotMax": "Máximo {n} fotos por orden.",
+  "@fotMax": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "fotGuardadas": "Fotos guardadas.",
+  "fotQuitarPregunta": "¿Quitar esta foto?",
+  "fotQuitarTexto": "Se borra de la orden también en la web.",
+  "fotQuitar": "Quitar",
+  "compTitulo": "Comprobante de la transferencia",
+  "compExplica": "Opcional, pero ayuda: con la foto la oficina completa la orden sin pedírtelo otra vez."
+}

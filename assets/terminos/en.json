@@ -1,0 +1,57 @@
+{
+  "version": "2026-11-02",
+  "intro": "These terms explain how the Operia Técnicos app is used. Read them carefully: you need to accept them to enter the app. If anything is unclear, ask the office before accepting.",
+  "secciones": [
+    {
+      "icono": "app",
+      "titulo": "What the app is for",
+      "texto": "Operia Técnicos is a work tool of the company. It is used to see, accept and complete work orders, record payments and reserve IPs. It uses the same information as the office website: what you do here, the office sees right away."
+    },
+    {
+      "icono": "cuenta",
+      "titulo": "Your account is personal",
+      "texto": "Your username and password are yours only: do not lend or share them. Everything done with your account is recorded under your name. If you lose your phone or think someone knows your password, tell the office immediately. The company may disable your access at any time."
+    },
+    {
+      "icono": "uso",
+      "titulo": "Proper use",
+      "texto": "Use the app only for your work. The information you record must be true: the order status, your comments, what you charged and how the customer paid. Do not mark an order as done if you did not do it, and do not record false data."
+    },
+    {
+      "icono": "datos",
+      "titulo": "Customer data",
+      "texto": "You will see customers' names, phone numbers, addresses and locations. They are confidential: use them only to provide the service. Do not share them, do not take screenshots to send to other people and do not store them outside the app. Their protection is covered by personal data protection law."
+    },
+    {
+      "icono": "cobros",
+      "titulo": "Payments",
+      "texto": "Record in the app exactly what you charged. Cash is handed to the office as the company indicates. Pending or no-charge payments are reviewed and approved by the office. A payment recorded incorrectly may lead to deductions or internal measures."
+    },
+    {
+      "icono": "red",
+      "titulo": "IPs and network equipment",
+      "texto": "Reserve only the IPs you are going to use and release them if you end up not using them. Do not change the network or equipment configuration without the company's authorization."
+    },
+    {
+      "icono": "registro",
+      "titulo": "What is recorded",
+      "texto": "The app records who made each change and when: accepting, starting and finishing orders, payments, comments and reserved IPs. It also records the date you accepted these terms. The company uses this information for internal control."
+    },
+    {
+      "icono": "equipo",
+      "titulo": "Your phone and internet",
+      "texto": "The app uses your phone's data or wifi. Without signal, some changes are saved on the phone and sent automatically when internet is back; accepting orders and reserving IPs do need internet. Keep the app updated with the version the office gives you."
+    },
+    {
+      "icono": "cambios",
+      "titulo": "Changes to these terms",
+      "texto": "The company may change these terms. When they change, the app will show them again and you will have to accept them to keep using it."
+    },
+    {
+      "icono": "faltas",
+      "titulo": "If they are not followed",
+      "texto": "Not following these terms may lead to suspension of your access to the app and to the measures set by the company's rules."
+    }
+  ],
+  "cierre": "By tapping «Accept and enter» you confirm that you have read and accept these terms."
+}

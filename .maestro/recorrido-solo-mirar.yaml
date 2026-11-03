@@ -1,0 +1,46 @@
+# Recorrido de SOLO MIRAR con la sesión que ya está abierta en el teléfono (el usuario «reinier», no se escribe contraseña).
+# Pasa por el menú de abajo, abre una orden y la Ayuda. Nunca toca Aceptar, Empezar, Terminé, Guardar ni Cerrar sesión:
+# no cambia ningún dato. Correr: maestro test .maestro/recorrido-solo-mirar.yaml --test-output-dir build/maestro
+# Antes de correrlo, la sesión tiene que estar abierta: si la app muestra «Entrar», el dueño toca Entrar él mismo
+# (la prueba nunca escribe ni envía la contraseña). Las capturas pueden mostrar lo que haya en pantalla (videollamadas,
+# avisos, datos de clientes): quedan en build/maestro, que no se sube a git, y se borran al terminar de revisarlas.
+# Maestro lee las pestañas de abajo como «12\nPendientes\nPestaña 1 de 4» y las tarjetas traen el folio (232-CHIC):
+# por eso los patrones con (?s) (el punto también cruza saltos de línea).
+appId: com.operia.operia_tecnicos
+---
+- launchApp
+- assertNotVisible: "Entrar|Sign in"
+- extendedWaitUntil:
+    visible: "(?s).*(Pendientes|Pending)\\n.*"
+    timeout: 20000
+- takeScreenshot: 1-pendientes
+
+- tapOn: "(?s).*(Culminadas|Done)\\n.*"
+- takeScreenshot: 2-culminadas
+
+- tapOn: "(?s)(Historial|History)\\n.*"
+- extendedWaitUntil:
+    visible: "(?s).*\\d{3}-[A-Z]+.*|Todavía no hay órdenes en el historial\\.|(?s).*history.*"
+    timeout: 15000
+- takeScreenshot: 3-historial
+
+# abrir la primera orden del historial solo para ver su detalle, y regresar
+- runFlow:
+    when:
+      visible: "(?s).*\\d{3}-[A-Z]+.*"
+    commands:
+      - tapOn: "(?s).*\\d{3}-[A-Z]+.*"
+      - extendedWaitUntil:
+          visible: "Servicio|Service"
+          timeout: 10000
+      - takeScreenshot: 4-detalle-orden
+      - back
+
+# Ayuda: menú lateral → Ayuda y manual → Novedades
+- tapOn: "(?s).*(Pendientes|Pending)\\n.*"
+- tapOn: "Abrir el menú de navegación|Open navigation menu"
+- tapOn: "Ayuda y manual|Help and manual"
+- assertVisible: "(?s).*Manual.*"
+- tapOn: "(?s).*(Novedades|What's new).*"
+- takeScreenshot: 5-novedades
+- back

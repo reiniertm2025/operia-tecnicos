@@ -1,0 +1,21 @@
+# Recorrido de SOLO MIRAR de «IPs libres» con la sesión ya abierta en el teléfono. Nunca toca «Apartar» ni «Liberar»:
+# no cambia ningún dato. Solo cambia el filtro (Libres / Ocupadas / Todas), que no escribe en la base.
+# Correr: maestro test .maestro/ips-solo-mirar.yaml --test-output-dir build/maestro (y borrar las capturas al revisarlas).
+appId: com.operia.operia_tecnicos
+---
+- launchApp
+- assertNotVisible: "Entrar|Sign in"
+- extendedWaitUntil:
+    visible: "(?s).*(Pendientes|Pending)\n.*"
+    timeout: 20000
+- tapOn: "Abrir el menú de navegación|Open navigation menu"
+- tapOn: "IPs libres|Free IPs"
+- extendedWaitUntil:
+    visible: "(?s).*(Aparta la IP|Reserve the IP).*"
+    timeout: 15000
+- takeScreenshot: ips-1-libres
+- tapOn: "(?s).*(Ocupadas|Taken)"
+- takeScreenshot: ips-2-ocupadas
+- tapOn: "(?s).*\n(Todas|All)"
+- takeScreenshot: ips-3-todas
+- back
