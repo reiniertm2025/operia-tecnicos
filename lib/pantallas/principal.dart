@@ -108,18 +108,22 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
     return [...ids]..sort((a, b) => lugar(a).compareTo(lugar(b)));
   }
 
-  void _abrir(Orden o, String hero) => Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (_) => PantallaDetalleOrden(
-        orden: o,
-        zonas: _nombresZonas,
-        tecnico: widget.tecnico,
-        servicio: _servicio,
-        hero: hero,
+  Future<void> _abrir(Orden o, String hero) async {
+    final resultado = await Navigator.push<ResultadoDetalle>(
+      context,
+      MaterialPageRoute(
+        builder: (_) => PantallaDetalleOrden(
+          orden: o,
+          zonas: _nombresZonas,
+          tecnico: widget.tecnico,
+          servicio: _servicio,
+          hero: hero,
+        ),
       ),
-    ),
-  );
+    );
+    // al aceptar una orden, se pasa directo a «En proceso», donde ya aparece
+    if (resultado == ResultadoDetalle.aceptada && mounted) setState(() => _pestana = 1);
+  }
 
   /// Técnicos y administradores crean órdenes; los de consulta no.
   Future<void> _nuevaOrden() async {

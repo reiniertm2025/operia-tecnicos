@@ -52,6 +52,8 @@ ThemeData _tema(Brightness brillo) {
         (s) => TextStyle(fontSize: 12, fontWeight: s.contains(WidgetState.selected) ? FontWeight.w700 : FontWeight.w500),
       ),
     ),
+    // filas tocables (opciones, interruptores, casillas): el efecto de toque con esquinas redondeadas, como los botones
+    listTileTheme: ListTileThemeData(shape: redondo),
     snackBarTheme: SnackBarThemeData(behavior: SnackBarBehavior.floating, shape: redondo),
     dialogTheme: DialogThemeData(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24))),
     inputDecorationTheme: InputDecorationTheme(filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(14))),

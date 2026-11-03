@@ -179,15 +179,21 @@ class Superficie extends StatelessWidget {
   Widget build(BuildContext context) {
     final colores = Theme.of(context).colorScheme;
     final oscuro = Theme.of(context).brightness == Brightness.dark;
+    final esquinas = BorderRadius.circular(radio);
     return Container(
-      padding: padding,
       decoration: BoxDecoration(
         color: color ?? (oscuro ? colores.surfaceContainer : colores.surface),
-        borderRadius: BorderRadius.circular(radio),
+        borderRadius: esquinas,
         border: Border.all(color: oscuro ? Colors.white.withValues(alpha: 0.06) : const Color(0x0F0F1E46)),
         boxShadow: sombra(context, nivel),
       ),
-      child: child,
+      // el efecto de toque de lo que va adentro (filas, secciones que se abren) respeta las esquinas redondeadas
+      child: Material(
+        type: MaterialType.transparency,
+        borderRadius: esquinas,
+        clipBehavior: Clip.antiAlias,
+        child: padding == null ? child : Padding(padding: padding!, child: child),
+      ),
     );
   }
 }

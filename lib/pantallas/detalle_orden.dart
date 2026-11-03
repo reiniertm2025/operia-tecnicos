@@ -33,6 +33,9 @@ Future<void> abrirDetalle(
   ),
 );
 
+/// Lo que devuelve el detalle al cerrarse, para que la lista sepa qué pasó.
+enum ResultadoDetalle { aceptada }
+
 class PantallaDetalleOrden extends StatefulWidget {
   const PantallaDetalleOrden({
     super.key,
@@ -77,9 +80,10 @@ class _PantallaDetalleOrdenState extends State<PantallaDetalleOrden> {
     if (mounted) ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(texto)));
   }
 
-  /// Corre una acción mostrando que está ocupada; `false` = quedó guardada para cuando haya señal.
-  Future<void> _hacer(Future<bool> Function() accion, String listo) async {
-    if (_ocupado) return;
+  /// Corre una acción mostrando que está ocupada; la acción devuelve `false` si quedó guardada para cuando haya señal.
+  /// Devuelve `true` si la acción salió bien.
+  Future<bool> _hacer(Future<bool> Function() accion, String listo) async {
+    if (_ocupado) return false;
     final t = Textos.of(context);
     FocusScope.of(context).unfocus();
     setState(() => _ocupado = true);
@@ -87,6 +91,7 @@ class _PantallaDetalleOrdenState extends State<PantallaDetalleOrden> {
       final enLinea = await accion();
       HapticFeedback.mediumImpact();
       _avisar(enLinea ? listo : t.sinSenal);
+      return true;
     } on ErrorDeOrden catch (e) {
       _avisar(textoFalloOrden(t, e));
     } catch (e) {
@@ -94,6 +99,7 @@ class _PantallaDetalleOrdenState extends State<PantallaDetalleOrden> {
     } finally {
       if (mounted) setState(() => _ocupado = false);
     }
+    return false;
   }
 
   Future<bool> _confirmar(IconData icono, String titulo, String texto, String boton) =>
@@ -102,10 +108,12 @@ class _PantallaDetalleOrdenState extends State<PantallaDetalleOrden> {
   Future<void> _aceptar(Orden o) async {
     final t = Textos.of(context);
     if (!await _confirmar(Icons.how_to_reg_rounded, t.aceptarPregunta, t.aceptarTexto, t.aceptar)) return;
-    await _hacer(() async {
+    final tomada = await _hacer(() async {
       await widget.servicio.tomar(o.id, widget.tecnico);
       return true;
     }, t.ordenAceptada);
+    // ya es suya: se cierra el detalle y la pantalla principal pasa a «En proceso»
+    if (tomada && mounted) Navigator.pop(context, ResultadoDetalle.aceptada);
   }
 
   Future<void> _terminar(Orden o) async {
