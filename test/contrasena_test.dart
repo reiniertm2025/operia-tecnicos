@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/contrasena.dart';
+import 'package:torrexi_tecnicos/logica/contrasena.dart';
 
 String hex(List<int> b) => b.map((x) => x.toRadixString(16).padLeft(2, '0')).join();
 

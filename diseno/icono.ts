@@ -1,4 +1,4 @@
-// Ícono de Operia Técnicos: la marca de Operia (tres fibras azul/naranja/verde que entran al conector, fondo azul marino)
+// Ícono de Torrexi Técnicos: la marca de Torrexi (tres fibras azul/naranja/verde que entran al conector, fondo azul marino)
 // con una insignia verde de «orden culminada». Genera los PNG de Android (normal, adaptable y monocromo) y una vista previa.
 import { Resvg } from "@resvg/resvg-js";
 import { mkdirSync, writeFileSync } from "fs";
@@ -59,7 +59,7 @@ mkdirSync(join(RES, "mipmap-anydpi-v26"), { recursive: true });
 writeFileSync(
   join(RES, "mipmap-anydpi-v26", "ic_launcher.xml"),
   `<?xml version="1.0" encoding="utf-8"?>
-<!-- Ícono adaptable: fondo azul marino, la marca de Operia (fibras y conector) con la insignia de orden culminada -->
+<!-- Ícono adaptable: fondo azul marino, la marca de Torrexi (fibras y conector) con la insignia de orden culminada -->
 <adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
     <background android:drawable="@mipmap/ic_launcher_background" />
     <foreground android:drawable="@mipmap/ic_launcher_foreground" />

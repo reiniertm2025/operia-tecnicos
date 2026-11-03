@@ -50,7 +50,7 @@ List<String> zonasDeUsuario(Map<String, dynamic> usuario) {
   return una is String && una.isNotEmpty ? [una] : const [];
 }
 
-/// Inicio de sesión igual que la web Operia (ver CLAUDE.md):
+/// Inicio de sesión igual que la web Torrexi (ver CLAUDE.md):
 /// appLogin/{usuario} → PBKDF2 → Firebase Auth → appAuth/{uid} → users/{userId} → roles/{role}.
 class Sesion {
   Sesion({FirebaseAuth? auth, FirebaseFirestore? db})

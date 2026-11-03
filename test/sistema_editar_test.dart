@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/sistema.dart';
-import 'package:operia_tecnicos/servicios/ordenes.dart';
-import 'package:operia_tecnicos/servicios/sesion.dart';
+import 'package:torrexi_tecnicos/logica/sistema.dart';
+import 'package:torrexi_tecnicos/servicios/ordenes.dart';
+import 'package:torrexi_tecnicos/servicios/sesion.dart';
 
 void main() {
   setUpAll(FakeFirebaseFirestore.new);

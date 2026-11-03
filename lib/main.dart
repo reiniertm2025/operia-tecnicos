@@ -16,7 +16,7 @@ import 'servicios/sesion.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: firebaseOptions);
-  runApp(OperiaTecnicos(ajustes: await Ajustes.cargar()));
+  runApp(TorrexiTecnicos(ajustes: await Ajustes.cargar()));
 }
 
 /// Tema de la app: azul de la marca, fondos suaves, esquinas redondeadas y transiciones con desvanecido.
@@ -60,8 +60,8 @@ ThemeData _tema(Brightness brillo) {
   );
 }
 
-class OperiaTecnicos extends StatelessWidget {
-  const OperiaTecnicos({super.key, required this.ajustes});
+class TorrexiTecnicos extends StatelessWidget {
+  const TorrexiTecnicos({super.key, required this.ajustes});
 
   final Ajustes ajustes;
 

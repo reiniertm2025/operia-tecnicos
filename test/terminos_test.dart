@@ -4,10 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/ayuda/terminos.dart';
-import 'package:operia_tecnicos/l10n/textos.dart';
-import 'package:operia_tecnicos/pantallas/terminos.dart';
-import 'package:operia_tecnicos/servicios/sesion.dart';
+import 'package:torrexi_tecnicos/ayuda/terminos.dart';
+import 'package:torrexi_tecnicos/l10n/textos.dart';
+import 'package:torrexi_tecnicos/pantallas/terminos.dart';
+import 'package:torrexi_tecnicos/servicios/sesion.dart';
 
 Terminos leer(String idioma) =>
     Terminos.deJson(jsonDecode(File('assets/terminos/$idioma.json').readAsStringSync()) as Map<String, dynamic>);

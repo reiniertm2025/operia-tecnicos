@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/avisos.dart';
-import 'package:operia_tecnicos/logica/orden.dart';
-import 'package:operia_tecnicos/servicios/sesion.dart';
+import 'package:torrexi_tecnicos/logica/avisos.dart';
+import 'package:torrexi_tecnicos/logica/orden.dart';
+import 'package:torrexi_tecnicos/servicios/sesion.dart';
 
 void main() {
   const tecnico = Tecnico(userId: 'u1', nombre: 'Portela', zonas: ['Tecolutilla']);

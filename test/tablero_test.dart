@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/orden.dart';
-import 'package:operia_tecnicos/logica/tablero.dart';
-import 'package:operia_tecnicos/servicios/sesion.dart';
+import 'package:torrexi_tecnicos/logica/orden.dart';
+import 'package:torrexi_tecnicos/logica/tablero.dart';
+import 'package:torrexi_tecnicos/servicios/sesion.dart';
 
 void main() {
   const tecnico = Tecnico(userId: 'u1', nombre: 'Portela', zonas: ['Comalcalco', 'Chichicapa']);

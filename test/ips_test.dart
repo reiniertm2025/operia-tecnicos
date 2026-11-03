@@ -2,11 +2,11 @@ import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/l10n/textos.dart';
-import 'package:operia_tecnicos/logica/ips.dart';
-import 'package:operia_tecnicos/pantallas/ips.dart';
-import 'package:operia_tecnicos/servicios/ips.dart';
-import 'package:operia_tecnicos/servicios/sesion.dart';
+import 'package:torrexi_tecnicos/l10n/textos.dart';
+import 'package:torrexi_tecnicos/logica/ips.dart';
+import 'package:torrexi_tecnicos/pantallas/ips.dart';
+import 'package:torrexi_tecnicos/servicios/ips.dart';
+import 'package:torrexi_tecnicos/servicios/sesion.dart';
 
 /// Un segmento con la forma que publica la web (Herramientas › IPs libres › «Publicar en la app»).
 Map<String, dynamic> segmento(

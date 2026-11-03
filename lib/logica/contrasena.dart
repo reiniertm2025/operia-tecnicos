@@ -3,7 +3,7 @@ import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 
-/// Vueltas que usa la web Operia al cifrar las contraseñas de la app (APP_PASS_ITERATIONS).
+/// Vueltas que usa la web Torrexi al cifrar las contraseñas de la app (APP_PASS_ITERATIONS).
 const vueltasPorDefecto = 100000;
 
 /// Mismo cálculo que la web (`hashPassword` en src/legacy/app.js): PBKDF2-SHA256 de la contraseña,

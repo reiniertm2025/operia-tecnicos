@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/modems.dart';
-import 'package:operia_tecnicos/logica/orden.dart';
-import 'package:operia_tecnicos/servicios/ordenes.dart';
-import 'package:operia_tecnicos/servicios/sesion.dart';
+import 'package:torrexi_tecnicos/logica/modems.dart';
+import 'package:torrexi_tecnicos/logica/orden.dart';
+import 'package:torrexi_tecnicos/servicios/ordenes.dart';
+import 'package:torrexi_tecnicos/servicios/sesion.dart';
 
 /// Catálogo de Sistema › Comisiones con la forma de la web.
 final catalogo = [

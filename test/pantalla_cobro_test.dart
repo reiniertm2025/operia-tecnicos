@@ -2,12 +2,12 @@ import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/l10n/textos.dart';
-import 'package:operia_tecnicos/logica/cobro.dart';
-import 'package:operia_tecnicos/logica/orden.dart';
-import 'package:operia_tecnicos/pantallas/cobro.dart';
-import 'package:operia_tecnicos/servicios/ordenes.dart';
-import 'package:operia_tecnicos/servicios/sesion.dart';
+import 'package:torrexi_tecnicos/l10n/textos.dart';
+import 'package:torrexi_tecnicos/logica/cobro.dart';
+import 'package:torrexi_tecnicos/logica/orden.dart';
+import 'package:torrexi_tecnicos/pantallas/cobro.dart';
+import 'package:torrexi_tecnicos/servicios/ordenes.dart';
+import 'package:torrexi_tecnicos/servicios/sesion.dart';
 
 import 'cobro_test.dart' show cat;
 

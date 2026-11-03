@@ -1,8 +1,8 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/materiales.dart';
-import 'package:operia_tecnicos/logica/orden.dart';
-import 'package:operia_tecnicos/servicios/ordenes.dart';
+import 'package:torrexi_tecnicos/logica/materiales.dart';
+import 'package:torrexi_tecnicos/logica/orden.dart';
+import 'package:torrexi_tecnicos/servicios/ordenes.dart';
 
 const categorias = {'dp': 'Modem Doble Play', 'int': 'Modem Internet'};
 final cat = CatalogoMateriales(

@@ -10,7 +10,7 @@ class TextosEs extends Textos {
   TextosEs([String locale = 'es']) : super(locale);
 
   @override
-  String get appTitulo => 'Operia Técnicos';
+  String get appTitulo => 'Torrexi Técnicos';
 
   @override
   String get conectando => 'Conectando';
@@ -443,7 +443,7 @@ class TextosEs extends Textos {
 
   @override
   String get acercaTexto =>
-      'App de los técnicos de Operia. Usa la misma información que la web: lo que haces aquí lo ve la oficina al momento.';
+      'App de los técnicos de Torrexi. Usa la misma información que la web: lo que haces aquí lo ve la oficina al momento.';
 
   @override
   String get versionInstalada => 'Versión instalada';

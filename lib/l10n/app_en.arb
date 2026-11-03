@@ -1,6 +1,6 @@
 {
   "@@locale": "en",
-  "appTitulo": "Operia Technicians",
+  "appTitulo": "Torrexi Technicians",
   "conectando": "Connecting",
   "tuMundo": "your world",
   "loginSubtitulo": "Handle your work orders from wherever you are.",
@@ -130,7 +130,7 @@
   "pestManual": "Manual",
   "pestNovedades": "What's new",
   "pestAcerca": "About",
-  "acercaTexto": "Operia's technician app. It uses the same data as the web: what you do here the office sees right away.",
+  "acercaTexto": "Torrexi's technician app. It uses the same data as the web: what you do here the office sees right away.",
   "versionInstalada": "Installed version",
   "usuarioActual": "User",
   "rol": "Role",

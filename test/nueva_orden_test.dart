@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/nueva_orden.dart';
-import 'package:operia_tecnicos/logica/orden.dart';
-import 'package:operia_tecnicos/logica/prospectos.dart';
-import 'package:operia_tecnicos/logica/telefono.dart';
-import 'package:operia_tecnicos/servicios/ordenes.dart';
-import 'package:operia_tecnicos/servicios/sesion.dart';
+import 'package:torrexi_tecnicos/logica/nueva_orden.dart';
+import 'package:torrexi_tecnicos/logica/orden.dart';
+import 'package:torrexi_tecnicos/logica/prospectos.dart';
+import 'package:torrexi_tecnicos/logica/telefono.dart';
+import 'package:torrexi_tecnicos/servicios/ordenes.dart';
+import 'package:torrexi_tecnicos/servicios/sesion.dart';
 
 /// Catálogos con la forma de los de la web.
 final cat = CatalogosOrden(

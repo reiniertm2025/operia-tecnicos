@@ -1,8 +1,8 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/menu.dart';
-import 'package:operia_tecnicos/logica/sistema.dart';
-import 'package:operia_tecnicos/servicios/ordenes.dart';
+import 'package:torrexi_tecnicos/logica/menu.dart';
+import 'package:torrexi_tecnicos/logica/sistema.dart';
+import 'package:torrexi_tecnicos/servicios/ordenes.dart';
 
 void main() {
   test('cada opción de Sistema abre su lista, y todas las listas tienen opción', () {

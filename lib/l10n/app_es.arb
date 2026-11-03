@@ -1,6 +1,6 @@
 {
   "@@locale": "es",
-  "appTitulo": "Operia Técnicos",
+  "appTitulo": "Torrexi Técnicos",
   "conectando": "Conectando",
   "tuMundo": "tu mundo",
   "loginSubtitulo": "Atiende tus órdenes de trabajo desde donde estés.",
@@ -231,7 +231,7 @@
   "pestManual": "Manual",
   "pestNovedades": "Novedades",
   "pestAcerca": "Acerca de",
-  "acercaTexto": "App de los técnicos de Operia. Usa la misma información que la web: lo que haces aquí lo ve la oficina al momento.",
+  "acercaTexto": "App de los técnicos de Torrexi. Usa la misma información que la web: lo que haces aquí lo ve la oficina al momento.",
   "versionInstalada": "Versión instalada",
   "usuarioActual": "Usuario",
   "rol": "Rol",

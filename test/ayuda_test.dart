@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/ayuda/contenido.dart';
+import 'package:torrexi_tecnicos/ayuda/contenido.dart';
 
 void main() {
   ContenidoAyuda leer(String idioma) =>

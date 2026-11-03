@@ -1,4 +1,4 @@
-# Operia Técnicos — guía para Claude Code
+# Torrexi Técnicos — guía para Claude Code
 
 App de Android para los técnicos de la empresa: ver sus órdenes de trabajo, atenderlas y completarlas.
 Se hace con **Flutter (Dart)**. El APK se compila en esta PC, sin Android Studio.
@@ -23,8 +23,8 @@ Se hace con **Flutter (Dart)**. El APK se compila en esta PC, sin Android Studio
   («reinier») ya abierta en su teléfono: si la app pide «Entrar», lo toca él (Claude no inicia sesión con su cuenta).
   `.maestro/recorrido-solo-mirar.yaml` recorre el menú, abre una orden y la Ayuda sin cambiar nada. Las capturas pueden mostrar
   lo que haya en la pantalla del teléfono: revisarlas y borrarlas (`build/maestro`, `~/.maestro/tests`).
-- Ícono: lo dibuja `diseno/icono.ts` (marca de Operia + insignia ✓) y escribe los PNG en `android/app/src/main/res/mipmap-*`.
-  Arranque azul marino (`@color/operia_marino`, `values-v31/styles.xml`). Para regenerar hace falta `@resvg/resvg-js` (bun add en
+- Ícono: lo dibuja `diseno/icono.ts` (marca de Torrexi + insignia ✓) y escribe los PNG en `android/app/src/main/res/mipmap-*`.
+  Arranque azul marino (`@color/torrexi_marino`, `values-v31/styles.xml`). Para regenerar hace falta `@resvg/resvg-js` (bun add en
   una carpeta aparte y `bun icono.ts <carpeta res> diseno`).
 - Emulador `Operia_Pixel` (Android 16, en `D:\herramientas\avd`, variable `ANDROID_AVD_HOME`): arranca, pero ⚠️ **se cierra al abrir
   la app** en esta PC (NVIDIA MX350 con controlador 532.10; el emulador pide ≥ 553.35 para Vulkan, y con gráficos por software o
@@ -37,7 +37,11 @@ Se hace con **Flutter (Dart)**. El APK se compila en esta PC, sin Android Studio
   agente `revisor-tecnicos` (`.claude/agents/`), pasándole solo los archivos tocados.
 - La web está en un solo archivo enorme (`src/legacy/app.js`): **nunca leerlo entero**, buscar con Grep el campo o la función.
 - Git: agregar archivo por archivo, **nunca** `git add -A` ni `git add .` (no se debe colar una llave `*.jks` ni `key.properties`).
-- Lo que está a medias o espera decisión del usuario se anota en la memoria `contexto-actual` del proyecto Operia.
+- Lo que está a medias o espera decisión del usuario se anota en la memoria `contexto-actual` del proyecto Torrexi.
+
+- Nombre: la web y la app se llaman **Torrexi** (antes Operia, cambio del dueño el 3 nov 2026); en la app no debe verse «Operia».
+  Solo se queda el id interno de Android `com.operia.operia_tecnicos` (build.gradle.kts, MainActivity.kt, google-services.json,
+  appId de Maestro): está registrado en Firebase y cambiarlo haría otra app distinta (habría que darla de alta en la consola).
 
 ## Herramientas (todo en D:, el disco C: está casi lleno)
 
@@ -46,9 +50,9 @@ Se hace con **Flutter (Dart)**. El APK se compila en esta PC, sin Android Studio
 - APK: `flutter build apk --release` → `build\app\outputs\flutter-apk\app-release.apk`. Por ahora se firma con la llave de depuración;
   antes de repartirlo a los técnicos hay que crear una llave propia (`*.jks`, nunca se sube a git).
 
-## La base de datos es la misma de la web Operia
+## La base de datos es la misma de la web Torrexi
 
-Firebase `cabletech-81e62`. La web Operia (`D:\proyectos\operia`, archivo principal `src/legacy/app.js`, reglas `firestore.rules`) es la
+Firebase `cabletech-81e62`. La web Torrexi (`D:\proyectos\torrexi`, archivo principal `src/legacy/app.js`, reglas `firestore.rules`) es la
 referencia de cómo se guardan los datos. **La app debe leer y escribir exactamente igual que la web**, o se rompe lo que ya funciona. Antes
 de escribir un campo nuevo, buscar cómo lo usa la web.
 

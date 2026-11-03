@@ -100,7 +100,7 @@ abstract class Textos {
   /// No description provided for @appTitulo.
   ///
   /// In es, this message translates to:
-  /// **'Operia Técnicos'**
+  /// **'Torrexi Técnicos'**
   String get appTitulo;
 
   /// No description provided for @conectando.
@@ -880,7 +880,7 @@ abstract class Textos {
   /// No description provided for @acercaTexto.
   ///
   /// In es, this message translates to:
-  /// **'App de los técnicos de Operia. Usa la misma información que la web: lo que haces aquí lo ve la oficina al momento.'**
+  /// **'App de los técnicos de Torrexi. Usa la misma información que la web: lo que haces aquí lo ve la oficina al momento.'**
   String get acercaTexto;
 
   /// No description provided for @versionInstalada.

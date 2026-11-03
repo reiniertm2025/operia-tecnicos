@@ -1,6 +1,6 @@
-# operia_tecnicos
+# torrexi_tecnicos
 
-App de los técnicos de Operia
+App de los técnicos de Torrexi
 
 ## Getting Started
 

@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/errores.dart';
+import 'package:torrexi_tecnicos/logica/errores.dart';
 
 void main() {
   test('usuario o contraseña mal dan el mismo error (no se dice cuál falló)', () {

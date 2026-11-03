@@ -1,11 +1,11 @@
 {
   "version": "2026-11-02",
-  "intro": "Estos términos explican cómo se usa la app Operia Técnicos. Léelos con calma: para entrar a la app necesitas aceptarlos. Si algo no te queda claro, pregunta en la oficina antes de aceptar.",
+  "intro": "Estos términos explican cómo se usa la app Torrexi Técnicos. Léelos con calma: para entrar a la app necesitas aceptarlos. Si algo no te queda claro, pregunta en la oficina antes de aceptar.",
   "secciones": [
     {
       "icono": "app",
       "titulo": "Para qué es la app",
-      "texto": "Operia Técnicos es una herramienta de trabajo de la empresa. Sirve para ver, aceptar y completar las órdenes de trabajo, registrar cobros y apartar IPs. Usa la misma información que la web de la oficina: lo que haces aquí lo ve la oficina al momento."
+      "texto": "Torrexi Técnicos es una herramienta de trabajo de la empresa. Sirve para ver, aceptar y completar las órdenes de trabajo, registrar cobros y apartar IPs. Usa la misma información que la web de la oficina: lo que haces aquí lo ve la oficina al momento."
     },
     {
       "icono": "cuenta",

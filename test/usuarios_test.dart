@@ -1,11 +1,11 @@
 import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/contrasena.dart';
-import 'package:operia_tecnicos/logica/sistema.dart';
-import 'package:operia_tecnicos/logica/usuarios.dart';
-import 'package:operia_tecnicos/servicios/ordenes.dart';
-import 'package:operia_tecnicos/servicios/sesion.dart';
-import 'package:operia_tecnicos/servicios/usuarios.dart';
+import 'package:torrexi_tecnicos/logica/contrasena.dart';
+import 'package:torrexi_tecnicos/logica/sistema.dart';
+import 'package:torrexi_tecnicos/logica/usuarios.dart';
+import 'package:torrexi_tecnicos/servicios/ordenes.dart';
+import 'package:torrexi_tecnicos/servicios/sesion.dart';
+import 'package:torrexi_tecnicos/servicios/usuarios.dart';
 
 /// Cuentas de Firebase de mentira: anota lo que se pidió.
 class _Cuentas implements CuentasApp {

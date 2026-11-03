@@ -47,7 +47,7 @@ app.*.map.json
 # Widget Preview related
 .widget_preview/
 
-# Operia: nunca subir llaves, APK ni capturas de Maestro
+# Torrexi: nunca subir llaves, APK ni capturas de Maestro
 *.apk
 *.aab
 .env*

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/cobro.dart';
-import 'package:operia_tecnicos/logica/orden.dart';
+import 'package:torrexi_tecnicos/logica/cobro.dart';
+import 'package:torrexi_tecnicos/logica/orden.dart';
 
 /// Catálogo con la forma del real (serviceCharges y services de la base, 2026-11-02).
 final cat = Catalogos(

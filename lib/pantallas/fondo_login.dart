@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
 /// Fondo animado del inicio de sesión «Conectando tu mundo», igual que el de la web
-/// (src/features/login-art/cable-art.ts de Operia): foto de fibra óptica y, encima, pulsos de luz por los hilos,
+/// (src/features/login-art/cable-art.ts de Torrexi): foto de fibra óptica y, encima, pulsos de luz por los hilos,
 /// la avenida de luz hacia la ciudad y la señal de la torre. La foto no se mueve. Se usa la versión «ligera» de la web
 /// (la de teléfonos). Con «quitar animaciones» del teléfono queda la foto fija.
 class FondoLogin extends StatefulWidget {

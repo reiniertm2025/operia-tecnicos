@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:operia_tecnicos/logica/orden.dart';
+import 'package:torrexi_tecnicos/logica/orden.dart';
 
 void main() {
   test('el estado se entiende igual que en la web', () {
