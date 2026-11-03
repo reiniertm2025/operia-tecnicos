@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:isolate';
 import 'dart:math';
 
@@ -97,8 +98,8 @@ class ServicioUsuarios {
     return List.generate(16, (_) => r.nextInt(256).toRadixString(16).padLeft(2, '0')).join();
   }
 
-  /// Guarda la ficha y su acceso a la app. Devuelve false si no hubo señal (la ficha se sube después; el acceso se arma
-  /// cuando la web la vea, como `protectAccounts`). Lanza [ErrorDeCuenta] si la ficha se guardó pero el acceso no.
+  /// Guarda la ficha y su acceso a la app. Lo que toca su acceso necesita internet: sin señal no se guarda nada (lanza
+  /// `unavailable`). Lanza [ErrorDeCuenta] si la ficha se guardó pero el acceso no.
   Future<bool> guardar(
     DatosUsuario d, {
     Registro? antes,
@@ -112,7 +113,7 @@ class ServicioUsuarios {
       // 100 000 vueltas tardan un momento: aparte, para que la pantalla no se congele
       secreto = (hash: await Isolate.run(() => cifrarContrasena(clave, sal)), sal: sal);
     }
-    final legado = await _legado();
+    final legado = await _legado(enLinea: d.acceso || '${antes?.datos['authUid'] ?? ''}'.isNotEmpty);
     final datos = datosUsuario(
       d,
       antes: antes,
@@ -141,16 +142,26 @@ class ServicioUsuarios {
 
   /// Quita su acceso a la app y manda la ficha a la Papelera.
   Future<bool> borrar(Registro u, Tecnico t) async {
+    if ('${u.datos['authUid'] ?? ''}'.isNotEmpty) await _legado(enLinea: true);
     await _quitarAcceso(u.id, u.datos);
     return _ordenes.borrarRegistro(Catalogo.usuarios, u, t);
   }
 
   /// `settings/security.appLegacy`: mientras no se quite en la web, la contraseña cifrada también queda en la ficha.
-  Future<bool> _legado() async {
+  /// Con `enLinea` se lee del servidor: si no hay internet, lanza `unavailable` antes de tocar nada (una cuenta a medias
+  /// dejaría al técnico sin entrar).
+  Future<bool> _legado({bool enLinea = false}) async {
     try {
-      return (await _db.collection('settings').doc('security').get()).data()?['appLegacy'] != false;
-    } catch (_) {
+      final doc = _db.collection('settings').doc('security');
+      final d = enLinea
+          ? await doc.get(const GetOptions(source: Source.server)).timeout(ServicioOrdenes.espera)
+          : await doc.get();
+      return d.data()?['appLegacy'] != false;
+    } on FirebaseException catch (e) {
+      if (enLinea && e.code != 'permission-denied') rethrow;
       return true;
+    } on TimeoutException {
+      throw FirebaseException(plugin: 'cloud_firestore', code: 'unavailable');
     }
   }
 
@@ -173,17 +184,24 @@ class ServicioUsuarios {
     final usuario = '${ahora['username'] ?? ''}';
     if (ahora['appAccess'] != true || usuario.isEmpty) return _quitarAcceso(id, antes);
     final viejo = antes['passwordHash'] is String
-        ? {'passwordHash': antes['passwordHash'], 'passwordSalt': antes['passwordSalt']}
+        ? {
+            'passwordHash': antes['passwordHash'],
+            'passwordSalt': antes['passwordSalt'],
+            'passwordIterations': antes['passwordIterations'],
+            'passwordAlgo': antes['passwordAlgo'],
+          }
         : await _secreto(id);
     final nuevo = secreto != null ? datosSecreto(secreto) : viejo;
     final hash = nuevo?['passwordHash'];
     if (hash is! String) return;
     var correo = '${antes['authEmail'] ?? ''}';
     var uid = '${antes['authUid'] ?? ''}';
+    var creada = false;
     try {
       if (uid.isEmpty) {
         correo = 'a-${_salNueva().substring(0, 16)}@app.$_dominio';
         uid = await _cuentas.crear(correo, hash);
+        creada = true;
       } else if (secreto != null && viejo?['passwordHash'] != secreto.hash) {
         await _cuentas.cambiarClave(correo, '${viejo?['passwordHash'] ?? ''}', secreto.hash);
       }
@@ -223,9 +241,11 @@ class ServicioUsuarios {
     };
     if (cambio.isNotEmpty) lote.update(_db.collection('users').doc(id), cambio);
     try {
-      await lote.commit();
-    } on FirebaseException catch (e) {
-      throw ErrorDeCuenta(e.code);
+      await lote.commit().timeout(ServicioOrdenes.espera);
+    } catch (e) {
+      // sin su appLogin y su appAuth la cuenta nueva no sirve: se borra para no dejarla suelta
+      if (creada) await _cuentas.quitar(correo, hash);
+      throw ErrorDeCuenta(e is FirebaseException ? e.code : 'unavailable');
     }
   }
 
@@ -237,7 +257,7 @@ class ServicioUsuarios {
     Future<void> borrar(String col, String doc) async {
       if (doc.isEmpty) return;
       try {
-        await _db.collection(col).doc(doc).delete();
+        await _db.collection(col).doc(doc).delete().timeout(ServicioOrdenes.espera);
       } catch (_) {}
     }
 
@@ -250,7 +270,11 @@ class ServicioUsuarios {
     final clave = secreto?['passwordHash'] ?? (u['passwordHash'] is String ? u['passwordHash'] : '');
     await _cuentas.quitar('${u['authEmail'] ?? ''}', '$clave');
     try {
-      await _db.collection('users').doc(id).update({'authUid': FieldValue.delete(), 'authEmail': FieldValue.delete()});
+      await _db
+          .collection('users')
+          .doc(id)
+          .update({'authUid': FieldValue.delete(), 'authEmail': FieldValue.delete()})
+          .timeout(ServicioOrdenes.espera);
     } catch (_) {}
   }
 }

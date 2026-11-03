@@ -68,7 +68,12 @@ class _PantallaFormCatalogoState extends State<PantallaFormCatalogo> with Guarda
   }
 
   /// Lo que no se cambia al editar (ver `camposFijos`).
-  bool _fijo(String clave) => camposFijos(widget.catalogo, widget.registro).contains(clave);
+  bool _fijo(String clave) =>
+      camposFijos(widget.catalogo, widget.registro).contains(clave) || (clave == 'permission' && _miRol);
+
+  /// El rol de quien usa la app: su permiso y borrarlo, en la web (aquí se quedaría sin entrar).
+  bool get _miRol =>
+      widget.catalogo == Catalogo.roles && widget.registro != null && nombreDe(widget.registro!) == widget.tecnico.rol;
 
   String _etiqueta(Textos t, String clave) => switch (clave) {
     'name' => t.sisCampoName,
@@ -230,9 +235,9 @@ class _PantallaFormCatalogoState extends State<PantallaFormCatalogo> with Guarda
       TipoCampo.permiso => DropdownButtonFormField<String>(
         initialValue: permisos.containsKey(_v[c.clave]) ? '${_v[c.clave]}' : null,
         isExpanded: true,
-        decoration: InputDecoration(labelText: etiqueta),
+        decoration: InputDecoration(labelText: etiqueta, helperText: fijo ? t.sisPropioFijo : null, helperMaxLines: 3),
         items: [for (final p in permisos.keys) DropdownMenuItem(value: p, child: Text(nombrePermiso(t, p)))],
-        onChanged: (x) => setState(() => _v[c.clave] = x),
+        onChanged: fijo ? null : (x) => setState(() => _v[c.clave] = x),
       ),
     };
   }
@@ -246,7 +251,7 @@ class _PantallaFormCatalogoState extends State<PantallaFormCatalogo> with Guarda
       registro: r,
       guardando: guardando,
       error: error,
-      alBorrar: r != null && sePuedeBorrar(widget.catalogo, r) ? _borrar : null,
+      alBorrar: r != null && sePuedeBorrar(widget.catalogo, r) && !_miRol ? _borrar : null,
       // si al editar no queda nada que cambiar (solo el nombre, que se cambia en la web), no se guarda: solo se borra
       alGuardar: nadaQueCambiar(widget.catalogo, r) ? null : _guardar,
       children: [

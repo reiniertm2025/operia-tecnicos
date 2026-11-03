@@ -62,7 +62,8 @@ import 'textos_es.dart';
 /// be consistent with the languages listed in the Textos.supportedLocales
 /// property.
 abstract class Textos {
-  Textos(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  Textos(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -82,15 +83,19 @@ abstract class Textos {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
-  static const List<Locale> supportedLocales = <Locale>[Locale('en'), Locale('es')];
+  static const List<Locale> supportedLocales = <Locale>[
+    Locale('en'),
+    Locale('es'),
+  ];
 
   /// No description provided for @appTitulo.
   ///
@@ -3553,6 +3558,12 @@ abstract class Textos {
   /// In es, this message translates to:
   /// **'La ficha se guardó, pero no se pudo dar o cambiar su acceso a la app ({detalle}). Ábrela y vuelve a guardar, o hazlo en la web.'**
   String errUsuCuenta(String detalle);
+
+  /// No description provided for @sisPropioFijo.
+  ///
+  /// In es, this message translates to:
+  /// **'Es el tuyo: se cambia en la web, para que no te quedes sin entrar a la app.'**
+  String get sisPropioFijo;
 }
 
 class _TextosDelegate extends LocalizationsDelegate<Textos> {
@@ -3564,7 +3575,8 @@ class _TextosDelegate extends LocalizationsDelegate<Textos> {
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'es'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'es'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_TextosDelegate old) => false;

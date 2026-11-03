@@ -204,7 +204,12 @@ Future<void> abrirFuera(BuildContext context, Uri direccion) async {
 }
 
 /// Mensaje de cualquier error al guardar: los de Firebase en palabras claras; lo demás, con su detalle.
-String textoDeError(Textos t, Object e) => e is ErrorDeOrden ? textoFalloOrden(t, e) : t.errOtro('$e');
+String textoDeError(Textos t, Object e) => switch (e) {
+  ErrorDeOrden() => textoFalloOrden(t, e),
+  FirebaseException(code: 'permission-denied') => t.errSinPermiso,
+  FirebaseException(code: 'unavailable' || 'network-request-failed') => t.errSinInternet,
+  _ => t.errOtro('$e'),
+};
 
 /// Error al cargar una lista: sin permiso o sin internet en palabras claras; lo demás, con su detalle.
 String textoErrorCarga(Textos t, Object error) => switch (error) {

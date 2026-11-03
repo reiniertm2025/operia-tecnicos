@@ -49,7 +49,7 @@ class _PantallaFormUsuarioState extends State<PantallaFormUsuario> with GuardarY
   late String _pais = _tel?.iso ?? 'MX';
   late final _correo = TextEditingController(text: _texto('email'));
   late String? _rol = widget.roles.any((r) => r.id == _antes['role']) ? _texto('role') : null;
-  late String _ocupacion = widget.ocupaciones.any((r) => r.id == _antes['occupation']) ? _texto('occupation') : '';
+  late String _ocupacion = _texto('occupation');
   late final _zonas = <String>{...zonasDeUsuario(_antes)};
   late bool _asalariado = _antes['salaried'] == true;
   late final _sueldo = TextEditingController(text: _texto('salaryWeekly'));
@@ -58,6 +58,9 @@ class _PantallaFormUsuarioState extends State<PantallaFormUsuario> with GuardarY
   late final _usuario = TextEditingController(text: _texto('username'));
   final _contrasena = TextEditingController();
   bool _verContrasena = false;
+
+  /// Uno mismo: su acceso, su rol y su contraseña se cambian en la web (aquí se quedaría sin entrar a media operación).
+  bool get _yo => widget.registro?.id == widget.tecnico.userId;
 
   @override
   void dispose() {
@@ -75,9 +78,12 @@ class _PantallaFormUsuarioState extends State<PantallaFormUsuario> with GuardarY
       correo: _correo.text,
       rol: _rol ?? '',
       ocupacion: _ocupacion,
+      // las que no salen en la lista (inactivas) se conservan
       zonas: [
         for (final z in widget.nombresZonas.keys)
           if (_zonas.contains(z)) z,
+        for (final z in _zonas)
+          if (!widget.nombresZonas.containsKey(z)) z,
       ],
       asalariado: _asalariado,
       sueldo: sueldo.isEmpty ? null : (double.tryParse(sueldo) ?? double.nan),
@@ -125,7 +131,7 @@ class _PantallaFormUsuarioState extends State<PantallaFormUsuario> with GuardarY
         sinAcceso = e;
         return true;
       }
-    }, listo: () => sinAcceso == null ? t.sisGuardado : t.errUsuCuenta(sinAcceso!.codigo));
+    }, listo: () => sinAcceso == null ? t.sisGuardado : t.errUsuCuenta(_detalle(t, sinAcceso!.codigo)));
   }
 
   Future<void> _borrar() => borrarConPregunta(
@@ -134,17 +140,32 @@ class _PantallaFormUsuarioState extends State<PantallaFormUsuario> with GuardarY
     () => widget.servicio.borrar(widget.registro!, widget.tecnico),
   );
 
-  Widget _desplegable(String etiqueta, String? valor, Map<String, String> opciones, ValueChanged<String?> alCambiar) =>
-      DropdownButtonFormField<String>(
-        initialValue: valor,
-        isExpanded: true,
-        decoration: InputDecoration(labelText: etiqueta),
-        items: [
-          for (final MapEntry(key: id, value: nombre) in opciones.entries)
-            DropdownMenuItem(value: id, child: Text(nombre)),
-        ],
-        onChanged: (x) => setState(() => alCambiar(x)),
-      );
+  static String _detalle(Textos t, String codigo) => switch (codigo) {
+    'permission-denied' => t.errSinPermiso,
+    'unavailable' || 'network-request-failed' => t.errSinInternet,
+    _ => codigo,
+  };
+
+  /// Una lista para elegir; el valor guardado que ya no está en la lista se muestra tal cual, para no perderlo.
+  Widget _desplegable(
+    String etiqueta,
+    String? valor,
+    Map<String, String> opciones,
+    ValueChanged<String?> alCambiar, {
+    bool activo = true,
+  }) => DropdownButtonFormField<String>(
+    initialValue: valor,
+    isExpanded: true,
+    decoration: InputDecoration(labelText: etiqueta, helperText: activo ? null : Textos.of(context).sisPropioFijo),
+    items: [
+      for (final MapEntry(key: id, value: nombre) in {
+        ...opciones,
+        if (valor != null && !opciones.containsKey(valor)) valor: valor,
+      }.entries)
+        DropdownMenuItem(value: id, child: Text(nombre)),
+    ],
+    onChanged: activo ? (x) => setState(() => alCambiar(x)) : null,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -175,7 +196,7 @@ class _PantallaFormUsuarioState extends State<PantallaFormUsuario> with GuardarY
           decoration: InputDecoration(labelText: t.usuCorreo, helperText: t.foOpcional),
         ),
         hueco,
-        _desplegable(t.usuRol, _rol, {for (final x in widget.roles) x.id: nombreDe(x)}, (x) => _rol = x),
+        _desplegable(t.usuRol, _rol, {for (final x in widget.roles) x.id: nombreDe(x)}, (x) => _rol = x, activo: !_yo),
         hueco,
         _desplegable(t.usuOcupacion, _ocupacion, {
           '': t.usuSinOcupacion,
@@ -219,18 +240,21 @@ class _PantallaFormUsuarioState extends State<PantallaFormUsuario> with GuardarY
         SwitchListTile(
           contentPadding: EdgeInsets.zero,
           title: Text(t.usuAcceso),
+          subtitle: _yo ? Text(t.sisPropioFijo) : null,
           value: _acceso,
-          onChanged: (x) => setState(() => _acceso = x),
+          onChanged: _yo ? null : (x) => setState(() => _acceso = x),
         ),
         if (_acceso) ...[
           TextField(
             controller: _usuario,
+            enabled: !_yo,
             autocorrect: false,
             decoration: InputDecoration(labelText: t.usuUsuario, helperText: t.usuUsuarioAyuda, helperMaxLines: 2),
           ),
           hueco,
           TextField(
             controller: _contrasena,
+            enabled: !_yo,
             obscureText: !_verContrasena,
             autocorrect: false,
             enableSuggestions: false,

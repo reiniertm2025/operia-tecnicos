@@ -576,5 +576,6 @@
   "errUsuUsuarioOcupado": "Someone else already has that username.",
   "errUsuContrasena": "Type the app password.",
   "errUsuContrasenaCorta": "The password must have at least 8 characters.",
-  "errUsuCuenta": "The record was saved, but its app access could not be created or changed ({detalle}). Open it and save again, or do it on the web."
+  "errUsuCuenta": "The record was saved, but its app access could not be created or changed ({detalle}). Open it and save again, or do it on the web.",
+  "sisPropioFijo": "It is yours: change it on the web, so you do not lose access to the app."
 }

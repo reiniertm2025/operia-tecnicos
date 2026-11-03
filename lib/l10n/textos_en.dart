@@ -22,7 +22,8 @@ class TextosEn extends Textos {
   String get loginSubtitulo => 'Handle your work orders from wherever you are.';
 
   @override
-  String get loginInstruccion => 'Sign in with the username and password the office gave you.';
+  String get loginInstruccion =>
+      'Sign in with the username and password the office gave you.';
 
   @override
   String get usuario => 'Username';
@@ -54,16 +55,20 @@ class TextosEn extends Textos {
   }
 
   @override
-  String get errSinAccesoApp => 'Your user has no access to the app. Ask the office for it.';
+  String get errSinAccesoApp =>
+      'Your user has no access to the app. Ask the office for it.';
 
   @override
-  String get errCuentaDesactivada => 'Your account is disabled. Contact the office.';
+  String get errCuentaDesactivada =>
+      'Your account is disabled. Contact the office.';
 
   @override
-  String get errDemasiadosIntentos => 'Too many attempts in a row. Wait a few minutes and try again.';
+  String get errDemasiadosIntentos =>
+      'Too many attempts in a row. Wait a few minutes and try again.';
 
   @override
-  String get errSinInternet => 'No internet connection. Check your mobile data or wifi.';
+  String get errSinInternet =>
+      'No internet connection. Check your mobile data or wifi.';
 
   @override
   String errOtro(String detalle) {
@@ -74,7 +79,8 @@ class TextosEn extends Textos {
   String get errYaTomada => 'Another technician already accepted this order.';
 
   @override
-  String get errSinPermiso => 'You are not allowed to change this order. Contact the office.';
+  String get errSinPermiso =>
+      'You are not allowed to change this order. Contact the office.';
 
   @override
   String get navPendientes => 'Pending';
@@ -170,7 +176,8 @@ class TextosEn extends Textos {
   String get cerrarSesionPregunta => 'Sign out?';
 
   @override
-  String get cerrarSesionTexto => 'You will need to enter your username and password again.';
+  String get cerrarSesionTexto =>
+      'You will need to enter your username and password again.';
 
   @override
   String get cancelar => 'Cancel';
@@ -269,7 +276,8 @@ class TextosEn extends Textos {
   String get aceptarPregunta => 'Accept this order?';
 
   @override
-  String get aceptarTexto => 'It will be assigned to you and move to «In progress». The office will see it on the web.';
+  String get aceptarTexto =>
+      'It will be assigned to you and move to «In progress». The office will see it on the web.';
 
   @override
   String get aceptar => 'Accept';
@@ -307,7 +315,8 @@ class TextosEn extends Textos {
   String get otroTecnicoSinNombre => 'another technician';
 
   @override
-  String get sinSenal => 'No signal: it will be sent as soon as there is internet.';
+  String get sinSenal =>
+      'No signal: it will be sent as soon as there is internet.';
 
   @override
   String get noSePudoAbrir => 'Could not open it on this phone.';
@@ -385,7 +394,8 @@ class TextosEn extends Textos {
       'The order stays in progress until the office approves it; the customer will owe the payment.';
 
   @override
-  String get notaSinCosto => 'Nothing is charged. The order stays in progress until the office approves it.';
+  String get notaSinCosto =>
+      'Nothing is charged. The order stays in progress until the office approves it.';
 
   @override
   String get guardarCompletar => 'Save and complete';
@@ -410,10 +420,12 @@ class TextosEn extends Textos {
   String get cobroEnviado => 'Done, it was sent to the office.';
 
   @override
-  String get msgPorAutorizar => 'Waiting for the office to approve the payment.';
+  String get msgPorAutorizar =>
+      'Waiting for the office to approve the payment.';
 
   @override
-  String get msgTransferencia => 'The office will check the transfer receipt and complete the order.';
+  String get msgTransferencia =>
+      'The office will check the transfer receipt and complete the order.';
 
   @override
   String get estPorAutorizar => 'To approve';
@@ -447,7 +459,8 @@ class TextosEn extends Textos {
   String get menuIps => 'Free IPs';
 
   @override
-  String get ipsDescripcion => 'Reserve the IP you are going to use so nobody else takes it.';
+  String get ipsDescripcion =>
+      'Reserve the IP you are going to use so nobody else takes it.';
 
   @override
   String ipsRouter(String fecha) {
@@ -483,7 +496,12 @@ class TextosEn extends Textos {
 
   @override
   String ipsCuantasLibres(int n) {
-    String _temp0 = intl.Intl.pluralLogic(n, locale: localeName, other: '$n free', one: '1 free');
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n free',
+      one: '1 free',
+    );
     return '$_temp0';
   }
 
@@ -520,7 +538,8 @@ class TextosEn extends Textos {
   }
 
   @override
-  String get ipsLiberarTexto => 'It becomes free again so someone else can use it.';
+  String get ipsLiberarTexto =>
+      'It becomes free again so someone else can use it.';
 
   @override
   String ipsApartadaOk(String ip) {
@@ -541,7 +560,8 @@ class TextosEn extends Textos {
   }
 
   @override
-  String get errIpOcupada => 'That IP is no longer free: someone else took it or the office changed the list.';
+  String get errIpOcupada =>
+      'That IP is no longer free: someone else took it or the office changed the list.';
 
   @override
   String get ipsTodasVlan => 'All';
@@ -569,7 +589,8 @@ class TextosEn extends Textos {
   String get terminosDesliza => 'Scroll to the end to be able to accept';
 
   @override
-  String get terminosLeiAcepto => 'I have read and accept the terms and conditions';
+  String get terminosLeiAcepto =>
+      'I have read and accept the terms and conditions';
 
   @override
   String get terminosAceptar => 'Accept and enter';
@@ -623,7 +644,8 @@ class TextosEn extends Textos {
   String get avisoFijoTitulo => 'Watching for new orders';
 
   @override
-  String get avisoFijoTexto => 'I will let you know as soon as an order arrives.';
+  String get avisoFijoTexto =>
+      'I will let you know as soon as an order arrives.';
 
   @override
   String avisoFijoPendientes(int n) {
@@ -654,7 +676,8 @@ class TextosEn extends Textos {
   String get editarOrden => 'Edit order';
 
   @override
-  String get foSubtituloNueva => 'Fill in the details: the office and technicians see it right away.';
+  String get foSubtituloNueva =>
+      'Fill in the details: the office and technicians see it right away.';
 
   @override
   String get foSeccionCliente => 'Customer';
@@ -663,7 +686,8 @@ class TextosEn extends Textos {
   String get foCliente => 'Customer name';
 
   @override
-  String get foDireccion => 'Address (street, number, neighborhood, references)';
+  String get foDireccion =>
+      'Address (street, number, neighborhood, references)';
 
   @override
   String get foSeccionUbicacion => 'Location';
@@ -723,13 +747,15 @@ class TextosEn extends Textos {
   String get errFoHoraPasada => 'That time has already passed.';
 
   @override
-  String get errFoCompletadaFutura => 'A completed order cannot be moved to a future day.';
+  String get errFoCompletadaFutura =>
+      'A completed order cannot be moved to a future day.';
 
   @override
   String get errUbicacionApagada => 'Turn on the phone location.';
 
   @override
-  String get errUbicacionPermiso => 'No location permission: turn it on in the phone settings.';
+  String get errUbicacionPermiso =>
+      'No location permission: turn it on in the phone settings.';
 
   @override
   String get errUbicacionOtro => 'Could not get the location. Try again.';
@@ -754,13 +780,15 @@ class TextosEn extends Textos {
   }
 
   @override
-  String get eliminarTexto => 'It goes to the web Trash: it can be restored there for 30 days.';
+  String get eliminarTexto =>
+      'It goes to the web Trash: it can be restored there for 30 days.';
 
   @override
   String get ordenEliminada => 'The order was moved to the Trash.';
 
   @override
-  String get msgSoloConsulta => 'Your role is view-only: you can see the order but not change it.';
+  String get msgSoloConsulta =>
+      'Your role is view-only: you can see the order but not change it.';
 
   @override
   String get menuModems => 'Modems to recover';
@@ -831,7 +859,8 @@ class TextosEn extends Textos {
   }
 
   @override
-  String get modemRecuperadoOk => 'Done! Modem recovered: the commission now counts.';
+  String get modemRecuperadoOk =>
+      'Done! Modem recovered: the commission now counts.';
 
   @override
   String get modemVacio => 'No modems to recover. All caught up!';
@@ -864,7 +893,8 @@ class TextosEn extends Textos {
   String get foBuscarPais => 'Search country or code';
 
   @override
-  String get foLlegaSinTecnico => 'The order arrives without a technician: the first one who accepts it takes it.';
+  String get foLlegaSinTecnico =>
+      'The order arrives without a technician: the first one who accepts it takes it.';
 
   @override
   String get foDatosNuevo => 'New service details';
@@ -935,13 +965,15 @@ class TextosEn extends Textos {
   String get foFechaRegresoAyuda => 'The web warns 3 days before.';
 
   @override
-  String get foSinCategoriasModem => 'There are no modem categories: add them on the web (System › Assets).';
+  String get foSinCategoriasModem =>
+      'There are no modem categories: add them on the web (System › Assets).';
 
   @override
   String get errFoPlan => 'Choose the plan (the modem to install).';
 
   @override
-  String get errFoComision => 'Choose the commission of who brought the service.';
+  String get errFoComision =>
+      'Choose the commission of who brought the service.';
 
   @override
   String get errFoMotivo => 'Choose the cancellation reason.';
@@ -1116,7 +1148,8 @@ class TextosEn extends Textos {
   String get autVacio => 'No payments waiting for authorization.';
 
   @override
-  String get autNota => 'They are authorized on the web, in Finance › Pending payments.';
+  String get autNota =>
+      'They are authorized on the web, in Finance › Pending payments.';
 
   @override
   String get dashNuevo => 'New';
@@ -1185,7 +1218,8 @@ class TextosEn extends Textos {
   String get finComisiones => 'Commissions';
 
   @override
-  String get finComisionesNoCuentan => 'Not counted as an expense: the web has no commissions category.';
+  String get finComisionesNoCuentan =>
+      'Not counted as an expense: the web has no commissions category.';
 
   @override
   String get finSinFormaPago => 'No payment method';
@@ -1197,7 +1231,8 @@ class TextosEn extends Textos {
   String get finNada => 'Nothing in this period.';
 
   @override
-  String get finNota => 'A summary of the web Financial statement. Salaries and materials are on the web.';
+  String get finNota =>
+      'A summary of the web Financial statement. Salaries and materials are on the web.';
 
   @override
   String get comTodos => 'All commissioners';
@@ -1206,7 +1241,8 @@ class TextosEn extends Textos {
   String get matTitulo => 'Materials';
 
   @override
-  String get matExplica => 'Mark the modem installed and the supplies used. They come out of the office inventory.';
+  String get matExplica =>
+      'Mark the modem installed and the supplies used. They come out of the office inventory.';
 
   @override
   String get matModem => 'Modem installed';
@@ -1233,7 +1269,8 @@ class TextosEn extends Textos {
   String get matQuitar => 'Remove';
 
   @override
-  String get matSinPred => 'This service has no default supplies: add them if any were used.';
+  String get matSinPred =>
+      'This service has no default supplies: add them if any were used.';
 
   @override
   String get matGastoModem => 'Modem cost';
@@ -1261,7 +1298,8 @@ class TextosEn extends Textos {
   String get incTitulo => 'Incomplete order';
 
   @override
-  String get incExplica => 'It was completed but something is pending. Choose when to come back and what is missing.';
+  String get incExplica =>
+      'It was completed but something is pending. Choose when to come back and what is missing.';
 
   @override
   String get incFecha => 'Return date';
@@ -1337,7 +1375,8 @@ class TextosEn extends Textos {
   String get prosEditar => 'Edit prospect';
 
   @override
-  String get prosExplica => 'A possible new-service customer. No field is required.';
+  String get prosExplica =>
+      'A possible new-service customer. No field is required.';
 
   @override
   String get prosNombre => 'Name';
@@ -1415,7 +1454,8 @@ class TextosEn extends Textos {
   }
 
   @override
-  String get errProsDiaPasado => 'The installation date cannot be before today.';
+  String get errProsDiaPasado =>
+      'The installation date cannot be before today.';
 
   @override
   String get menuMapaDia => 'Map of the day';
@@ -1444,7 +1484,8 @@ class TextosEn extends Textos {
   String get fotTitulo => 'Work photos';
 
   @override
-  String get fotNinguna => 'No photos yet. Take photos of the work: the office sees them on the web.';
+  String get fotNinguna =>
+      'No photos yet. Take photos of the work: the office sees them on the web.';
 
   @override
   String fotMax(int n) {
@@ -1467,7 +1508,8 @@ class TextosEn extends Textos {
   String get compTitulo => 'Transfer receipt';
 
   @override
-  String get compExplica => 'Optional but helpful: with the photo the office completes the order without asking again.';
+  String get compExplica =>
+      'Optional but helpful: with the photo the office completes the order without asking again.';
 
   @override
   String get menuNuevosServicios => 'New Services';
@@ -1591,7 +1633,8 @@ class TextosEn extends Textos {
   String get ifaVacio => 'No invoices to delete in these dates.';
 
   @override
-  String get ifaSinFechas => 'No payment dates: they are set on the web, in System › Payment dates.';
+  String get ifaSinFechas =>
+      'No payment dates: they are set on the web, in System › Payment dates.';
 
   @override
   String get ifaGuardada => 'Marked as deleted at the ISP.';
@@ -1645,7 +1688,8 @@ class TextosEn extends Textos {
   String get menuPartidaGastos => 'Expense categories';
 
   @override
-  String get sisSoloVer => 'View only here. To add or change, use the web (System).';
+  String get sisSoloVer =>
+      'View only here. To add or change, use the web (System).';
 
   @override
   String get sisVacio => 'Nothing registered.';
@@ -1718,13 +1762,16 @@ class TextosEn extends Textos {
   }
 
   @override
-  String get sisBorrarTexto => 'It goes to the web Trash; it can be restored there.';
+  String get sisBorrarTexto =>
+      'It goes to the web Trash; it can be restored there.';
 
   @override
-  String get sisBorrarLocalidad => 'Its zones are deleted too. Existing orders do not change.';
+  String get sisBorrarLocalidad =>
+      'Its zones are deleted too. Existing orders do not change.';
 
   @override
-  String get sisNombreFijo => 'The name is changed on the web: there it also changes in every order that uses it.';
+  String get sisNombreFijo =>
+      'The name is changed on the web: there it also changes in every order that uses it.';
 
   @override
   String get sisElegir => 'Choose';
@@ -1802,7 +1849,8 @@ class TextosEn extends Textos {
   String get errSisCategoria => 'Choose the category.';
 
   @override
-  String get errSisFechaChoca => 'Those installation days already fall in another payment date of the same locality.';
+  String get errSisFechaChoca =>
+      'Those installation days already fall in another payment date of the same locality.';
 
   @override
   String get sisCampoPermission => 'Permission';
@@ -1817,7 +1865,8 @@ class TextosEn extends Textos {
   String get permisoConsultor => 'Viewer (only sees, changes nothing)';
 
   @override
-  String get permisoTecnico => 'Technician (creates and processes, does not delete)';
+  String get permisoTecnico =>
+      'Technician (creates and processes, does not delete)';
 
   @override
   String get usuCorreo => 'Email';
@@ -1850,7 +1899,8 @@ class TextosEn extends Textos {
   String get usuUsuario => 'App username';
 
   @override
-  String get usuUsuarioAyuda => '3 to 30 letters without accents, numbers, dot or dash. No spaces.';
+  String get usuUsuarioAyuda =>
+      '3 to 30 letters without accents, numbers, dot or dash. No spaces.';
 
   @override
   String get usuContrasena => 'Password';
@@ -1901,10 +1951,15 @@ class TextosEn extends Textos {
   String get errUsuContrasena => 'Type the app password.';
 
   @override
-  String get errUsuContrasenaCorta => 'The password must have at least 8 characters.';
+  String get errUsuContrasenaCorta =>
+      'The password must have at least 8 characters.';
 
   @override
   String errUsuCuenta(String detalle) {
     return 'The record was saved, but its app access could not be created or changed ($detalle). Open it and save again, or do it on the web.';
   }
+
+  @override
+  String get sisPropioFijo =>
+      'It is yours: change it on the web, so you do not lose access to the app.';
 }
