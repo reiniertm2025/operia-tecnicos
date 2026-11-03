@@ -1,4 +1,4 @@
-// Configuración pública de Firebase (proyecto cabletech-81e62, app Android «Torrexi Técnicos»).
+// Configuración pública de Firebase (proyecto cabletech-81e62, app Android «Torrexi»).
 // Sale de android/app/google-services.json (firebase apps:sdkconfig). No es secreta: las reglas de Firestore protegen los datos.
 import "package:firebase_core/firebase_core.dart";
 

@@ -100,7 +100,7 @@ abstract class Textos {
   /// No description provided for @appTitulo.
   ///
   /// In es, this message translates to:
-  /// **'Torrexi Técnicos'**
+  /// **'Torrexi'**
   String get appTitulo;
 
   /// No description provided for @conectando.

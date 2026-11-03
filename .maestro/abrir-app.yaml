@@ -5,5 +5,5 @@ appId: com.operia.operia_tecnicos
 ---
 - launchApp
 - extendedWaitUntil:
-    visible: "Torrexi Técnicos|Entrar|Pendientes|Torrexi Technicians|Sign in|Pending"
+    visible: "Torrexi|Entrar|Pendientes|Sign in|Pending"
     timeout: 15000

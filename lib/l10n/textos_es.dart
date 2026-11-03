@@ -10,7 +10,7 @@ class TextosEs extends Textos {
   TextosEs([String locale = 'es']) : super(locale);
 
   @override
-  String get appTitulo => 'Torrexi Técnicos';
+  String get appTitulo => 'Torrexi';
 
   @override
   String get conectando => 'Conectando';

@@ -1,11 +1,11 @@
 {
   "version": "2026-11-02",
-  "intro": "These terms explain how the Torrexi Técnicos app is used. Read them carefully: you need to accept them to enter the app. If anything is unclear, ask the office before accepting.",
+  "intro": "These terms explain how the Torrexi app is used. Read them carefully: you need to accept them to enter the app. If anything is unclear, ask the office before accepting.",
   "secciones": [
     {
       "icono": "app",
       "titulo": "What the app is for",
-      "texto": "Torrexi Técnicos is a work tool of the company. It is used to see, accept and complete work orders, record payments and reserve IPs. It uses the same information as the office website: what you do here, the office sees right away."
+      "texto": "Torrexi is a work tool of the company. It is used to see, accept and complete work orders, record payments and reserve IPs. It uses the same information as the office website: what you do here, the office sees right away."
     },
     {
       "icono": "cuenta",

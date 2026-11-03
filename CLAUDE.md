@@ -1,4 +1,4 @@
-# Torrexi Técnicos — guía para Claude Code
+# Torrexi — guía para Claude Code
 
 App de Android para los técnicos de la empresa: ver sus órdenes de trabajo, atenderlas y completarlas.
 Se hace con **Flutter (Dart)**. El APK se compila en esta PC, sin Android Studio.

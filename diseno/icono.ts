@@ -1,4 +1,4 @@
-// Ícono de Torrexi Técnicos: la marca de Torrexi (tres fibras azul/naranja/verde que entran al conector, fondo azul marino)
+// Ícono de Torrexi: la marca de Torrexi (tres fibras azul/naranja/verde que entran al conector, fondo azul marino)
 // con una insignia verde de «orden culminada». Genera los PNG de Android (normal, adaptable y monocromo) y una vista previa.
 import { Resvg } from "@resvg/resvg-js";
 import { mkdirSync, writeFileSync } from "fs";
