@@ -22,7 +22,8 @@ enum OpcionMenu {
   tvDoblePlay,
   definitivos,
   temporales,
-  modems,
+  modemsDoblePlay,
+  modemsInternet,
   finanzas,
   porAutorizar,
   comisiones,
@@ -45,16 +46,7 @@ enum OpcionMenu {
 }
 
 /// Grupos que se abren y cierran, como el menú de la web; null = la opción va suelta.
-enum GrupoMenu {
-  ordenesTrabajo,
-  nuevosServicios,
-  cancelados,
-  recuperarModem,
-  finanzas,
-  reportes,
-  sistema,
-  herramientas,
-}
+enum GrupoMenu { ordenesTrabajo, nuevosServicios, cancelados, recuperarModem, finanzas, sistema, herramientas }
 
 typedef SeccionMenu = ({GrupoMenu? grupo, List<OpcionMenu> opciones});
 
@@ -85,9 +77,8 @@ List<SeccionMenu> menuPara(Tecnico t) => t.esAdmin
             OpcionMenu.temporales,
           ],
         ),
-        (grupo: GrupoMenu.recuperarModem, opciones: [OpcionMenu.modems]),
-        (grupo: GrupoMenu.finanzas, opciones: [OpcionMenu.finanzas, OpcionMenu.porAutorizar]),
-        (grupo: GrupoMenu.reportes, opciones: [OpcionMenu.comisiones]),
+        (grupo: GrupoMenu.recuperarModem, opciones: [OpcionMenu.modemsDoblePlay, OpcionMenu.modemsInternet]),
+        (grupo: GrupoMenu.finanzas, opciones: [OpcionMenu.finanzas, OpcionMenu.porAutorizar, OpcionMenu.comisiones]),
         (
           grupo: GrupoMenu.sistema,
           opciones: [

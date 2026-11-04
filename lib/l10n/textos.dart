@@ -1501,11 +1501,29 @@ abstract class Textos {
   /// **'Tu rol es de consulta: puedes ver la orden, pero no cambiarla.'**
   String get msgSoloConsulta;
 
-  /// No description provided for @menuModems.
+  /// No description provided for @menuDoblePlay.
   ///
   /// In es, this message translates to:
-  /// **'Módems por recuperar'**
-  String get menuModems;
+  /// **'Doble Play'**
+  String get menuDoblePlay;
+
+  /// No description provided for @menuInternet.
+  ///
+  /// In es, this message translates to:
+  /// **'Internet'**
+  String get menuInternet;
+
+  /// No description provided for @modemTituloDoblePlay.
+  ///
+  /// In es, this message translates to:
+  /// **'Recuperar módem · Doble Play'**
+  String get modemTituloDoblePlay;
+
+  /// No description provided for @modemTituloInternet.
+  ///
+  /// In es, this message translates to:
+  /// **'Recuperar módem · Internet'**
+  String get modemTituloInternet;
 
   /// No description provided for @menuComisiones.
   ///
@@ -1915,12 +1933,6 @@ abstract class Textos {
   /// **'Recuperar módem'**
   String get menuRecuperarModem;
 
-  /// No description provided for @menuReportes.
-  ///
-  /// In es, this message translates to:
-  /// **'Reportes'**
-  String get menuReportes;
-
   /// No description provided for @menuHerramientas.
   ///
   /// In es, this message translates to:
@@ -2154,6 +2166,12 @@ abstract class Textos {
   /// In es, this message translates to:
   /// **'La orden {folio} regresó a Pendientes'**
   String avisoRegreso(String folio);
+
+  /// No description provided for @avisoRegresoProceso.
+  ///
+  /// In es, this message translates to:
+  /// **'La orden {folio} regresó a En proceso'**
+  String avisoRegresoProceso(String folio);
 
   /// No description provided for @comNota.
   ///

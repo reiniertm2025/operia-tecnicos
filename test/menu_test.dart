@@ -17,7 +17,8 @@ void main() {
       OpcionMenu.dashboard,
       OpcionMenu.finanzas,
       OpcionMenu.comisiones,
-      OpcionMenu.modems,
+      OpcionMenu.modemsDoblePlay,
+      OpcionMenu.modemsInternet,
       OpcionMenu.prospectos,
       OpcionMenu.porAutorizar,
       OpcionMenu.mapaDia,
@@ -36,7 +37,6 @@ void main() {
       GrupoMenu.cancelados,
       GrupoMenu.recuperarModem,
       GrupoMenu.finanzas,
-      GrupoMenu.reportes,
       GrupoMenu.sistema,
       GrupoMenu.herramientas,
     ]);

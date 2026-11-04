@@ -822,7 +822,16 @@ class TextosEs extends Textos {
       'Tu rol es de consulta: puedes ver la orden, pero no cambiarla.';
 
   @override
-  String get menuModems => 'Módems por recuperar';
+  String get menuDoblePlay => 'Doble Play';
+
+  @override
+  String get menuInternet => 'Internet';
+
+  @override
+  String get modemTituloDoblePlay => 'Recuperar módem · Doble Play';
+
+  @override
+  String get modemTituloInternet => 'Recuperar módem · Internet';
 
   @override
   String get menuComisiones => 'Pago de comisiones';
@@ -1047,9 +1056,6 @@ class TextosEs extends Textos {
   String get menuRecuperarModem => 'Recuperar módem';
 
   @override
-  String get menuReportes => 'Reportes';
-
-  @override
   String get menuHerramientas => 'Herramientas';
 
   @override
@@ -1194,6 +1200,11 @@ class TextosEs extends Textos {
   @override
   String avisoRegreso(String folio) {
     return 'La orden $folio regresó a Pendientes';
+  }
+
+  @override
+  String avisoRegresoProceso(String folio) {
+    return 'La orden $folio regresó a En proceso';
   }
 
   @override

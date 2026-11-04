@@ -13,11 +13,20 @@ import 'diseno.dart';
 /// El técnico ve los de sus localidades y los que le asignaron; toca «Me lo llevo» y, al traerlo, «Ya lo recuperé»
 /// (la web le cuenta su comisión al momento). El administrador además asigna a quien quiera; el de consulta solo ve.
 class PantallaModems extends StatefulWidget {
-  const PantallaModems({super.key, required this.tecnico, required this.servicio, required this.nombresZonas});
+  const PantallaModems({
+    super.key,
+    required this.tecnico,
+    required this.servicio,
+    required this.nombresZonas,
+    required this.doblePlay,
+  });
 
   final Tecnico tecnico;
   final ServicioOrdenes servicio;
   final Map<String, String> nombresZonas;
+
+  /// Recuperar Módem › Doble Play (true) o › Internet (false), como los dos submenús de la web.
+  final bool doblePlay;
 
   @override
   State<PantallaModems> createState() => _PantallaModemsState();
@@ -26,7 +35,10 @@ class PantallaModems extends StatefulWidget {
 enum _Ver { sinAsignar, asignados, todos }
 
 class _PantallaModemsState extends State<PantallaModems> {
-  late final Stream<List<Orden>> _modems = widget.servicio.modemsPorRecuperar(widget.tecnico);
+  // la misma escucha de siempre, separada por tipo de equipo en el teléfono (no cuesta lecturas de más)
+  late final Stream<List<Orden>> _modems = widget.servicio
+      .modemsPorRecuperar(widget.tecnico)
+      .map((l) => l.where((o) => esDoblePlay(o) == widget.doblePlay).toList());
   List<Map<String, dynamic>> _comisiones = const [];
   final _enCurso = <String>{};
   String? _zona;
@@ -209,7 +221,7 @@ class _PantallaModemsState extends State<PantallaModems> {
     );
     return encabezadoAzul(
       alto: 236 + (conFiltro ? 56 : 0),
-      titulo: Text(t.menuModems),
+      titulo: Text(widget.doblePlay ? t.modemTituloDoblePlay : t.modemTituloInternet),
       abajo: filtroSiHayVarias(
         t,
         zonas: zonas,

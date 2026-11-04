@@ -565,10 +565,18 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
         t.menuTemporales,
         () => _ir((_) => PantallaTemporales(servicio: _servicio, nombresZonas: _nombresZonas)),
       ),
-      OpcionMenu.modems => _opcion(
-        Icons.inventory_2_rounded,
-        t.menuModems,
-        () => _ir((_) => PantallaModems(tecnico: yo, servicio: _servicio, nombresZonas: _nombresZonas)),
+      // Recuperar Módem › Doble Play / Internet, como la web
+      OpcionMenu.modemsDoblePlay => _opcion(
+        Icons.tv_rounded,
+        t.menuDoblePlay,
+        () =>
+            _ir((_) => PantallaModems(tecnico: yo, servicio: _servicio, nombresZonas: _nombresZonas, doblePlay: true)),
+      ),
+      OpcionMenu.modemsInternet => _opcion(
+        Icons.wifi_rounded,
+        t.menuInternet,
+        () =>
+            _ir((_) => PantallaModems(tecnico: yo, servicio: _servicio, nombresZonas: _nombresZonas, doblePlay: false)),
       ),
       OpcionMenu.finanzas => _opcion(
         Icons.query_stats_rounded,
@@ -621,7 +629,6 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
         GrupoMenu.cancelados: Icons.block_rounded,
         GrupoMenu.recuperarModem: Icons.inventory_2_outlined,
         GrupoMenu.finanzas: Icons.account_balance_wallet_rounded,
-        GrupoMenu.reportes: Icons.bar_chart_rounded,
         GrupoMenu.sistema: Icons.manage_accounts_rounded,
         GrupoMenu.herramientas: Icons.handyman_rounded,
       },
@@ -631,7 +638,6 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
         GrupoMenu.cancelados: t.menuCancelados,
         GrupoMenu.recuperarModem: t.menuRecuperarModem,
         GrupoMenu.finanzas: t.menuFinanzas,
-        GrupoMenu.reportes: t.menuReportes,
         GrupoMenu.sistema: t.menuSistema,
         GrupoMenu.herramientas: t.menuHerramientas,
       },

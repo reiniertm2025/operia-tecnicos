@@ -148,7 +148,7 @@ class _VigiaDeOrdenes extends TaskHandler {
     final o = a.orden;
     final titulo = switch (a.tipo) {
       TipoAviso.asignada => _t.avisoAsignada(o.folio),
-      TipoAviso.regreso => _t.avisoRegreso(o.folio),
+      TipoAviso.regreso => o.estado == 'en_proceso' ? _t.avisoRegresoProceso(o.folio) : _t.avisoRegreso(o.folio),
       TipoAviso.nueva => _t.avisoNueva(o.folio),
     };
     final texto = [o.cliente, o.servicio, zonas[o.zonaId] ?? o.zonaId].where((x) => x.isNotEmpty).join(' · ');

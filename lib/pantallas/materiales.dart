@@ -221,8 +221,8 @@ class _PantallaMaterialesState extends State<PantallaMateriales> {
                   ),
                 ),
                 const SizedBox(width: 8),
-                SizedBox(
-                  width: 92,
+                // la cantidad comparte el ancho con el insumo: caben 3 cifras y la unidad («150 metro»)
+                Expanded(
                   child: TextField(
                     controller: f.cantidad,
                     keyboardType: const TextInputType.numberWithOptions(decimal: true),
@@ -231,7 +231,9 @@ class _PantallaMaterialesState extends State<PantallaMateriales> {
                     decoration: InputDecoration(
                       labelText: t.matCantidad,
                       isDense: true,
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14),
                       suffixText: widget.catalogo.activo(f.assetId)?.unidad,
+                      suffixStyle: TextStyle(fontSize: 13, color: Theme.of(context).colorScheme.onSurfaceVariant),
                     ),
                   ),
                 ),

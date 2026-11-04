@@ -825,7 +825,16 @@ class TextosEn extends Textos {
       'Your role is view-only: you can see the order but not change it.';
 
   @override
-  String get menuModems => 'Modems to recover';
+  String get menuDoblePlay => 'Double Play';
+
+  @override
+  String get menuInternet => 'Internet';
+
+  @override
+  String get modemTituloDoblePlay => 'Recover modem · Double Play';
+
+  @override
+  String get modemTituloInternet => 'Recover modem · Internet';
 
   @override
   String get menuComisiones => 'Commission payments';
@@ -1049,9 +1058,6 @@ class TextosEn extends Textos {
   String get menuRecuperarModem => 'Modem recovery';
 
   @override
-  String get menuReportes => 'Reports';
-
-  @override
   String get menuHerramientas => 'Tools';
 
   @override
@@ -1196,6 +1202,11 @@ class TextosEn extends Textos {
   @override
   String avisoRegreso(String folio) {
     return 'Order $folio is back in Pending';
+  }
+
+  @override
+  String avisoRegresoProceso(String folio) {
+    return 'Order $folio is back In progress';
   }
 
   @override

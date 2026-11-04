@@ -224,13 +224,17 @@ class _PantallaInicioSesionState extends State<PantallaInicioSesion> with Single
               ),
             ),
             const SizedBox(height: 4),
-            CheckboxListTile(
-              value: _recordar,
-              onChanged: _entrando ? null : (v) => setState(() => _recordar = v ?? false),
-              title: Text(t.recordarDatos),
-              controlAffinity: ListTileControlAffinity.leading,
-              contentPadding: EdgeInsets.zero,
-              dense: true,
+            // su propio Material: el sombreado al tocar no se ve si queda debajo del fondo blanco de la tarjeta
+            Material(
+              type: MaterialType.transparency,
+              child: CheckboxListTile(
+                value: _recordar,
+                onChanged: _entrando ? null : (v) => setState(() => _recordar = v ?? false),
+                title: Text(t.recordarDatos),
+                controlAffinity: ListTileControlAffinity.leading,
+                contentPadding: EdgeInsets.zero,
+                dense: true,
+              ),
             ),
             if (_error != null) ...[
               const SizedBox(height: 14),

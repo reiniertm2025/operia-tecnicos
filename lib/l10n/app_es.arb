@@ -449,7 +449,10 @@
   "eliminarTexto": "Se va a la Papelera de la web: ahí se puede restaurar durante 30 días.",
   "ordenEliminada": "La orden se movió a la Papelera.",
   "msgSoloConsulta": "Tu rol es de consulta: puedes ver la orden, pero no cambiarla.",
-  "menuModems": "Módems por recuperar",
+  "menuDoblePlay": "Doble Play",
+  "menuInternet": "Internet",
+  "modemTituloDoblePlay": "Recuperar módem · Doble Play",
+  "modemTituloInternet": "Recuperar módem · Internet",
   "menuComisiones": "Pago de comisiones",
   "modemDescripcion": "Clientes que cancelaron: un comisionista va por el módem y se marca cuando lo traiga.",
   "modemSinAsignar": "Sin asignar",
@@ -570,7 +573,6 @@
   "menuHistorico": "Histórico",
   "menuPorAutorizar": "Por autorizar",
   "menuRecuperarModem": "Recuperar módem",
-  "menuReportes": "Reportes",
   "menuHerramientas": "Herramientas",
   "dashRecibidas": "Solicitudes",
   "dashRecibidasSub": "recibidas",
@@ -716,6 +718,8 @@
     }
   },
   "avisoRegreso": "La orden {folio} regresó a Pendientes",
+  "avisoRegresoProceso": "La orden {folio} regresó a En proceso",
+  "@avisoRegresoProceso": {"placeholders": {"folio": {"type": "String"}}},
   "@avisoRegreso": {
     "placeholders": {
       "folio": {
