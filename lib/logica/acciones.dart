@@ -37,6 +37,18 @@ Map<String, Object?> datosAlEmpezar(Orden o, String userId, String nombre) => {
   ...cambiadoPor(userId, nombre),
 };
 
+/// El administrador regresa la orden a «Pendiente» o «En proceso», como los botones de estado de la web (`.statusBtn`):
+/// se borra la fecha de culminación; a «Pendiente» además se quita el técnico asignado y la hora de inicio, y a
+/// «En proceso» se marca el inicio si no tenía. «Completada» va por el mismo camino que «Terminé» (con cobro si lleva).
+Map<String, Object?> datosCambioEstado(Orden o, String estado, String userId, String nombre) => {
+  'status': estado,
+  if (o.datos.containsKey('estado')) 'estado': estado,
+  'completedAt': null,
+  if (estado == 'pendiente') ...{'assignedTechId': '', 'assignedTechName': '', 'startedAt': null},
+  if (estado == 'en_proceso' && !o.iniciada) 'startedAt': FieldValue.serverTimestamp(),
+  ...cambiadoPor(userId, nombre),
+};
+
 Map<String, Object?> datosComentarios(String texto, String userId, String nombre) => {
   'techComments': texto.trim(),
   ...cambiadoPor(userId, nombre),

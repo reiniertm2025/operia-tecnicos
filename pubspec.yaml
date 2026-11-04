@@ -77,6 +77,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   generate: true
+  # sin --flavor se compila la app real (base cabletech-81e62); la de prueba: --flavor pruebas
+  default-flavor: real
   assets:
     - assets/login/
     - assets/logo.svg

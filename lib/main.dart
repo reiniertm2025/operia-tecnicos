@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -32,7 +34,9 @@ ThemeData _tema(Brightness brillo) {
     colorScheme: colores,
     scaffoldBackgroundColor: oscuro ? const Color(0xFF070D1A) : const Color(0xFFF3F6FB),
     appBarTheme: const AppBarTheme(centerTitle: false, scrolledUnderElevation: 0),
-    pageTransitionsTheme: const PageTransitionsTheme(builders: {TargetPlatform.android: FadeForwardsPageTransitionsBuilder()}),
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {TargetPlatform.android: FadeForwardsPageTransitionsBuilder()},
+    ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
         minimumSize: const Size.fromHeight(52),
@@ -49,14 +53,18 @@ ThemeData _tema(Brightness brillo) {
       backgroundColor: oscuro ? const Color(0xFF0E1628) : Colors.white,
       indicatorColor: colores.primary.withValues(alpha: 0.14),
       labelTextStyle: WidgetStateProperty.resolveWith(
-        (s) => TextStyle(fontSize: 12, fontWeight: s.contains(WidgetState.selected) ? FontWeight.w700 : FontWeight.w500),
+        (s) =>
+            TextStyle(fontSize: 12, fontWeight: s.contains(WidgetState.selected) ? FontWeight.w700 : FontWeight.w500),
       ),
     ),
     // filas tocables (opciones, interruptores, casillas): el efecto de toque con esquinas redondeadas, como los botones
     listTileTheme: ListTileThemeData(shape: redondo),
     snackBarTheme: SnackBarThemeData(behavior: SnackBarBehavior.floating, shape: redondo),
     dialogTheme: DialogThemeData(shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24))),
-    inputDecorationTheme: InputDecorationTheme(filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(14))),
+    inputDecorationTheme: InputDecorationTheme(
+      filled: true,
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
+    ),
   );
 }
 
@@ -70,8 +78,17 @@ class TorrexiTecnicos extends StatelessWidget {
     return ListenableBuilder(
       listenable: Listenable.merge([ajustes.idioma, ajustes.tema]),
       builder: (context, _) => MaterialApp(
-        onGenerateTitle: (context) => Textos.of(context).appTitulo,
+        onGenerateTitle: (context) => esPruebas ? Textos.of(context).appTituloPruebas : Textos.of(context).appTitulo,
         debugShowCheckedModeBanner: false,
+        // versión de prueba: cinta naranja «PRUEBAS» en la esquina de todas las pantallas
+        builder: esPruebas
+            ? (context, pantalla) => Banner(
+                message: Textos.of(context).cintaPruebas,
+                location: BannerLocation.topEnd,
+                color: const Color(0xFFEA580C),
+                child: pantalla!,
+              )
+            : null,
         // claro u oscuro: el del teléfono, o el que se eligió en Apariencia
         theme: _tema(Brightness.light),
         darkTheme: _tema(Brightness.dark),
@@ -124,19 +141,62 @@ class _InicioState extends State<_Inicio> {
       // sin internet o sin permiso: se pide entrar de nuevo
     }
     if (!mounted) return;
-    setState(() {
-      _tecnico = tecnico;
-      _revisando = false;
-    });
+    setState(() => _revisando = false);
+    _entro(tecnico);
+  }
+
+  /// Ficha del que entró, escuchada mientras la app está abierta (localidades, rol o acceso que cambie la oficina).
+  StreamSubscription<Tecnico?>? _ficha;
+
+  void _entro(Tecnico? tecnico) {
+    _ficha?.cancel();
+    _ficha = null;
+    setState(() => _tecnico = tecnico);
+    if (tecnico == null) return;
+    _ficha = widget.sesion
+        .cambios(tecnico)
+        .listen(
+          (nuevo) {
+            if (!mounted) return;
+            if (nuevo == null) {
+              // la oficina le quitó el acceso a la app
+              _salir();
+            } else {
+              setState(() => _tecnico = nuevo);
+            }
+          },
+          onError: (Object e) {
+            // al quitarle el acceso, la web también borra su enlace (appAuth) y ya no puede leer su ficha: sale.
+            // Otro error (sin internet): se queda con lo que ya tenía.
+            if (mounted && e is FirebaseException && e.code == 'permission-denied') _salir();
+          },
+        );
+  }
+
+  bool _saliendo = false;
+
+  @override
+  void dispose() {
+    _ficha?.cancel();
+    super.dispose();
   }
 
   Future<void> _salir() async {
+    // puede llegar a la vez desde «Salir» y desde la escucha de la ficha
+    if (_saliendo) return;
+    _saliendo = true;
+    _ficha?.cancel();
+    _ficha = null;
     try {
       await Avisos.apagar();
     } catch (_) {
       // si no estaba encendido, no pasa nada
     }
-    await widget.sesion.cerrar();
+    try {
+      await widget.sesion.cerrar();
+    } finally {
+      _saliendo = false;
+    }
     if (mounted) {
       setState(() {
         _tecnico = null;
@@ -150,7 +210,7 @@ class _InicioState extends State<_Inicio> {
     if (_revisando) return const Scaffold(body: Center(child: CircularProgressIndicator()));
     final tecnico = _tecnico;
     if (tecnico == null) {
-      return PantallaInicioSesion(sesion: widget.sesion, alEntrar: (t) => setState(() => _tecnico = t));
+      return PantallaInicioSesion(sesion: widget.sesion, alEntrar: _entro);
     }
     if (!_acepto && tecnico.terminosAceptados != _versionTerminos) {
       return PantallaTerminos(
@@ -162,6 +222,7 @@ class _InicioState extends State<_Inicio> {
         alRechazar: _salir,
       );
     }
-    return PantallaPrincipal(tecnico: tecnico, ajustes: widget.ajustes, alSalir: _salir);
+    // si la oficina le cambia localidades o rol, se arma de nuevo con lo nuevo (sus órdenes, avisos y permisos)
+    return PantallaPrincipal(key: ValueKey(tecnico.firma), tecnico: tecnico, ajustes: widget.ajustes, alSalir: _salir);
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../firebase_options.dart';
 import '../l10n/textos.dart';
 import '../logica/errores.dart';
 import '../servicios/recordar.dart';
@@ -179,6 +180,24 @@ class _PantallaInicioSesionState extends State<PantallaInicioSesion> with Single
             Text(t.entrar, style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700)),
             const SizedBox(height: 4),
             Text(t.loginInstruccion, style: TextStyle(color: colores.onSurfaceVariant)),
+            if (esPruebas) ...[
+              const SizedBox(height: 16),
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFEA580C).withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(14),
+                  border: Border.all(color: const Color(0xFFEA580C)),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.science_outlined, color: Color(0xFFEA580C)),
+                    const SizedBox(width: 10),
+                    Expanded(child: Text(t.avisoPruebas)),
+                  ],
+                ),
+              ),
+            ],
             const SizedBox(height: 24),
             TextField(
               controller: _usuario,

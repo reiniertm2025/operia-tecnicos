@@ -103,6 +103,24 @@ abstract class Textos {
   /// **'Torrexi'**
   String get appTitulo;
 
+  /// No description provided for @appTituloPruebas.
+  ///
+  /// In es, this message translates to:
+  /// **'Torrexi PRUEBAS'**
+  String get appTituloPruebas;
+
+  /// No description provided for @cintaPruebas.
+  ///
+  /// In es, this message translates to:
+  /// **'PRUEBAS'**
+  String get cintaPruebas;
+
+  /// No description provided for @avisoPruebas.
+  ///
+  /// In es, this message translates to:
+  /// **'Versión de PRUEBA: usa una base de datos aparte. Nada de lo que hagas aquí cambia las órdenes reales.'**
+  String get avisoPruebas;
+
   /// No description provided for @conectando.
   ///
   /// In es, this message translates to:
@@ -1422,6 +1440,42 @@ abstract class Textos {
   /// In es, this message translates to:
   /// **'Eliminar'**
   String get menuEliminar;
+
+  /// No description provided for @menuCambiarEstado.
+  ///
+  /// In es, this message translates to:
+  /// **'Cambiar estado'**
+  String get menuCambiarEstado;
+
+  /// No description provided for @cambiarEstadoPregunta.
+  ///
+  /// In es, this message translates to:
+  /// **'¿Pasar la orden a «{estado}»?'**
+  String cambiarEstadoPregunta(String estado);
+
+  /// No description provided for @cambiarEstadoTexto.
+  ///
+  /// In es, this message translates to:
+  /// **'Se borra la fecha de culminación, como con los botones de estado de la web.'**
+  String get cambiarEstadoTexto;
+
+  /// No description provided for @cambiarEstadoPendienteTexto.
+  ///
+  /// In es, this message translates to:
+  /// **'Se quita el técnico asignado, la hora de inicio y la fecha de culminación, como con los botones de estado de la web.'**
+  String get cambiarEstadoPendienteTexto;
+
+  /// No description provided for @cambiarEstadoBoton.
+  ///
+  /// In es, this message translates to:
+  /// **'Sí, cambiar'**
+  String get cambiarEstadoBoton;
+
+  /// No description provided for @estadoCambiado.
+  ///
+  /// In es, this message translates to:
+  /// **'Orden en «{estado}»'**
+  String estadoCambiado(String estado);
 
   /// No description provided for @eliminarPregunta.
   ///

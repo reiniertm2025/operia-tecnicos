@@ -47,8 +47,19 @@ Se hace con **Flutter (Dart)**. El APK se compila en esta PC, sin Android Studio
 
 - Flutter `D:\herramientas\flutter`, Java 21 `D:\herramientas\jdk21`, Android SDK `D:\herramientas\android-sdk`.
 - Cachés en D: con las variables de usuario `PUB_CACHE=D:\herramientas\pub-cache` y `GRADLE_USER_HOME=D:\herramientas\gradle`.
-- APK: `flutter build apk --release` → `build\app\outputs\flutter-apk\app-release.apk`. Por ahora se firma con la llave de depuración;
-  antes de repartirlo a los técnicos hay que crear una llave propia (`*.jks`, nunca se sube a git).
+- Dos versiones (sabores de Android, `build.gradle.kts`):
+  - **Real** (base `cabletech-81e62`, la de los técnicos): `flutter build apk --release` (sabor por defecto, `default-flavor: real`
+    en pubspec) → `build\app\outputs\flutter-apk\app-real-release.apk`.
+  - **Pruebas** (base aparte `torrexi-pruebas`, no toca datos reales): `flutter build apk --release --flavor pruebas` →
+    `app-pruebas-release.apk`. Id `com.operia.operia_tecnicos.pruebas`, se instala junto a la real. Se nota: nombre «Torrexi PRUEBAS»,
+    ícono con franja naranja (`src/pruebas/res`, `bun icono.ts <res de pruebas> diseno/pruebas pruebas`), cinta «PRUEBAS» y aviso al
+    entrar. Su Firebase: `android/app/src/pruebas/google-services.json` y `lib/firebase_options.dart` (elige según `appFlavor`).
+    La web de prueba: `bun run dev:pruebas` en `D:\proyectos\torrexi` (http://localhost:5175); ahí se crean los técnicos de prueba.
+  - Lo nuevo se prueba primero en la de prueba. Instalar con `adb install -r` (no desinstalar: se pierde la sesión) en los aparatos
+    del dueño: celular `192.168.1.67:5555` y tablet `192.168.1.86:5555` (si cambia de red, `adb mdns services`).
+  - Ver cambios al momento: `flutter run --flavor pruebas -d 192.168.1.67:5555` (recarga rápida con `r`, reinicio con `R`).
+- Las dos se firman por ahora con la llave de depuración; antes de repartirlas a los técnicos hay que crear una llave propia
+  (`*.jks`, nunca se sube a git).
 
 ## La base de datos es la misma de la web Torrexi
 

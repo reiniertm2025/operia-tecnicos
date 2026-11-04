@@ -35,6 +35,9 @@ class Tecnico {
 
   /// Versión de los términos y condiciones que aceptó (`appTermsVersion` en su ficha); vacío si nunca los aceptó.
   final String terminosAceptados;
+
+  /// Lo que cambia lo que ve en la app (no cuenta los términos): si cambia, la pantalla principal se arma de nuevo.
+  String get firma => [userId, nombre, rol, esAdmin, soloMirar, ...zonas].join('|');
 }
 
 List<String> zonasDeUsuario(Map<String, dynamic> usuario) {
@@ -94,7 +97,30 @@ class Sesion {
     final enlace = await _db.collection('appAuth').doc(cuenta.uid).get();
     final userId = enlace.data()?['userId'];
     if (userId is! String || userId.isEmpty) return null;
-    final usuario = (await _db.collection('users').doc(userId).get()).data();
+    return _deFicha(userId, (await _db.collection('users').doc(userId).get()).data());
+  }
+
+  /// Cada vez que la oficina cambia su ficha en la web (localidades, rol, nombre o acceso), el técnico al día; null si
+  /// le quitaron el acceso. Escucha solo su documento de `users` (una lectura por cambio): al cambiar el permiso de un
+  /// rol, la web también lo escribe en la ficha de cada usuario con ese rol. No repite lo que ya se leyó al entrar.
+  Stream<Tecnico?> cambios(Tecnico antes) {
+    var ultimo = antes;
+    return _db
+        .collection('users')
+        .doc(antes.userId)
+        .snapshots()
+        .skip(1)
+        // sin señal, que no esté en el teléfono no quiere decir que se borró
+        .where((s) => s.exists || !s.metadata.isFromCache)
+        .asyncMap((s) async {
+          final nuevo = await _deFicha(antes.userId, s.data(), anterior: ultimo);
+          if (nuevo != null) ultimo = nuevo;
+          return nuevo;
+        });
+  }
+
+  /// `anterior`: si no se puede leer el rol (sin señal), se conservan los permisos que ya tenía en vez de perderlos.
+  Future<Tecnico?> _deFicha(String userId, Map<String, dynamic>? usuario, {Tecnico? anterior}) async {
     if (usuario == null || usuario['appAccess'] == false) return null;
     // como la web (name || username): un nombre vacío no cuenta
     final nombre = [
@@ -103,20 +129,23 @@ class Sesion {
     ].map((v) => '${v ?? ''}'.trim()).firstWhere((v) => v.isNotEmpty, orElse: () => '');
     final rolId = (usuario['role'] ?? '').toString();
     var rol = <String, dynamic>{};
+    var leido = true;
     if (rolId.isNotEmpty) {
       try {
         rol = (await _db.collection('roles').doc(rolId).get()).data() ?? {};
       } on FirebaseException {
-        // sin el rol entra como técnico
+        // sin el rol entra como técnico (o, si ya estaba dentro, con lo que tenía)
+        leido = false;
       }
     }
+    final previo = leido ? null : anterior;
     return Tecnico(
       userId: userId,
       nombre: nombre,
       zonas: zonasDeUsuario(usuario),
-      rol: (rol['name'] ?? rolId).toString(),
-      esAdmin: rol['permission'] == 'admin',
-      soloMirar: rol['permission'] == 'consultor',
+      rol: previo?.rol ?? (rol['name'] ?? rolId).toString(),
+      esAdmin: previo?.esAdmin ?? rol['permission'] == 'admin',
+      soloMirar: previo?.soloMirar ?? rol['permission'] == 'consultor',
       terminosAceptados: '${usuario['appTermsVersion'] ?? ''}',
     );
   }

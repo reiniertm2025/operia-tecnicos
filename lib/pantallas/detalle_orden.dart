@@ -259,17 +259,27 @@ class _PantallaDetalleOrdenState extends State<PantallaDetalleOrden> {
   }
 
   /// Editar o eliminar: solo el administrador, en cualquier estado.
-  Widget _menuAdmin(Textos t, Orden o) => PopupMenuButton<bool>(
+  Widget _menuAdmin(Textos t, Orden o) => PopupMenuButton<_AccionAdmin>(
     icon: const Icon(Icons.more_vert_rounded),
     enabled: !_ocupado,
-    onSelected: (eliminar) => eliminar ? _eliminar(o) : _editar(o),
+    onSelected: (a) => switch (a) {
+      _AccionAdmin.editar => _editar(o),
+      _AccionAdmin.estado => _cambiarEstado(o),
+      _AccionAdmin.eliminar => _eliminar(o),
+    },
     itemBuilder: (context) => [
       PopupMenuItem(
-        value: false,
+        value: _AccionAdmin.editar,
         child: ListTile(leading: const Icon(Icons.edit_rounded), title: Text(t.menuEditar)),
       ),
+      // una cancelada se reactiva desde la web (Nuevos servicios), como allá: el botón de estado no la descancela
+      if (o.estado != 'cancelada')
+        PopupMenuItem(
+          value: _AccionAdmin.estado,
+          child: ListTile(leading: const Icon(Icons.swap_horiz_rounded), title: Text(t.menuCambiarEstado)),
+        ),
       PopupMenuItem(
-        value: true,
+        value: _AccionAdmin.eliminar,
         child: ListTile(
           leading: Icon(Icons.delete_outline_rounded, color: Theme.of(context).colorScheme.error),
           title: Text(t.menuEliminar, style: TextStyle(color: Theme.of(context).colorScheme.error)),
@@ -277,6 +287,36 @@ class _PantallaDetalleOrdenState extends State<PantallaDetalleOrden> {
       ),
     ],
   );
+
+  /// El administrador elige el estado, como los botones de estado de la web: «Completada» pasa por lo mismo que
+  /// «Terminé» (materiales y cobro si lleva); si espera autorización del cobro, eso se resuelve en la web.
+  Future<void> _cambiarEstado(Orden o) async {
+    final t = Textos.of(context);
+    final elegido = await elegirOpcion(context, t.menuCambiarEstado, o.estado, [
+      ('pendiente', Icons.schedule_rounded, t.estPendiente),
+      ('en_proceso', Icons.engineering_rounded, t.estEnProceso),
+      ('completada', Icons.task_alt_rounded, t.estCompletada),
+    ]);
+    if (elegido == null || elegido == o.estado || !mounted) return;
+    if (elegido == 'completada') {
+      if (o.esperaAutorizacion) {
+        _avisar(t.msgPorAutorizar);
+      } else {
+        await _terminar(o);
+      }
+      return;
+    }
+    final nombre = elegido == 'pendiente' ? t.estPendiente : t.estEnProceso;
+    final si = await _confirmar(
+      Icons.swap_horiz_rounded,
+      t.cambiarEstadoPregunta(nombre),
+      elegido == 'pendiente' ? t.cambiarEstadoPendienteTexto : t.cambiarEstadoTexto,
+      t.cambiarEstadoBoton,
+    );
+    if (si && mounted) {
+      await _hacer(() => widget.servicio.cambiarEstado(o, elegido, widget.tecnico), t.estadoCambiado(nombre));
+    }
+  }
 
   Future<void> _editar(Orden o) async {
     final t = Textos.of(context);
@@ -798,3 +838,6 @@ class _Info extends StatelessWidget {
     );
   }
 }
+
+/// Opciones del menú (⋮) del administrador en una orden.
+enum _AccionAdmin { editar, estado, eliminar }

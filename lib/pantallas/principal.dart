@@ -150,65 +150,9 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
     if (salir) widget.alSalir();
   }
 
-  /// Hoja de abajo para elegir una opción (idioma, apariencia); devuelve la elegida o null.
-  Future<T?> _elegir<T>(String titulo, T actual, List<(T, IconData, String)> opciones) {
-    return showModalBottomSheet<T>(
-      context: context,
-      showDragHandle: true,
-      builder: (context) {
-        final colores = Theme.of(context).colorScheme;
-        return SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
-                  child: Text(
-                    titulo,
-                    style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
-                  ),
-                ),
-                for (final (valor, icono, nombre) in opciones)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 8),
-                    child: Presionable(
-                      radio: 16,
-                      alTocar: () => Navigator.pop(context, valor),
-                      child: AnimatedContainer(
-                        duration: const Duration(milliseconds: 200),
-                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
-                        decoration: BoxDecoration(
-                          color: valor == actual ? colores.primary.withValues(alpha: 0.1) : null,
-                          borderRadius: BorderRadius.circular(16),
-                          border: Border.all(color: valor == actual ? colores.primary : colores.outlineVariant),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(icono, color: valor == actual ? colores.primary : colores.onSurfaceVariant),
-                            const SizedBox(width: 14),
-                            Expanded(
-                              child: Text(nombre, style: const TextStyle(fontWeight: FontWeight.w600)),
-                            ),
-                            if (valor == actual) Icon(Icons.check_circle_rounded, color: colores.primary),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
-  }
-
   Future<void> _elegirIdioma() async {
     final t = Textos.of(context);
-    final elegido = await _elegir(t.menuIdioma, widget.ajustes.idioma.value?.languageCode ?? '', [
+    final elegido = await elegirOpcion(context, t.menuIdioma, widget.ajustes.idioma.value?.languageCode ?? '', [
       ('', Icons.phone_android_rounded, t.idiomaAutomatico),
       ('es', Icons.translate_rounded, t.idiomaEspanol),
       ('en', Icons.translate_rounded, t.idiomaIngles),
@@ -219,7 +163,7 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
 
   Future<void> _elegirTema() async {
     final t = Textos.of(context);
-    final elegido = await _elegir(t.menuApariencia, widget.ajustes.tema.value, [
+    final elegido = await elegirOpcion(context, t.menuApariencia, widget.ajustes.tema.value, [
       (ThemeMode.system, Icons.brightness_auto_rounded, t.temaAutomatico),
       (ThemeMode.light, Icons.light_mode_rounded, t.temaClaro),
       (ThemeMode.dark, Icons.dark_mode_rounded, t.temaOscuro),

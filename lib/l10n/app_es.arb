@@ -1,6 +1,9 @@
 {
   "@@locale": "es",
   "appTitulo": "Torrexi",
+  "appTituloPruebas": "Torrexi PRUEBAS",
+  "cintaPruebas": "PRUEBAS",
+  "avisoPruebas": "Versión de PRUEBA: usa una base de datos aparte. Nada de lo que hagas aquí cambia las órdenes reales.",
   "conectando": "Conectando",
   "tuMundo": "tu mundo",
   "loginSubtitulo": "Atiende tus órdenes de trabajo desde donde estés.",
@@ -427,6 +430,14 @@
   "ordenGuardada": "Cambios guardados.",
   "menuEditar": "Editar",
   "menuEliminar": "Eliminar",
+  "menuCambiarEstado": "Cambiar estado",
+  "cambiarEstadoPregunta": "¿Pasar la orden a «{estado}»?",
+  "@cambiarEstadoPregunta": {"placeholders": {"estado": {"type": "String"}}},
+  "cambiarEstadoTexto": "Se borra la fecha de culminación, como con los botones de estado de la web.",
+  "cambiarEstadoPendienteTexto": "Se quita el técnico asignado, la hora de inicio y la fecha de culminación, como con los botones de estado de la web.",
+  "cambiarEstadoBoton": "Sí, cambiar",
+  "estadoCambiado": "Orden en «{estado}»",
+  "@estadoCambiado": {"placeholders": {"estado": {"type": "String"}}},
   "eliminarPregunta": "¿Eliminar la orden {folio}?",
   "@eliminarPregunta": {
     "placeholders": {

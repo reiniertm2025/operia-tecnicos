@@ -13,6 +13,16 @@ class TextosEn extends Textos {
   String get appTitulo => 'Torrexi';
 
   @override
+  String get appTituloPruebas => 'Torrexi TEST';
+
+  @override
+  String get cintaPruebas => 'TEST';
+
+  @override
+  String get avisoPruebas =>
+      'TEST version: it uses a separate database. Nothing you do here changes the real work orders.';
+
+  @override
   String get conectando => 'Connecting';
 
   @override
@@ -773,6 +783,30 @@ class TextosEn extends Textos {
 
   @override
   String get menuEliminar => 'Delete';
+
+  @override
+  String get menuCambiarEstado => 'Change status';
+
+  @override
+  String cambiarEstadoPregunta(String estado) {
+    return 'Move the work order to “$estado”?';
+  }
+
+  @override
+  String get cambiarEstadoTexto =>
+      'The completion date is cleared, like with the status buttons on the web.';
+
+  @override
+  String get cambiarEstadoPendienteTexto =>
+      'The assigned technician, start time and completion date are cleared, like with the status buttons on the web.';
+
+  @override
+  String get cambiarEstadoBoton => 'Yes, change';
+
+  @override
+  String estadoCambiado(String estado) {
+    return 'Work order is now “$estado”';
+  }
 
   @override
   String eliminarPregunta(String folio) {

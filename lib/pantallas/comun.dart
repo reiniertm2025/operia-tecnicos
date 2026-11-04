@@ -932,3 +932,59 @@ String nombrePermiso(Textos t, String p) => switch (p) {
   'tecnico' => t.permisoTecnico,
   _ => p,
 };
+
+/// Hoja de abajo para elegir una opción (idioma, apariencia, estado de una orden); devuelve la elegida o null.
+Future<T?> elegirOpcion<T>(BuildContext context, String titulo, T actual, List<(T, IconData, String)> opciones) {
+  return showModalBottomSheet<T>(
+    context: context,
+    showDragHandle: true,
+    builder: (context) {
+      final colores = Theme.of(context).colorScheme;
+      return SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 0, 16, 12),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(8, 0, 8, 12),
+                child: Text(
+                  titulo,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+                ),
+              ),
+              for (final (valor, icono, nombre) in opciones)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Presionable(
+                    radio: 16,
+                    alTocar: () => Navigator.pop(context, valor),
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+                      decoration: BoxDecoration(
+                        color: valor == actual ? colores.primary.withValues(alpha: 0.1) : null,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(color: valor == actual ? colores.primary : colores.outlineVariant),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(icono, color: valor == actual ? colores.primary : colores.onSurfaceVariant),
+                          const SizedBox(width: 14),
+                          Expanded(
+                            child: Text(nombre, style: const TextStyle(fontWeight: FontWeight.w600)),
+                          ),
+                          if (valor == actual) Icon(Icons.check_circle_rounded, color: colores.primary),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        ),
+      );
+    },
+  );
+}

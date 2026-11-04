@@ -154,7 +154,12 @@ class ServicioOrdenes {
         .timeout(espera, onTimeout: () => throw const ErrorDeOrden(FalloOrden.sinInternet)),
   );
 
-  /// Los cambios devuelven false si no hubo señal: quedan guardados en el celular y Firebase los sube después.
+  // Los cambios devuelven false si no hubo señal: quedan guardados en el celular y Firebase los sube después.
+
+  /// Solo el administrador: regresa la orden a «Pendiente» o «En proceso» (logica/acciones.dart).
+  Future<bool> cambiarEstado(Orden o, String estado, Tecnico t) =>
+      _guardar(o, datosCambioEstado(o, estado, t.userId, t.nombre));
+
   Future<bool> empezar(Orden o, Tecnico t) => _guardar(o, datosAlEmpezar(o, t.userId, t.nombre));
 
   Future<bool> guardarComentarios(Orden o, String texto, Tecnico t) =>

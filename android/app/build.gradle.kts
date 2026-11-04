@@ -31,6 +31,20 @@ android {
         versionName = flutter.versionName
     }
 
+    // Dos versiones de la app: «real» (base cabletech-81e62) y «pruebas» (base torrexi-pruebas, se instala aparte).
+    // La base que usa cada una la elige lib/firebase_options.dart según el sabor; el nombre y el ícono de prueba
+    // están en src/pruebas/res.
+    flavorDimensions += "base"
+    productFlavors {
+        create("real") {
+            dimension = "base"
+        }
+        create("pruebas") {
+            dimension = "base"
+            applicationIdSuffix = ".pruebas"
+        }
+    }
+
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.

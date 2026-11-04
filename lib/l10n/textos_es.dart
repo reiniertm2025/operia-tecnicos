@@ -13,6 +13,16 @@ class TextosEs extends Textos {
   String get appTitulo => 'Torrexi';
 
   @override
+  String get appTituloPruebas => 'Torrexi PRUEBAS';
+
+  @override
+  String get cintaPruebas => 'PRUEBAS';
+
+  @override
+  String get avisoPruebas =>
+      'Versión de PRUEBA: usa una base de datos aparte. Nada de lo que hagas aquí cambia las órdenes reales.';
+
+  @override
   String get conectando => 'Conectando';
 
   @override
@@ -770,6 +780,30 @@ class TextosEs extends Textos {
 
   @override
   String get menuEliminar => 'Eliminar';
+
+  @override
+  String get menuCambiarEstado => 'Cambiar estado';
+
+  @override
+  String cambiarEstadoPregunta(String estado) {
+    return '¿Pasar la orden a «$estado»?';
+  }
+
+  @override
+  String get cambiarEstadoTexto =>
+      'Se borra la fecha de culminación, como con los botones de estado de la web.';
+
+  @override
+  String get cambiarEstadoPendienteTexto =>
+      'Se quita el técnico asignado, la hora de inicio y la fecha de culminación, como con los botones de estado de la web.';
+
+  @override
+  String get cambiarEstadoBoton => 'Sí, cambiar';
+
+  @override
+  String estadoCambiado(String estado) {
+    return 'Orden en «$estado»';
+  }
 
   @override
   String eliminarPregunta(String folio) {

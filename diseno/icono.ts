@@ -6,6 +6,9 @@ import { join } from "path";
 
 const RES = process.argv[2]; // carpeta android/app/src/main/res
 const OUT = process.argv[3]; // carpeta de vistas previas
+// «pruebas»: ícono de la versión de prueba (franja naranja abajo); se escribe en android/app/src/pruebas/res
+const PRUEBAS = process.argv[4] === "pruebas";
+const franja = (alto: number, desde: number) => (PRUEBAS ? `<rect y="${desde}" width="${alto}" height="${alto - desde}" fill="#EA580C"/>` : "");
 
 const defs = `
 <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1A2D57"/><stop offset="1" stop-color="#060D20"/></linearGradient>
@@ -35,12 +38,12 @@ const insignia = (mono = false) => `
 
 // ícono normal (Android viejo y vista previa): cuadro redondeado como el logo de la web
 const normal = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs>${defs}</defs>
-<rect x="1" y="1" width="46" height="46" rx="13" fill="url(#bg)"/><rect x="1" y="1" width="46" height="46" rx="13" fill="url(#sh)"/>
+<rect x="1" y="1" width="46" height="46" rx="13" fill="url(#bg)"/><rect x="1" y="1" width="46" height="46" rx="13" fill="url(#sh)"/><clipPath id="r"><rect x="1" y="1" width="46" height="46" rx="13"/></clipPath><g clip-path="url(#r)">${franja(48, 39)}</g>
 <rect x="1.5" y="1.5" width="45" height="45" rx="12.5" fill="none" stroke="#fff" stroke-opacity=".14"/>${marca()}${insignia()}</svg>`;
 
 // ícono adaptable (Android 8+): fondo a sangre y la marca dentro del círculo de 72 de 108 (zona segura y pantalla de arranque de Android 12)
 const adaptable = (mono = false) => `<g transform="translate(12.75 15) scale(1.5)">${marca(mono)}${insignia(mono)}</g>`;
-const fondo = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><defs>${defs}</defs><rect width="108" height="108" fill="url(#bg)"/><rect width="108" height="108" fill="url(#sh)"/></svg>`;
+const fondo = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><defs>${defs}</defs><rect width="108" height="108" fill="url(#bg)"/><rect width="108" height="108" fill="url(#sh)"/>${franja(108, 74)}</svg>`;
 const frente = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><defs>${defs}</defs>${adaptable()}</svg>`;
 // monocromo (íconos con el color del tema en Android 13+): solo la silueta
 const mono = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><defs>${defs}</defs>${adaptable(true)}</svg>`;
@@ -73,6 +76,6 @@ writeFileSync(join(OUT, "icono-normal.svg"), normal);
 // vista previa del adaptable recortado en círculo, como lo muestran muchos teléfonos
 writeFileSync(
   join(OUT, "vista-circulo.png"),
-  png(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><defs>${defs}<clipPath id="k"><circle cx="54" cy="54" r="54"/></clipPath></defs><g clip-path="url(#k)"><rect width="108" height="108" fill="url(#bg)"/><rect width="108" height="108" fill="url(#sh)"/>${adaptable()}</g></svg>`, 432),
+  png(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108"><defs>${defs}<clipPath id="k"><circle cx="54" cy="54" r="54"/></clipPath></defs><g clip-path="url(#k)"><rect width="108" height="108" fill="url(#bg)"/><rect width="108" height="108" fill="url(#sh)"/>${franja(108, 74)}${adaptable()}</g></svg>`, 432),
 );
 console.log("listo");

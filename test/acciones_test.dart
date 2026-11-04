@@ -75,4 +75,33 @@ void main() {
     expect(zonasDeUsuario({'zoneIds': [], 'zoneId': 'z3'}), ['z3']);
     expect(zonasDeUsuario({}), isEmpty);
   });
+
+  test('el administrador regresa la orden a pendiente o en proceso como el botón de estado de la web', () {
+    final o = Orden('a', {
+      'status': 'completada',
+      'estado': 'completada',
+      'assignedTechId': 'u2',
+      'assignedTechName': 'Ana',
+      'startedAt': 1,
+      'completedAt': 2,
+    });
+    final p = datosCambioEstado(o, 'pendiente', 'adm', 'Jefe');
+    expect(p['status'], 'pendiente');
+    expect(p['estado'], 'pendiente');
+    expect(p['completedAt'], isNull);
+    expect(p.containsKey('completedAt'), isTrue);
+    expect(p['assignedTechId'], '');
+    expect(p['assignedTechName'], '');
+    expect(p['startedAt'], isNull);
+    expect(p.containsKey('startedAt'), isTrue);
+    expect(p['lastChangedById'], 'adm');
+
+    final e = datosCambioEstado(o, 'en_proceso', 'adm', 'Jefe');
+    expect(e['status'], 'en_proceso');
+    expect(e.containsKey('assignedTechId'), isFalse);
+    expect(e.containsKey('startedAt'), isFalse, reason: 'ya tenía hora de inicio');
+    final sinInicio = datosCambioEstado(Orden('b', {'status': 'pendiente'}), 'en_proceso', 'adm', 'Jefe');
+    expect(sinInicio['startedAt'], isA<FieldValue>());
+    expect(sinInicio.containsKey('estado'), isFalse);
+  });
 }
